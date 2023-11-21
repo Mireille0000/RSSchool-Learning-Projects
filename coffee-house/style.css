@@ -1,7 +1,91 @@
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Pixelify+Sans&display=swap');
+
+
 html {
     margin: 0;
     padding: 0;
 }
 
+body {
+    background-color: #E1D4C9;
+    font-family: Inter;
+}
+
+.wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
 /* header styles */
 
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    margin: 20px 40px;
+
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    color: #403F3D;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    /* padding-right: 40px; */
+}
+
+ul {
+    display: flex;
+    gap: 40px;
+    list-style-type: none;
+}
+
+li {
+    cursor: pointer;
+}
+
+li:last-child {
+    margin-bottom: 10px;
+    padding-left: 328px;
+    gap: 0;
+}
+
+.coffee-cup-icon {
+    padding-left: 8px;
+}
+
+.anchor {
+    position: relative;
+    text-decoration: none;
+    color: #403F3D;
+}
+
+.anchor::after {
+    position: absolute;
+    content: '';
+    left: 50%;
+    bottom: -5px;
+    display: block;
+    width: 0;
+    height: 2px;
+    transition: 0.3s;
+    transform: translateX(-50%);
+    background: #403F3D;
+}
+
+.anchor:hover::after {
+    width: 100%;
+  }
+
+/* .menu-icon {
+    display: flex;
+    gap: 8px;
+    padding-top: 18px;
+    cursor: pointer;
+} */
+
+/* underline for a cup of tea icon */
