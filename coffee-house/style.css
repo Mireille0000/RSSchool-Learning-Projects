@@ -194,6 +194,7 @@ h2 span {
     padding-right: 42px;
     padding-left: 42px;
     align-self: center;
+    cursor: pointer;
 }
 
 .choose-coffee h3 {
@@ -243,4 +244,138 @@ h2 span {
     transition: 0.5s;
     background-color: #665F55;
     cursor: pointer;
+}
+
+/* about section styles */
+
+.wrapper-about h2 {
+    text-align: left;
+    padding-top: 47px;
+    padding-left: 40px;
+}
+
+.about-mosaic {
+    display: grid;
+    grid-template-columns: 660px 660px;
+    grid-template-rows: 590px 430px;
+    gap: 40px;
+    padding-left: 40px;
+}
+
+.mosaic-item {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mosaic-item2 {
+    grid-row: 2 / 3;
+}
+
+.mosaic-item3 {
+    grid-row: 2 / 3;
+}
+
+.mosaic-item img {
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.wrap1, .wrap4, .mosaic-item1, .mosaic-item4 {
+    /* width: 660px;
+    height: 590px; */
+    border-radius: 20px;
+
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.wrap2, .wrap3, .mosaic-item2, .mosaic-item3 {
+    /* width: 660px;
+    height: 430px; */
+    border-radius: 20px;
+
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.wrap1 img:hover, .wrap2 img:hover,.wrap3 img:hover, .wrap4 img:hover  {
+    transform: scale(1.1);
+}
+
+
+/* mobile app */
+
+.wrapper-mobile-app {
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.app-info {
+    margin-left: 40px;   /**/
+    padding-bottom: 130px;
+}
+
+.app-info h2 {
+    text-align: left;
+    font-family: Inter;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 125%;
+}
+
+.app-info span {
+    font-style: italic;
+    color: #B0907A;
+}
+
+.app-info p {
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.mobiles-screens {
+    margin-left: 100px;
+}
+
+.mobiles-screens img {
+    margin-left: 100px;
+}
+
+.avaliable-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.play-store, .google-app {
+    display: flex;
+    /* flex-direction: column; */
+    width: 200px;
+    padding: 12px 20px;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    /* text-align: center; */
+
+    background-color: #E1D4C9;
+    border-radius: 100px;
+    border-width: 2px;
+}
+
+.play-store span, .google-app span {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    color: #403F3D;
 }
