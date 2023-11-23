@@ -382,3 +382,53 @@ h2 span {
     line-height: 150%;
     color: #403F3D;
 }
+
+/* footer styles */
+
+.footer-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 135px;
+    margin: 40px;
+    padding: 100px;
+    background-color: #665F55;
+    border-radius: 40px;
+}
+
+.social-networks h2 {
+    margin-top: 0;
+    text-align: left;
+}
+
+.social-networks, .contacts {
+    color: #E1D4C9;
+}
+
+.icons-footer {
+    display: flex;
+    gap: 5px;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+}
+
+.contacts {
+padding-bottom: 40px;
+}
+
+.contacts h3 {
+    padding-bottom: 17px;
+    font-size: 24px;
+}
+
+.contacts-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contacts-icons, img {
+    padding-right: 8px;
+}
