@@ -277,6 +277,8 @@ h2 span {
 }
 
 .mosaic-item img {
+    margin-top: -75px;
+    margin-left: -33px;
     border-radius: 20px;
     cursor: pointer;
     transition: 0.4s;
@@ -301,7 +303,7 @@ h2 span {
 }
 
 .wrap1 img:hover, .wrap2 img:hover,.wrap3 img:hover, .wrap4 img:hover  {
-    transform: scale(1.1);
+    transform: scale(0.95);
 }
 
 
@@ -359,13 +361,14 @@ h2 span {
     width: 200px;
     padding: 12px 20px;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 
     font-size: 10px;
     font-style: normal;
     font-weight: 600;
     line-height: 140%;
     /* text-align: center; */
+    cursor: pointer;
 
     background-color: #E1D4C9;
     border-radius: 100px;
