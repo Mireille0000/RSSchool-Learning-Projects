@@ -7,3 +7,79 @@ html {
     padding: 0;
     scroll-behavior: smooth;
 }
+
+body {
+    background-color: #E1D4C9;
+    font-family: Inter;
+    scroll-behavior: smooth;
+}
+
+.wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* header styles */
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    margin: 20px 10px 10px 40px;
+
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    color: #403F3D;
+}
+
+nav {
+    display: flex;
+}
+
+ul {
+    display: flex;
+    gap: 40px;
+    padding-right: 20px;
+    list-style-type: none;
+}
+
+li {
+    cursor: pointer;
+}
+
+li:last-child {
+    display: flex;
+    margin-bottom: 10px;
+    padding-left: 330px;
+    gap: 30px;
+}
+
+.coffee-cup-icon {
+    padding-left: 8px;
+}
+
+.anchor {
+    position: relative;
+    text-decoration: none;
+    color: #403F3D;
+}
+
+.anchor::after {
+    position: absolute;
+    content: '';
+    left: 50%;
+    bottom: -5px;
+    display: block;
+    width: 0;
+    height: 2px;
+    transition: 0.3s;
+    transform: translateX(-50%);
+    background: #403F3D;
+}
+
+.anchor:hover::after {
+    width: 100%;
+  }
