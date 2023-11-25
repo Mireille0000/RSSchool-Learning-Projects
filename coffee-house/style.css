@@ -44,7 +44,7 @@ nav {
 ul {
     display: flex;
     gap: 40px;
-    padding-right: 20px;
+    padding-right: 30px;
     list-style-type: none;
 }
 
@@ -194,13 +194,14 @@ h2 span {
 }
 
 .button-icon-left, .button-icon-right {
-    padding-right: 42px;
-    padding-left: 42px;
+    padding-right: 43px;
+    padding-left: 43px;
     align-self: center;
     cursor: pointer;
 }
 
 .choose-coffee h3 {
+    margin-top: 20px;
     margin-bottom: -2px;
     /* padding-bottom: 16px; */
     text-align: center;
@@ -212,6 +213,9 @@ h2 span {
 
 .choose-coffee p {
     width: 480px;
+    margin-top: 20px;
+    /* padding-top: -9px; */
+    /* padding-left: 7px; */
     text-align: center;
     font-family: Inter;
     font-size: 16px;
@@ -253,7 +257,8 @@ h2 span {
 
 .wrapper-about h2 {
     text-align: left;
-    padding-top: 47px;
+    margin-top: 0;
+    padding-top: 100px;
     padding-left: 40px;
 }
 
@@ -316,14 +321,17 @@ h2 span {
     display: flex;
     align-items: center;
     padding-top: 100px;
+    padding-right: 45px;
 }
 
 .app-info {
+    display: flex;
     margin-left: 40px;   /**/
-    padding-bottom: 130px;
+    padding-bottom: 190px;
 }
 
 .app-info h2 {
+    padding-top: 37px;
     text-align: left;
     font-family: Inter;
     font-size: 60px;
@@ -338,6 +346,7 @@ h2 span {
 }
 
 .app-info p {
+    margin-bottom: 0;
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
@@ -345,26 +354,23 @@ h2 span {
     line-height: 150%;
 }
 
-.mobiles-screens {
-    margin-left: 100px;
-}
-
 .mobiles-screens img {
+    padding-bottom: 100px;
     margin-left: 100px;
 }
 
 .avaliable-buttons {
     display: flex;
     gap: 20px;
+    padding-top: 40px; /**/
 }
 
 .play-store, .google-app {
     display: flex;
-    /* flex-direction: column; */
-    width: 200px;
+    width: 158px;
     padding: 12px 20px;
     align-items: center;
-    gap: 10px;
+    gap: 9px;
 
     font-size: 10px;
     font-style: normal;
@@ -375,14 +381,24 @@ h2 span {
 
     background-color: #E1D4C9;
     border-radius: 100px;
-    border-width: 2px;
+    border: 1px solid #665F55;
 }
 
-.play-store span, .google-app span {
+.button-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.service {
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: 150%;
+    color: #403F3D;
+}
+
+.play-store span, .google-app span {
+    font-style: normal;
     color: #403F3D;
 }
 
@@ -392,8 +408,8 @@ h2 span {
     display: flex;
     align-items: center;
     gap: 135px;
-    margin: 40px;
-    padding: 100px;
+    margin: 0 40px 40px;
+    padding: 97px 100px 90px;
     background-color: #665F55;
     border-radius: 40px;
 }
@@ -404,12 +420,13 @@ h2 span {
 }
 
 .social-networks, .contacts {
+    font-weight: 600;
     color: #E1D4C9;
 }
 
 .icons-footer {
     display: flex;
-    gap: 5px;
+    gap: 11px;
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
@@ -429,10 +446,10 @@ padding-bottom: 40px;
 .contacts-icons {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
 }
 
-.contacts-icons, img {
+.contacts-icons img {
     padding-right: 8px;
 }
 
