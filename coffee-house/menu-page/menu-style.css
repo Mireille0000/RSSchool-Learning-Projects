@@ -208,3 +208,124 @@ li:last-child {
     font-weight: 600;
     line-height: 125%;
   }
+
+  /* footer styles */
+
+  .footer-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 135px;
+    margin: 0 40px 40px;
+    padding: 100px;
+    background-color: #665F55;
+    border-radius: 40px;
+}
+
+.social-networks h2 {
+    margin-top: 0;
+    margin-bottom: 40px;
+    text-align: left;
+    font-family: Inter;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 125%;
+}
+
+h2 span {
+    font-size: 60px;
+    font-style: italic;
+    color: #B0907A;
+}
+
+.social-networks, .contacts {
+    font-weight: 600;
+    color: #E1D4C9;
+}
+
+.icons-footer {
+    display: flex;
+    gap: 11px;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+}
+
+.icons-footer-item {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 100px;
+    border: 1px solid #C1B6AD;
+    cursor: pointer;
+
+    transition: 0.5s;
+}
+
+.icons-footer-item a {
+    margin-top: 3px;
+    text-decoration: none;
+    color: #E1D4C9;
+}
+
+.icons-footer-item:hover a {
+    color: #403F3D;
+}
+
+.icons-footer-item:hover {
+    /* color: #403F3D; */
+    background-color: #E1D4C9;
+}
+
+.contacts {
+    padding-bottom: 20px;
+}
+
+.contacts h3 {
+    padding-bottom: 13px;
+    font-size: 24px;
+}
+
+.contacts-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding-bottom: 10px;
+}
+
+.contacts-icons img {
+    padding-right: 8px;
+}
+
+.location-and-phone {
+    position: relative;
+    cursor: pointer;
+}
+
+.location-and-phone a {
+    color: #E1D4C9;
+    text-decoration: none;
+}
+
+.location-and-phone::after {
+    position: absolute;
+    content: '';
+    left: 35%;
+    bottom: -5px;
+    display: block;
+    width: 0;
+    height: 2px;
+    transition: 0.3s;
+    transform: translateX(-50%);
+    background: #E1D4C9;
+}
+
+.location-and-phone:hover::after {
+    width: 70%;
+  }
