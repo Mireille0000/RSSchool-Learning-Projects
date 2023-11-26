@@ -156,6 +156,11 @@ h1 span {
     cursor: pointer;
 }
 
+.menu-button a {
+    color: #403F3D;
+    text-decoration: none;
+}
+
 /* favourite cofee section styles */
 
 .favourite-coffee-wrapper {
@@ -225,7 +230,6 @@ h2 span {
 .choose-coffee h3 {
     margin-top: 20px;
     margin-bottom: -2px;
-    /* padding-bottom: 16px; */
     text-align: center;
     font-family: Inter;
     font-size: 24px;
@@ -321,10 +325,12 @@ h2 span {
 .mosaic-item2 img, .mosaic-item3 img{
     margin-top: -150px;
     margin-left: -33px;
+    cursor: pointer;
+    transition: 0.4s;
 }
 
 .mosaic-item1 img, .mosaic-item4 img {
-    margin-top: -75px;
+    margin-top: -70px;
     margin-left: -33px;
     border-radius: 20px;
     cursor: pointer;
@@ -355,7 +361,7 @@ h2 span {
 .wrapper-mobile-app {
     display: flex;
     align-items: center;
-    padding-top: 100px;
+    padding-top: 91px;
     padding-right: 45px;
 }
 
