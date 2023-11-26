@@ -193,11 +193,33 @@ h2 span {
     align-self: center;
 }
 
+.button-icon-left, .button-icon-right{
+    display: flex;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    border: 1px solid #665F55;
+}
+
 .button-icon-left, .button-icon-right {
-    padding-right: 43px;
-    padding-left: 43px;
+    width: 60px;
+    height: 60px;
+    margin-right: 43px;
+    margin-left: 43px;
     align-self: center;
+    border-radius: 100px;
+    transition: 0.5s;
     cursor: pointer;
+}
+
+.button-icon-left:hover, .button-icon-right:hover {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    background: #665F55;
+    color: #E1D4C9;
 }
 
 .choose-coffee h3 {
@@ -355,7 +377,7 @@ h2 span {
 }
 
 .mobiles-screens img {
-    padding-bottom: 100px;
+    padding-bottom: 95px;
     margin-left: 100px;
 }
 
@@ -380,11 +402,30 @@ h2 span {
     cursor: pointer;
 
     background-color: #E1D4C9;
+    color: #665F55;
     border-radius: 100px;
     border: 1px solid #665F55;
+
+    transition: 0.5s;
 }
 
-.button-text {
+.play-store span, .google-app span {
+    font-style: normal;
+    color: #403F3D;
+    transition: 0.5s;
+}
+
+.play-store:hover span, .google-app:hover span {
+    color: #E1D4C9;
+    /* background-color: #665F55; */
+}
+
+.play-store:hover, .google-app:hover {
+    color: #E1D4C9;
+    background-color: #665F55;
+}
+
+.button-text span {
     display: flex;
     flex-direction: column;
 }
@@ -397,11 +438,6 @@ h2 span {
     color: #403F3D;
 }
 
-.play-store span, .google-app span {
-    font-style: normal;
-    color: #403F3D;
-}
-
 /* footer styles */
 
 .footer-wrapper {
@@ -409,7 +445,7 @@ h2 span {
     align-items: center;
     gap: 135px;
     margin: 0 40px 40px;
-    padding: 97px 100px 90px;
+    padding: 100px;
     background-color: #665F55;
     border-radius: 40px;
 }
@@ -434,12 +470,41 @@ h2 span {
     line-height: 150%;
 }
 
+.icons-footer-item {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 100px;
+    border: 1px solid #C1B6AD;
+    cursor: pointer;
+
+    transition: 0.5s;
+}
+
+.icons-footer-item a {
+    margin-top: 3px;
+    text-decoration: none;
+    color: #E1D4C9;
+}
+
+.icons-footer-item:hover a {
+    color: #403F3D;
+}
+
+.icons-footer-item:hover {
+    /* color: #403F3D; */
+    background-color: #E1D4C9;
+}
+
 .contacts {
-padding-bottom: 40px;
+    padding-bottom: 30px;
 }
 
 .contacts h3 {
-    padding-bottom: 17px;
+    padding-bottom: 15px;
     font-size: 24px;
 }
 
@@ -453,4 +518,34 @@ padding-bottom: 40px;
     padding-right: 8px;
 }
 
+.location-and-phone {
+    position: relative;
+    cursor: pointer;
+}
+
+.location-and-phone a {
+    color: #E1D4C9;
+    text-decoration: none;
+}
+
+.location-and-phone::after {
+    position: absolute;
+    content: '';
+    left: 35%;
+    bottom: -5px;
+    display: block;
+    width: 0;
+    height: 2px;
+    transition: 0.3s;
+    transform: translateX(-50%);
+    background: #E1D4C9;
+}
+
+.location-and-phone:hover::after {
+    width: 70%;
+  }
+
 /* https://rolling-scopes-school.github.io/mireille0000-JSFE2023Q4/coffee-house/ */
+
+/* interactivity to buttons in fav coffee ia added */
+/* delete svg */
