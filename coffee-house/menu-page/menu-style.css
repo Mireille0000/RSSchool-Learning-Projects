@@ -53,7 +53,8 @@ li {
 li:last-child {
     display: flex;
     margin-bottom: 10px;
-    padding-left: 330px;
+    padding-right: 10px;
+    padding-left: 328px;
     gap: 30px;
     pointer-events: none;
 }
