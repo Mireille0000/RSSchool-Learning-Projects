@@ -55,6 +55,7 @@ li:last-child {
     margin-bottom: 10px;
     padding-left: 330px;
     gap: 30px;
+    pointer-events: none;
 }
 
 .coffee-cup-icon {

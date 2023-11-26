@@ -286,9 +286,9 @@ h2 span {
 
 .about-mosaic {
     display: grid;
-    grid-template-columns: 660px 660px;
-    grid-template-rows: 590px 430px;
-    gap: 40px;
+    grid-template-columns: repeat(2, 660px);
+    grid-template-rows: repeat(107, 10px);
+    column-gap: 40px;
     padding-left: 40px;
 }
 
@@ -298,15 +298,32 @@ h2 span {
     object-fit: cover;
 }
 
+.mosaic-item1 {
+    grid-column: 1;
+    grid-row: 1 / 60;
+}
+
 .mosaic-item2 {
-    grid-row: 2 / 3;
+    grid-column: 2;
+    grid-row: 1 / 44;
 }
 
 .mosaic-item3 {
-    grid-row: 2 / 3;
+    grid-column: 1;
+    grid-row: 64 / 107;
 }
 
-.mosaic-item img {
+.mosaic-item4 {
+    grid-column: 2;
+    grid-row: 48 / 107;
+}
+
+.mosaic-item2 img, .mosaic-item3 img{
+    margin-top: -150px;
+    margin-left: -33px;
+}
+
+.mosaic-item1 img, .mosaic-item4 img {
     margin-top: -75px;
     margin-left: -33px;
     border-radius: 20px;
@@ -315,8 +332,6 @@ h2 span {
 }
 
 .wrap1, .wrap4, .mosaic-item1, .mosaic-item4 {
-    /* width: 660px;
-    height: 590px; */
     border-radius: 20px;
 
     overflow: hidden;
@@ -324,8 +339,6 @@ h2 span {
 }
 
 .wrap2, .wrap3, .mosaic-item2, .mosaic-item3 {
-    /* width: 660px;
-    height: 430px; */
     border-radius: 20px;
 
     overflow: hidden;
@@ -398,7 +411,6 @@ h2 span {
     font-style: normal;
     font-weight: 600;
     line-height: 140%;
-    /* text-align: center; */
     cursor: pointer;
 
     background-color: #E1D4C9;
@@ -417,7 +429,6 @@ h2 span {
 
 .play-store:hover span, .google-app:hover span {
     color: #E1D4C9;
-    /* background-color: #665F55; */
 }
 
 .play-store:hover, .google-app:hover {
@@ -495,7 +506,6 @@ h2 span {
 }
 
 .icons-footer-item:hover {
-    /* color: #403F3D; */
     background-color: #E1D4C9;
 }
 
