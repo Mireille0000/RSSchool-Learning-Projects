@@ -160,7 +160,7 @@ h1 span {
 }
 
 .menu-button svg {
-    padding-right: 55px;
+    padding-right: 57px;
     transition: 0.3s ease-in;
     opacity: 0;
 }
@@ -525,7 +525,7 @@ h2 span {
 }
 
 .contacts {
-    padding-bottom: 30px;
+    padding-bottom: 33px;
 }
 
 .contacts h3 {
@@ -571,6 +571,3 @@ h2 span {
   }
 
 /* https://rolling-scopes-school.github.io/mireille0000-JSFE2023Q4/coffee-house/ */
-
-/* interactivity to buttons in fav coffee ia added */
-/* delete svg */
