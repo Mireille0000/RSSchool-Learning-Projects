@@ -1,0 +1,1 @@
+console.log(`Score: 100/96(картинки в секциях enjoy и mobile apps расходятся более чем на 10px`);
