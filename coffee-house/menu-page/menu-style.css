@@ -111,6 +111,16 @@ li:last-child {
     gap: 14px;
   }
 
+  .menu-icons-item:first-child {
+    background-color: #665F55;
+    color: #E1D4C9;
+    pointer-events: none;
+  }
+
+  .menu-icons-item:first-child img {
+    background-color: #E1D4C9;
+  }
+
   .menu-icons-item {
     display: flex;
     padding: 8px 16px 8px 8px;
