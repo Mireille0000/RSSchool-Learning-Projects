@@ -128,6 +128,8 @@ li:last-child {
     border: 1px solid #C1B6AD;
     color: #403F3D;
     cursor: pointer;
+
+    transition: 0.5s;
   }
 
   .menu-icons-item img{
@@ -138,6 +140,8 @@ li:last-child {
 
     border-radius: 100px;
     background: #C1B6AD;
+
+    transition: 0.5s;
   }
 
   .menu-icons-item:hover {

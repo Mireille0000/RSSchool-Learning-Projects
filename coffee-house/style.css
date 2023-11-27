@@ -142,16 +142,14 @@ h1 span {
 .menu-button {
     display: flex;
     width: 200px;
-    padding: 22px 78px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
+    padding: 22px 0;
+    justify-content: end;
+    gap: 10px;
     font-size: 16px;
     font-weight: 600;
     background:  #E1D4C9;
     color: #403F3D;
     border-radius: 100px;
-    /* border-color: #E1D4C9; */
     border-width: 0;
     cursor: pointer;
 }
@@ -159,6 +157,18 @@ h1 span {
 .menu-button a {
     color: #403F3D;
     text-decoration: none;
+    transition: 0.5s ease-in;
+}
+
+.menu-button svg {
+    padding-right: 49px;
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.menu-button:hover svg {
+    padding-left: 10px;
+    opacity: 1;
 }
 
 /* favourite cofee section styles */
