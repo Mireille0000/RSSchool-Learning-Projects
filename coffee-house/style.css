@@ -144,7 +144,7 @@ h1 span {
     width: 200px;
     padding: 22px 0;
     justify-content: end;
-    gap: 10px;
+    /* gap: 10px; */
     font-size: 16px;
     font-weight: 600;
     background:  #E1D4C9;
@@ -157,17 +157,16 @@ h1 span {
 .menu-button a {
     color: #403F3D;
     text-decoration: none;
-    transition: 0.5s ease-in;
 }
 
 .menu-button svg {
-    padding-right: 49px;
-    transition: 0.5s;
+    padding-right: 55px;
+    transition: 0.3s ease-in;
     opacity: 0;
 }
 
 .menu-button:hover svg {
-    padding-left: 10px;
+    padding-left: 9px;
     opacity: 1;
 }
 
