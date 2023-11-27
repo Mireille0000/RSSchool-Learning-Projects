@@ -248,7 +248,7 @@ li:last-child {
 
 .social-networks h2 {
     margin-top: 0;
-    margin-bottom: 40px;
+    margin-bottom: 37px;
     text-align: left;
     font-family: Inter;
     font-size: 60px;
@@ -270,7 +270,8 @@ h2 span {
 
 .icons-footer {
     display: flex;
-    gap: 11px;
+    gap: 10px;
+    margin-bottom: -3px;
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
@@ -321,6 +322,7 @@ h2 span {
     flex-direction: column;
     gap: 20px;
 
+    /* padding-right: 5px; */
     padding-bottom: 10px;
 }
 
