@@ -99,17 +99,50 @@ li:last-child {
     padding-bottom: 100px;
 }
 
-.enjoy-background {
+/* .enjoy-background {
     display: flex;
     max-width: 1360px;
     padding-top: 5px;
     margin-left: 40px;
     background: url(./images/enjoy.jpeg), lightgray 50% / cover no-repeat;
+    background-size: 100% auto;
+    border-radius: 40px;
+} */
+
+/* test enjoy grid */
+.enjoy-grid {
+    display: grid;
+    grid-template-rows: 100px 444px 100px;
+    grid-template-columns: 100%;
+}
+
+.enjoy-background {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    overflow: hidden;
+    /* padding-top: 5px; */
+    margin-left: 40px;
+    margin-right: 40px;
     border-radius: 40px;
 }
 
+.enjoy-background img {
+    max-width: 1360px;
+    margin-top: -24px;
+    /* padding-left: 5px; */
+    border-radius: 40px;
+}
+
+.enjoy-wrapper {
+    grid-column: 1;
+    grid-row: 2;
+    padding-top: 8px;
+    margin-left: 40px;
+}
+
+/* test enjoy grid */
+
 .enjoy-wrapper h1 {
-    /* margin-top: 0; */
     margin-bottom: 0;
     padding-top: 40px;
     font-family: Inter;
@@ -173,7 +206,7 @@ h1 span {
 /* favourite cofee section styles */
 
 .favourite-coffee-wrapper {
-    padding-top: 50px;
+    padding-top: 52px;
 }
 
 h2 {
@@ -570,4 +603,48 @@ h2 span {
     width: 70%;
   }
 
+  @media (max-width: 1024px) {
+    .wrapper {
+        max-width: 100%;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .about-mosaic {
+        display: grid;
+        grid-template-columns: 660px;
+    }
+
+    .wrapper-mobile-app {
+        display: flex;
+        flex-wrap: wrap;    
+    }
+    
+  }
+
 /* https://rolling-scopes-school.github.io/mireille0000-JSFE2023Q4/coffee-house/ */
+
+/* 
+
+30.11
+768px
+1 implement the tablet version
+
+1.12
+
+1 implement mobile version
+2 align the three versions
+(3 and 4 points)
+
+2.12
+1 burger menu
+2 remove hover when screen is less than 768px
++ point 5
+
+3.12
+
+verify all the task and deploy it
+1
+*/
