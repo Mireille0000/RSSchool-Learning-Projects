@@ -86,6 +86,10 @@ li:last-child {
     width: 100%;
   }
 
+  .burger-menu {
+    display: none;
+  }
+
 /* enjoy section styles */
 
 .enjoy-wrapper {
@@ -608,6 +612,8 @@ h2 span {
     width: 70%;
   }
 
+  /* tablet */
+
   @media (max-width: 1024px) {
     .wrapper {
         max-width: 100%;
@@ -621,6 +627,27 @@ h2 span {
 
     nav {
         display: none;
+    }
+
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+        gap: 5px;
+        margin-right: 23px;
+        margin-bottom: 5px;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #665F55;
+        border-radius: 40px;
+    }
+
+    .burger-menu span {
+        align-self: center;
+        width: 15px;
+        height: 1px;
+        background-color: #403F3D;
     }
 
     /* enjoy */
@@ -690,10 +717,40 @@ h2 span {
         padding-bottom: 90px;
     }
 
+    .mobiles-screens {
+        margin-bottom: 10px;
+    }
+
     .mobiles-screens img {
         margin-left: 60px;
     }
+
+    /* footer */
     
+    .footer-wrapper {
+        flex-wrap: wrap;
+        gap: 0;
+        margin-right: 30px;
+        margin-left: 30px;
+        padding: 0;
+    }
+
+    .social-networks h2 {
+        /* margin-top: 10px; */
+        padding: 100px 60px 0px 60px;
+    }
+
+    .icons-footer, .contacts {
+        padding-left: 60px;
+    }
+
+    .contacts {
+        padding-bottom: 105px;
+    }
+
+    .contacts h3 {
+        padding-top: 75px;
+    }
   }
 
 /* https://rolling-scopes-school.github.io/mireille0000-JSFE2023Q4/coffee-house/ */
@@ -702,7 +759,7 @@ h2 span {
 
 30.11
 768px
-1 implement the tablet version
+1 implement the tablet version +
 
 1.12
 
