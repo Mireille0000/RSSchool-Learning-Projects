@@ -547,7 +547,7 @@ h2 span {
 
 .icons-footer {
     display: flex;
-    gap: 11px;
+    gap: 8px;
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
@@ -584,11 +584,12 @@ h2 span {
 }
 
 .contacts {
-    padding-bottom: 33px;
+    padding-bottom: 34px;
 }
 
 .contacts h3 {
-    padding-bottom: 15px;
+    margin-top: 28px;
+    padding-bottom: 17px;
     font-size: 24px;
 }
 
