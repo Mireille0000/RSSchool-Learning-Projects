@@ -82,9 +82,11 @@ li:last-child {
     background: #403F3D;
 }
 
-.anchor:hover::after {
-    width: 100%;
-  }
+@media (hover: hover) {
+    .anchor:hover::after {
+        width: 100%;
+      }
+}
 
   .burger-menu {
     display: none;
@@ -206,9 +208,11 @@ h1 span {
     opacity: 0;
 }
 
-.menu-button:hover svg {
-    padding-left: 9px;
-    opacity: 1;
+@media (hover: hover) {
+    .menu-button:hover svg {
+        padding-left: 9px;
+        opacity: 1;
+    }
 }
 
 /* favourite cofee section styles */
@@ -269,12 +273,14 @@ h2 span {
     cursor: pointer;
 }
 
-.button-icon-left:hover, .button-icon-right:hover {
-    width: 60px;
-    height: 60px;
-    border-radius: 100px;
-    background: #665F55;
-    color: #E1D4C9;
+@media (hover: hover) {
+    .button-icon-left:hover, .button-icon-right:hover {
+        width: 60px;
+        height: 60px;
+        border-radius: 100px;
+        background: #665F55;
+        color: #E1D4C9;
+    }
 }
 
 .choose-coffee h3 {
@@ -323,10 +329,12 @@ h2 span {
     /* animation-duration: 0.3s; */
 }
 
-.control-dash:hover {
-    transition: 0.5s;
-    background-color: #665F55;
-    cursor: pointer;
+@media (hover: hover) {
+    .control-dash:hover {
+        transition: 0.5s;
+        background-color: #665F55;
+        cursor: pointer;
+    }
 }
 
 /* about section styles */
@@ -408,8 +416,10 @@ h2 span {
     transition: 0.4s;
 }
 
-.wrap1 img:hover, .wrap2 img:hover,.wrap3 img:hover, .wrap4 img:hover  {
-    transform: scale(0.95);
+@media (hover: hover) {
+    .wrap1 img:hover, .wrap2 img:hover,.wrap3 img:hover, .wrap4 img:hover  {
+        transform: scale(0.95);
+    }
 }
 
 .wrap1, .wrap2, .wrap3, .wrap4 {
@@ -499,13 +509,15 @@ h2 span {
     transition: 0.5s;
 }
 
-.play-store:hover span, .google-app:hover span {
-    color: #E1D4C9;
-}
-
-.play-store:hover, .google-app:hover {
-    color: #E1D4C9;
-    background-color: #665F55;
+@media (hover: hover) {
+    .play-store:hover span, .google-app:hover span {
+        color: #E1D4C9;
+    }
+    
+    .play-store:hover, .google-app:hover {
+        color: #E1D4C9;
+        background-color: #665F55;
+    }
 }
 
 .button-text span {
@@ -575,12 +587,14 @@ h2 span {
     color: #E1D4C9;
 }
 
-.icons-footer-item:hover a {
-    color: #403F3D;
-}
-
-.icons-footer-item:hover {
-    background-color: #E1D4C9;
+@media (hover: hover) {
+    .icons-footer-item:hover a {
+        color: #403F3D;
+    }
+    
+    .icons-footer-item:hover {
+        background-color: #E1D4C9;
+    }
 }
 
 .contacts {
@@ -626,9 +640,11 @@ h2 span {
     background: #E1D4C9;
 }
 
-.location-and-phone:hover::after {
-    width: 70%;
-  }
+@media (hover: hover) {
+    .location-and-phone:hover::after {
+        width: 70%;
+      }
+}
 
   /* tablet */
 
