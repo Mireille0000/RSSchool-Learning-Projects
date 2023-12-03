@@ -96,9 +96,11 @@ li:last-child .anchor::after {
     background: #403F3D;
 }
 
-.anchor:hover::after {
+@media (hover: hover) {
+  .anchor:hover::after {
     width: 100%;
   }
+}
 
   .burger-menu {
     display: none;
@@ -170,18 +172,20 @@ li:last-child .anchor::after {
     align-items: center;
 
     border-radius: 100px;
-    background: #C1B6AD;
+    background-color: #C1B6AD;
 
     transition: 0.5s;
   }
 
-  .menu-icons-item:hover {
-    background-color: #665F55;
-    color: #E1D4C9;
-  }
-
-  .menu-icons-item:hover img{
-    background-color: #E1D4C9;
+  @media (hover: hover) {
+    .menu-icons-item:hover{
+      background-color: #665F55;
+      color: #E1D4C9;
+    }
+  
+    .menu-icons-item:hover img{
+      background-color: #E1D4C9;
+    }
   }
 
   .coffee-menu-wrapper span {
@@ -225,8 +229,10 @@ li:last-child .anchor::after {
     transition: 0.5s;
   }
 
-  .coffee-menu-item:hover img{
-    transform: scale(0.93);
+  @media (hover: hover) {
+    .coffee-menu-item:hover img{
+      transform: scale(0.93);
+    }
   }
 
   .coffee-menu-item h3 {
@@ -334,12 +340,14 @@ h2 span {
     color: #E1D4C9;
 }
 
-.icons-footer-item:hover a {
+@media (hover: hover) {
+  .icons-footer-item:hover a {
     color: #403F3D;
 }
 
 .icons-footer-item:hover {
     background-color: #E1D4C9;
+}
 }
 
 .contacts {
@@ -386,23 +394,15 @@ h2 span {
     background: #E1D4C9;
 }
 
-.location-and-phone:hover::after {
+@media (hover: hover) {
+  .location-and-phone:hover::after {
     width: 70%;
   }
+}
 
   /* tablet */
 
   @media (max-width: 1024px) {
-    @media (any-hover: hover) {
-      .menu-icons-item:hover {
-        background-color: #665F55;
-        color: #E1D4C9;
-      }
-    
-      .menu-icons-item:hover img{
-        background-color: #E1D4C9;
-      }
-    }
 
     .wrapper {
         max-width: 100%;
