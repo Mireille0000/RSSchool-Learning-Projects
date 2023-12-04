@@ -1,1 +1,2 @@
-console.log(`Score: 100/96(картинки в секциях enjoy и mobile apps расходятся более чем на 10px`);
+console.log(`Coffee house, week 1, score: 100/96(картинки в секциях enjoy и mobile apps расходятся более чем на 10px`);
+console.log(`Coffee house, week 2, score: 90/ 90(все пункты выполнены, есть расхождения по перфект пикселю, но они не превышают установленные 10px`);
