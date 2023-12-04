@@ -37,8 +37,6 @@ body {
 
 nav {
     display: flex;
-    /* padding-left: 10px; */
-    /* justify-content: center; */
 }
 
 ul {
@@ -105,17 +103,6 @@ li:last-child {
     padding-bottom: 100px;
 }
 
-/* .enjoy-background {
-    display: flex;
-    max-width: 1360px;
-    padding-top: 5px;
-    margin-left: 40px;
-    background: url(./images/enjoy.jpeg), lightgray 50% / cover no-repeat;
-    background-size: 100% auto;
-    border-radius: 40px;
-} */
-
-/* test enjoy grid */
 .enjoy-grid {
     display: grid;
     grid-template-rows: 100px 444px 100px;
@@ -130,16 +117,12 @@ li:last-child {
     grid-column: 1 / 3;
     grid-row: 1 / 4;
     overflow: hidden;
-    /* padding-top: 5px; */
-    /* margin-left: 40px;
-    margin-right: 40px; */
     border-radius: 40px;
 }
 
 .enjoy-background img {
     max-width: 1360px;
     margin-top: -24px;
-    /* padding-left: 5px; */
     border-radius: 40px;
 }
 
@@ -149,8 +132,6 @@ li:last-child {
     padding-top: 8px;
     margin-left: 40px;
 }
-
-/* test enjoy grid */
 
 .enjoy-wrapper h1 {
     margin-bottom: 0;
@@ -187,7 +168,6 @@ h1 span {
     width: 200px;
     padding: 22px 0;
     justify-content: end;
-    /* gap: 10px; */
     font-size: 16px;
     font-weight: 600;
     background:  #E1D4C9;
@@ -296,8 +276,6 @@ h2 span {
 .choose-coffee p {
     width: 480px;
     margin-top: 20px;
-    /* padding-top: -9px; */
-    /* padding-left: 7px; */
     text-align: center;
     font-family: Inter;
     font-size: 16px;
@@ -326,7 +304,6 @@ h2 span {
     height: 4px;
     border-radius: 100px;
     background-color: #C1B6AD;
-    /* animation-duration: 0.3s; */
 }
 
 @media (hover: hover) {
@@ -348,10 +325,7 @@ h2 span {
 
 .about-mosaic {
     display: grid;
-    /* grid-template-columns: repeat(auto-fill, 660px); */
     grid-template-rows: 430px 120px 430px;
-    /* grid-template-rows: repeat(107, 10px);  */
-    /* row-gap: 40px; */
     gap: 40px;
     padding-left: 40px;
     padding-right: 40px;
@@ -364,39 +338,31 @@ h2 span {
 }
 
 .mosaic-item1 {
-    /* grid-column: 1; */
     grid-row: 1 / 3;
-    /* grid-row: 1 / 60; */
 }
 
 .mosaic-item2 {
-    /* grid-column: 2; */
     grid-row: 1 / 2;
-    /* grid-row: 1 / 44; */
 }
 
 .mosaic-item3 {
-    /* grid-column: 1; */
     grid-row: 3;
-    /* grid-row: 64 / 107; */
 }
 
 .mosaic-item4 {
-    /* grid-column: 2; */
     grid-row: 2 / 4;
-    /* grid-row: 48 / 107; */
 }
 
 .mosaic-item2 img, .mosaic-item3 img{
     margin-top: -150px;
-    margin-left: -33px;
+    margin-left: -3px;
     cursor: pointer;
     transition: 0.4s;
 }
 
 .mosaic-item1 img, .mosaic-item4 img {
     margin-top: -70px;
-    margin-left: -33px;
+    margin-left: -3px;
     border-radius: 20px;
     cursor: pointer;
     transition: 0.4s;
@@ -427,28 +393,24 @@ h2 span {
     justify-content: center;
 }
 
-/* .mosaic-item1 img, .mosaic-item2 img,.mosaic-item3 img,.mosaic-item4 img {
-    justify-self: center;
-} */
-
 
 /* mobile app */
 
 .wrapper-mobile-app {
     display: flex;
     align-items: center;
-    padding-top: 91px;
+    padding-top: 105px;
     padding-right: 45px;
 }
 
 .app-info {
     display: flex;
-    margin-left: 40px;   /**/
+    margin-left: 40px; 
     padding-bottom: 190px;
 }
 
 .app-info h2 {
-    padding-top: 37px;
+    padding-top: 34px;
     text-align: left;
     font-family: Inter;
     font-size: 60px;
@@ -479,7 +441,7 @@ h2 span {
 .avaliable-buttons {
     display: flex;
     gap: 20px;
-    padding-top: 40px; /**/
+    padding-top: 40px;
 }
 
 .play-store, .google-app {
@@ -540,7 +502,7 @@ h2 span {
     align-items: center;
     gap: 135px;
     margin: 0 40px 40px;
-    padding: 100px;
+    padding: 97px 100px 100px;
     background-color: #665F55;
     border-radius: 40px;
 }
@@ -549,6 +511,7 @@ h2 span {
     display: flex;
     flex-direction: column;
     margin-top: 0;
+    margin-bottom: 39px;
     text-align: left;
 }
 
@@ -559,7 +522,7 @@ h2 span {
 
 .icons-footer {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
@@ -602,8 +565,8 @@ h2 span {
 }
 
 .contacts h3 {
-    margin-top: 28px;
-    padding-bottom: 17px;
+    margin-top: 25px;
+    /* padding-bottom: 17px; */
     font-size: 24px;
 }
 
@@ -611,6 +574,7 @@ h2 span {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding-top: 15px;
 }
 
 .contacts-icons img {
@@ -646,8 +610,6 @@ h2 span {
       }
 }
 
-  /* tablet */
-
   @media (max-width: 1200px) {
     .wrapper-mobile-app {
         display: flex;
@@ -655,9 +617,9 @@ h2 span {
     }
   }
 
-  @media (max-width: 1024px) {
+  /* tablet */
 
-    /* home page styles start */
+  @media (max-width: 1024px) {
 
     .wrapper {
         max-width: 100%;
@@ -703,7 +665,6 @@ h2 span {
 
     .enjoy-grid {
         display: grid;
-        /* grid-template-rows: 100px 444px 100px; */
         grid-template-columns: 100%;
         margin-left: 30px;
         margin-right: 30px;
@@ -711,8 +672,6 @@ h2 span {
 
     .enjoy-background {
         justify-self: center;
-        /* margin-left: 30px;
-        margin-right: 35px; */
     }
 
     .enjoy-background img {
@@ -744,19 +703,14 @@ h2 span {
 
     .about-mosaic {
         display: grid;
-        /* grid-template-columns: 100%; */
-        /* grid-template-rows: 10% 80% 10%; */
-        /* grid-template-columns: 100%; */
         justify-content: center;
         column-gap: 0;
         padding-left: 4%;
-        /* margin-right: -6.2%; */
-        /* padding-right: 4%; */
+        padding-right: 4%;
     }
 
     .mosaic-item1 {
         justify-self: center;
-        /* margin-top: 160px; */
         grid-column: 1;
     }
 
@@ -779,6 +733,10 @@ h2 span {
         display: flex;
         flex-wrap: wrap;    
         margin-top: 85px;
+    }
+
+    .app-info h2 {
+        padding-top: 21px;
     }
 
     .app-info {
@@ -805,7 +763,6 @@ h2 span {
     }
 
     .social-networks h2 {
-        /* margin-top: 10px; */
         padding: 100px 60px 0px 60px;
     }
 
@@ -828,8 +785,6 @@ h2 span {
 
   @media (max-width: 750px) {
 
-    /* home page styles start */
-
     .wrapper {
         max-width: 100%;
     }
@@ -848,7 +803,6 @@ h2 span {
 
     .enjoy-grid {
         display: grid;
-        /* grid-template-rows: 16% 60% 5%; */
         grid-template-rows: 60px 432px 60px;
         overflow: unset;
         margin-left: 10px;
@@ -858,13 +812,10 @@ h2 span {
     .enjoy-background {
         grid-column: 1;
         max-width: 104%;
-        /* margin-left: 60px; */
     }
 
     .enjoy-wrapper {
         width: 95%;
-        /* margin-top: 70px;
-        margin-left: 25px; */
         margin-top: 50px;
         margin-left: 14px;
         padding-top: 0;
@@ -930,20 +881,11 @@ h2 span {
     }
 
     .about-mosaic {
-        /* margin-right: -11%; */
-        margin-left: 0px;
-        margin-right: 0px;
+        margin-left: 0;
+        margin-right: 0;
         padding-left: 2%;
         padding-right: 2%;
     }
-
-    /* .mosaic-item1 img, .mosaic-item4 img {
-        margin-right: 24%;
-    } */
-
-    /* .mosaic-item1 img, .mosaic-item4 img {
-        margin-left: 16px;
-    } */
 
     /* mobile app */
 
@@ -1007,22 +949,3 @@ h2 span {
   }
 
 /* https://rolling-scopes-school.github.io/mireille0000-JSFE2023Q4/coffee-house/ */
-
-/* 
-
-1.12
-
-1 implement mobile version +
-2 align the three versions +
-(3 and 4 points)
-
-2.12
-1 burger menu (+-)
-2 remove hover when screen is less than 768px +
-+ points 4 and 5 +
-
-3.12
-
-verify all the task and deploy it +-
-1
-*/
