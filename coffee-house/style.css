@@ -648,6 +648,13 @@ h2 span {
 
   /* tablet */
 
+  @media (max-width: 1200px) {
+    .wrapper-mobile-app {
+        display: flex;
+        flex-wrap: wrap;
+    }
+  }
+
   @media (max-width: 1024px) {
 
     /* home page styles start */
@@ -743,7 +750,7 @@ h2 span {
         justify-content: center;
         column-gap: 0;
         padding-left: 4%;
-        margin-right: -6.2%;
+        /* margin-right: -6.2%; */
         /* padding-right: 4%; */
     }
 
@@ -1007,15 +1014,15 @@ h2 span {
 
 1 implement mobile version +
 2 align the three versions +
-(3 and 4 points(-))
+(3 and 4 points)
 
 2.12
 1 burger menu (+-)
-2 remove hover when screen is less than 768px
-+ points 4 and 5
+2 remove hover when screen is less than 768px +
++ points 4 and 5 +
 
 3.12
 
-verify all the task and deploy it
+verify all the task and deploy it +-
 1
 */
