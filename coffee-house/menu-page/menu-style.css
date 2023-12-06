@@ -102,7 +102,7 @@ li:last-child .anchor::after {
   }
 }
 
-  .burger-menu {
+  .burger-icon {
     display: none;
   }
 
@@ -417,11 +417,15 @@ h2 span {
         margin-left: 30px;
     }
 
+    li:last-child {
+      padding-left: 0;
+  }
+
     nav {
         display: none;
     }
 
-    .burger-menu {
+    .burger-icon {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -435,7 +439,7 @@ h2 span {
         border-radius: 40px;
     }
 
-    .burger-menu span {
+    .burger-icon span {
         align-self: center;
         width: 17px;
         height: 1px;
@@ -516,6 +520,110 @@ h2 span {
   }
 }
 
+/* burger menu */
+
+@media (max-width: 768px) {
+
+  nav {
+      display: none;
+  }
+
+  li:last-child {
+      padding-left: 0;
+  }
+
+  .burger-icon {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: center;
+      gap: 5px;
+      margin-right: 23px;
+      margin-bottom: 5px;
+      z-index: 4;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #665F55;
+      border-radius: 40px;
+
+      cursor: pointer;
+  }
+
+  .burger-icon span:nth-child(1), span:nth-child(2) {
+      position: absolute;
+      align-self: center;
+      width: 17px;
+      height: 1px;
+      background-color: #403F3D;
+
+      transition: 0.5s;
+  }
+
+  .burger-icon span:nth-child(1) {
+      bottom: 15px;
+  }
+
+  .burger-icon span:nth-child(2) {
+      top: 15px;
+  }
+
+  span:nth-child(1).active  {
+      bottom: 20px;
+      transform: rotate(45deg);
+  }
+
+  span:nth-child(2).active {
+      top: 20px;
+      transform: rotate(-45deg);
+  }
+
+  .header-logo {
+      z-index: 4;
+  }
+
+  .burger-menu {
+      width: 101%;
+      height: 100%;
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      padding-top: 16%;
+      z-index: 3;
+
+      transition: 1s;
+      background-color: #E1D4C9;
+
+      transform: translateX(100%);
+  }
+
+  .burger-menu.active {
+      transform: translateX(-1%);
+  }
+
+  .burger-menu ul {
+      flex-direction: column;
+      align-items: center;
+      gap: 9.3%;
+      padding-right: 15%;
+  }
+
+  .burger-menu li {
+      align-self: center;
+      font-family: Inter;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 125%; 
+  }
+
+  li:last-child {
+      gap: 15px;
+      padding-top: 16%;
+      pointer-events: auto;
+  }
+}
+
 /* mobile */
 
 @media (max-width: 750px) {
@@ -530,7 +638,7 @@ h2 span {
       margin: 20px 0 15px 9px ;
   }
 
-  .burger-menu {
+  .burger-icon {
       margin-right: 10px;
   }
 

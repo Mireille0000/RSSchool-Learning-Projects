@@ -1,4 +1,4 @@
-// burger menu
+// burger menu (menu page)
 
 const burgerIcon = document.querySelector('.burger-icon'),
     burgerMenuElementFirst = document.querySelector('.burger-icon span:nth-child(1)'),
@@ -22,6 +22,3 @@ burgerMenuItems.forEach((_, index) => {
         burgerMenu.classList.remove('active');
     })
 })
-
-console.log(`Coffee house, week 1, score: 100/96(картинки в секциях enjoy и mobile apps расходятся более чем на 10px`);
-console.log(`Coffee house, week 2, score: 90/ 90(все пункты выполнены, есть расхождения по перфект пикселю, но они не превышают установленные 10px`);
