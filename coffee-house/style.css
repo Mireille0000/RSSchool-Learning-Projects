@@ -313,6 +313,10 @@ h2 span {
     background-color: #C1B6AD;
 }
 
+.control-dash.active {
+    background-color: #665F55;
+}
+
 @media (hover: hover) {
     .control-dash:hover {
         transition: 0.5s;

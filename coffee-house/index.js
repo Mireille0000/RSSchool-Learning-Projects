@@ -24,22 +24,45 @@ burgerMenuItems.forEach((_, index) => {
 
 const rightArrowButton = document.querySelector('.button-icon-right'),
     leftArrowButton = document.querySelector('.button-icon-left'),
-    coffeeSlider = document.querySelector('.coffee-slider'),
+    favouriteCoffeeContent = document.querySelector('.favourite-coffee-content'), //
+    coffeeImages = document.querySelectorAll('.coffee-image'),
+    coffeeSlider = document.querySelector('.choose-coffee'),
     sliderItems = document.querySelectorAll('.choose-coffee'),
-    controls =  document.querySelector('.controls');
+    sliderWrapper = document.querySelector('.choose-coffee-slider-wrapper'),
+    controls =  document.querySelectorAll('.control-dash');
 
 let margin = 0;
+let dashIndex = 0;
 
-rightArrowButton.addEventListener('click', () => {
-    if (margin > -200) {
+function activateDashes (index) {
+    controls.forEach(dash => dash.classList.remove('active'));
+    controls[index].classList.add('active');
+}
+//
+// controls.forEach((item, index) => {
+//     item.addEventListener('click', () => {
+//         margin = -100 * index;
+//         coffeeSlider.style.marginLeft = margin + '%';
+//         dashIndex = index;
+//         activateDashes(dashIndex);
+//     })
+// })
+//
+function navigateSlider () {
+    if (margin > -200 && dashIndex < 3) {
+        dashIndex++;
         margin -= 100;
         coffeeSlider.style.marginLeft = margin + '%';
+        activateDashes(dashIndex);
     } else {
+        dashIndex = 0;
         margin = 0;
         coffeeSlider.style.marginLeft = margin + '%';
+        activateDashes(dashIndex);
     }
-    console.log(margin);
-})
+}
+
+rightArrowButton.addEventListener('click', navigateSlider);
 
 leftArrowButton.addEventListener('click', () => {
     console.log('hey')
@@ -55,6 +78,30 @@ leftArrowButton.addEventListener('click', () => {
     }
     console.log(margin)
 })
+
+let interval = setInterval(navigateSlider, 3000);
+
+class mouseEvent {
+    handleEvent(event) {
+      switch(event.type) {
+        case 'mouseenter':
+            clearInterval(interval);
+            break;
+        case 'mouseleave':
+            interval = setInterval(navigateSlider, 3000);
+        break;
+      }
+    }
+  }
+
+let mouse= new mouseEvent();
+
+sliderWrapper.addEventListener("mouseenter", mouse);
+sliderWrapper.addEventListener("mouseleave", mouse);
+
+
+
+
 
 console.log(`Coffee house, week 1, score: 100/96(картинки в секциях enjoy и mobile apps расходятся более чем на 10px`);
 console.log(`Coffee house, week 2, score: 90/ 90(все пункты выполнены, есть расхождения по перфект пикселю, но они не превышают установленные 10px`);
