@@ -106,6 +106,10 @@ li:last-child .anchor::after {
     display: none;
   }
 
+  .burger-menu {
+    display: none;
+  }
+
   /* coffee menu styles */
 
   .coffee-menu-header {

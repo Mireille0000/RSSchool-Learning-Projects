@@ -22,3 +22,5 @@ burgerMenuItems.forEach((_, index) => {
         burgerMenu.classList.remove('active');
     })
 })
+
+console.log(`Верстка слайдера: проверить гриды`)

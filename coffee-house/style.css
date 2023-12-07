@@ -201,7 +201,7 @@ h1 span {
     }
 }
 
-/* favourite cofee section styles */
+/* favourite coffee section styles */
 
 .favourite-coffee-wrapper {
     padding-top: 52px;
@@ -231,6 +231,7 @@ h2 span {
 .choose-coffee {
     display: flex;
     flex-direction: column;
+    transition: 2s;
 }
 
 .coffee-image {
@@ -318,6 +319,21 @@ h2 span {
         background-color: #665F55;
         cursor: pointer;
     }
+}
+
+/* choose coffee slider */
+
+.choose-coffee-slider-wrapper {
+    width: 480px;
+    overflow: hidden;
+    /* transition: 2s; */
+}
+
+.coffee-slider {
+    width: 100%;
+    display: flex;
+    /* overflow: hidden; */
+    transition: 2s;
 }
 
 /* about section styles */
