@@ -335,6 +335,7 @@ h2 span {
 
 .coffee-slider {
     width: 100%;
+    /* width: 990px; */
     display: flex;
     /* overflow: hidden; */
     transition: 2s;
@@ -864,7 +865,7 @@ h2 span {
         cursor: pointer;
     }
 
-    .burger-icon span:nth-child(1), span:nth-child(2) {
+    .burger-icon span:nth-child(1), .burger-icon span:nth-child(2) {
         position: absolute;
         align-self: center;
         width: 17px;
@@ -1002,7 +1003,7 @@ h2 span {
     /* favourite coffee */
 
     h2, h2 span {
-        margin-top: 48px;
+        margin-top: 47px;
         font-family: Inter;
         font-size: 32px;
         font-style: normal;
@@ -1010,10 +1011,19 @@ h2 span {
         line-height: 125%;
     }
 
+    .choose-coffee {
+        width: 100%;
+    }
+
+    .choose-coffee:nth-child(3) {
+        width: 100%;
+        margin-left: 5px;
+    }
+
     .coffee-image img {
-        padding-left: 10px;
-        padding-bottom: 10px;
-        width: 93.7%;
+        /* padding-left: 10px; */
+        /* padding-bottom: 10px; */
+        width: 22rem;
     }
 
     .button-icon-left, .button-icon-right {
@@ -1025,8 +1035,19 @@ h2 span {
     }
 
     .choose-coffee p {
+        align-self: center;
         margin-top: 15px;
         width: 100%;
+    }
+
+    .coffee-price {
+        margin-top: auto;
+    }
+
+    .coffee-slider {
+        margin-left: 2%;
+        display: flex;
+        column-gap: 10px;
     }
 
     /* about */
