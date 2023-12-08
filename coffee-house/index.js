@@ -34,9 +34,15 @@ const rightArrowButton = document.querySelector('.button-icon-right'),
 let margin = 0;
 let dashIndex = 0;
 
+let progress = document.querySelectorAll('.control-dash .progress');
+console.log(progress);
+
 function activateDashes (index) {
     controls.forEach(dash => dash.classList.remove('active'));
     controls[index].classList.add('active');
+
+    // progress.forEach(progressItem => progressItem.classList.remove('active'));
+    // progress[index].classList.add('active');
 }
 //
 // controls.forEach((item, index) => {
@@ -79,6 +85,8 @@ rightArrowButton.addEventListener('click', navigateSlider);
 leftArrowButton.addEventListener('click', navigateSliderLeft);
 
 let interval = setInterval(navigateSlider, 7000);
+
+console.log(typeof interval)
 
 class mouseEvent {
     handleEvent(event) {
@@ -154,6 +162,22 @@ function touchMove(event) {
 
 sliderWrapper.addEventListener("touchstart", mouse);
 sliderWrapper.addEventListener("touchend", mouse);
+
+// test function 
+
+function test(time) {
+    let start = 0;
+    const progress = document.querySelector('.control-dash');
+    let intervalId = setInterval(() => {
+        if (start > 10) {
+            clearInterval(intervalId)
+        } else {
+            progress.value = start;
+        }
+        start++;
+    }, time);
+}
+test(5000);
 
 
 console.log(`Coffee house, week 1, score: 100/96(картинки в секциях enjoy и mobile apps расходятся более чем на 10px`);
