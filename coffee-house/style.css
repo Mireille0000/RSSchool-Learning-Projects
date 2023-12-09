@@ -321,6 +321,7 @@ h2 span {
 .progress {
     width: 0;
     height: 4px;
+    animation: none;
 }
 
 .progress.active {
@@ -332,14 +333,14 @@ h2 span {
     animation-iteration-count: infinite;
 }
 
-/* @keyframes moving {
+@keyframes moving {
     0% {
         width: 0;
     }
     100% {
         width: 100%;
     }
-} */
+}
 
 @media (hover: hover) {
     .control-dash:hover {

@@ -41,8 +41,8 @@ function activateDashes (index) {
     controls.forEach(dash => dash.classList.remove('active'));
     controls[index].classList.add('active');
 
-    // progress.forEach(progressItem => progressItem.classList.remove('active'));
-    // progress[index].classList.add('active');
+    progress.forEach(progressItem => progressItem.classList.remove('active'));
+    progress[index].classList.add('active');
 }
 //
 // controls.forEach((item, index) => {
@@ -92,6 +92,7 @@ class mouseEvent {
     handleEvent(event) {
       switch(event.type) {
         case 'mouseenter':
+            // progress.forEach(dash => dash.classList.remove('active'));
             clearInterval(interval);
             break;
         case 'mouseleave':
@@ -100,12 +101,12 @@ class mouseEvent {
         case 'touchstart':
             clearInterval(interval);
             break;
-        case 'touchend':
+        case 'touchend': //
             interval = setInterval(navigateSlider, 7000);
         break;
-      }
     }
   }
+}
 
 let mouse = new mouseEvent();
 
@@ -114,7 +115,7 @@ sliderWrapper.addEventListener("mouseleave", mouse);
 
 // swipe for the slider (mobiles devices only)
 
-sliderWrapper.addEventListener('touchstart', touchStart, false);
+// sliderWrapper.addEventListener('touchstart', touchStart, false);
 sliderWrapper.addEventListener('touchmove', touchMove, false);
 
 let x1 = null;
