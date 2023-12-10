@@ -20,6 +20,14 @@ burgerMenuItems.forEach((_, index) => {
     })
 })
 
+// menu button, enjoy section
+
+const menuButton = document.querySelector('.menu-button');
+
+menuButton.addEventListener('click', () => {
+    window.open('./menu-page/menu.html');
+})
+
 // favourites coffee slider
 
 const rightArrowButton = document.querySelector('.button-icon-right'),
@@ -132,8 +140,8 @@ function touchMove(event) {
         return false;
     }
 
-    let x2 = Math.round(event.touches[0].clientX);
-    let y2 = Math.round(event.touches[0].clientY);
+    let x2 = event.touches[0].clientX;
+    let y2 = event.touches[0].clientY;
 
     let coordinatesDiffX = x2 - x1;
     let coordinatesDiffY = y2 - y1;
@@ -164,21 +172,7 @@ function touchMove(event) {
 sliderWrapper.addEventListener("touchstart", mouse);
 sliderWrapper.addEventListener("touchend", mouse);
 
-// test function 
 
-function test(time) {
-    let start = 0;
-    const progress = document.querySelector('.control-dash');
-    let intervalId = setInterval(() => {
-        if (start > 10) {
-            clearInterval(intervalId)
-        } else {
-            progress.value = start;
-        }
-        start++;
-    }, time);
-}
-test(5000);
 
 
 console.log(`Coffee house, week 1, score: 100/96(картинки в секциях enjoy и mobile apps расходятся более чем на 10px`);

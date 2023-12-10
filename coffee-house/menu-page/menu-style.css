@@ -110,15 +110,15 @@ li:last-child .anchor::after {
     display: none;
   }
 
-  /* coffee menu styles */
+  /* menu styles */
 
-  .coffee-menu-header {
+  .menu-header {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .coffee-menu-wrapper h1 {
+  .menu-wrapper h1 {
     width: 800px;
     margin-top: 0;
     text-align: center;
@@ -136,15 +136,56 @@ li:last-child .anchor::after {
 
   /* make a coffee button interactive */
 
-  .menu-icons-item:first-child {
+  .menu-icons-item-first {
+    display: flex;
+    padding: 8px 16px 8px 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+
+    border-radius: 100px;
+    border: 1px solid #C1B6AD;
+    cursor: pointer;
+
+    transition: 0.5s;
+
     background-color: #665F55;
     color: #E1D4C9;
     pointer-events: none;
   }
 
-  .menu-icons-item:first-child img {
+  .menu-icons-item-first img {
+    display: flex;
+    padding: 7px 7px;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 100px;
+    background-color: #E1D4C9;
+
+    transition: 0.5s;
+  }
+
+  .menu-icons-item-first.active {
+    border: 1px solid #C1B6AD;
+    color: #403F3D;
+    background-color: #E1D4C9;
+    pointer-events: auto;
+  }
+
+  .menu-icons-item-first img.active {
     background-color: #E1D4C9;
   }
+
+  
+
+   /* buttons */
 
   /* make a coffee button interactive */
 
@@ -182,33 +223,88 @@ li:last-child .anchor::after {
   }
 
   @media (hover: hover) {
-    .menu-icons-item:hover{
+    .menu-icons-item:hover, .menu-icons-item-first:hover{
       background-color: #665F55;
       color: #E1D4C9;
     }
   
-    .menu-icons-item:hover img{
+    .menu-icons-item:hover img, .menu-icons-item-first:hover img{
       background-color: #E1D4C9;
     }
   }
 
-  .coffee-menu-wrapper span {
+  .menu-icons-item.active {
+    background-color: #665F55;
+    color: #E1D4C9;
+    pointer-events: none;
+  }
+
+  .menu-icons-item.active img{
+    background-color: #E1D4C9;
+  }
+
+  /* buttons */
+
+  .menu-wrapper span {
     font-style: italic;
     color: #B0907A;
   }
 
-  .coffee-menu {
+  .menu {
+    display: grid;
+    /* grid-template-rows: 1650px; */
+  }
+
+  div .coffee-offer {
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+    opacity: 1;
+    /* transition: 1s; */
+  }
+
+  div .coffee-offer.active {
+    display: none;
+    opacity: 0;
+  }
+
+  div .tea-offer {
+    display: none;
+    grid-column: 1;
+    grid-row: 1;
+    opacity: 0;
+    /* transition: 1s; */
+  }
+
+  div .tea-offer.active {
+    display: grid;
+    opacity: 1;
+  }
+
+  div .desserts-offer {
+    display: none;
+    grid-column: 1;
+    grid-row: 1;
+    opacity: 0;
+    /* transition: 1s; */
+  }
+
+  .desserts-offer.active {
+    display: grid;
+    opacity: 1;
+  }
+
+  .coffee-offer, .tea-offer, .desserts-offer {
     display: grid;
     grid-template-columns: repeat(auto-fit, 330px);
     column-gap: 20px;
     row-gap: 20px;
     justify-content: center;
     margin-top: 40px;
-    /* padding-left: 20px; */
     padding-bottom: 80px;
   }
 
-  .coffee-menu-item {
+  .menu-item {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -221,6 +317,7 @@ li:last-child .anchor::after {
   }
 
   .img-item {
+    display: flex;
     width: 310px;
     height: 310px;
     border-radius: 40px;
@@ -228,19 +325,29 @@ li:last-child .anchor::after {
   }
 
   .img-item img {
-    margin-top: -15px;
-    margin-left: -12px;
+    width: 340px;
+    height: 340px;
+    margin-top: -16px;
+    margin-left: -14px;
     border-radius: 40px;
     transition: 0.5s;
   }
 
   @media (hover: hover) {
-    .coffee-menu-item:hover img{
-      transform: scale(0.93);
+    .coffee:hover img{
+      transform: scale(0.97);
+    }
+
+    .tea:hover img{
+      transform: scale(0.97);
+    }
+
+    .dessert:hover img{
+      transform: scale(0.97);
     }
   }
 
-  .coffee-menu-item h3 {
+  .menu-item h3 {
     align-self: flex-start;
     margin-top: 18px;
     margin-bottom: 0;
@@ -254,7 +361,7 @@ li:last-child .anchor::after {
     color: #403F3D;
   }
 
-  .coffee-menu-item p {
+  .menu-item p {
     width: 270px;
     margin-top: -5px;
     padding-left: 20px;
@@ -266,7 +373,7 @@ li:last-child .anchor::after {
     color: #403F3D;
   }
 
-  .coffee-price {
+  .price {
     margin-top: auto;
     padding-bottom: 13px;
     padding-left: 20px;
@@ -362,7 +469,6 @@ h2 span {
 
 .contacts h3 {
     margin-top: 20px;
-    /* padding-bottom: 25px; */
     font-size: 24px;
 }
 
@@ -452,12 +558,12 @@ h2 span {
 
     /* coffee menu */
 
-    .coffee-menu-wrapper h1 {
+    .menu-wrapper h1 {
       width: 90%;
       margin-bottom: 43px;
     }
 
-    .coffee-menu {
+    .coffee-offer, .tea-offer, .desserts-offer {
       display: grid;
       grid-template-columns: repeat(2, 50%);
       grid-template-rows: repeat(2, 528px);
@@ -468,15 +574,15 @@ h2 span {
       padding-left: 25px;
     }
 
-    .coffee-menu-item:nth-child(5), .coffee-menu-item:nth-child(6), .coffee-menu-item:nth-child(7),.coffee-menu-item:nth-child(8) {
+    /* .menu-item:nth-child(5), .menu-item:nth-child(6), .menu-item:nth-child(7),.menu-item:nth-child(8) {
       display: none;
-    }
+    } */
 
-    .coffee-price {
+    .price {
       padding-bottom: 17px;
     }
 
-    .download-more {
+    /* .download-more {
       display: flex;
       justify-self: end;
       justify-content: center;
@@ -489,7 +595,7 @@ h2 span {
       margin-bottom: 21px;
       border: 1px solid #665F55;
       border-radius: 100px;
-    }
+    } */
 
   /* footer */
       
@@ -626,6 +732,27 @@ h2 span {
       padding-top: 16%;
       pointer-events: auto;
   }
+
+  /* menu */
+
+  .menu-item:nth-child(5), .menu-item:nth-child(6), .menu-item:nth-child(7),.menu-item:nth-child(8) {
+    display: none;
+  }
+
+  .download-more {
+    display: flex;
+    justify-self: end;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 60px;
+    height: 60px;
+    margin-top: -5px;
+    margin-right: -30px;
+    margin-bottom: 21px;
+    border: 1px solid #665F55;
+    border-radius: 100px;
+  }
 }
 
 /* mobile */
@@ -646,9 +773,9 @@ h2 span {
       margin-right: 10px;
   }
 
-  /* coffee menu */
+  /* menu */
 
-  .coffee-menu-wrapper h1 {
+  .menu-wrapper h1 {
     margin-bottom: 10%;
     font-size: 32px;
   }
@@ -658,7 +785,7 @@ h2 span {
     column-gap: 6px;
   }
 
-  .coffee-menu {
+  .coffee-offer, .tea-offer, .desserts-offer {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: repeat(4, 529px);
