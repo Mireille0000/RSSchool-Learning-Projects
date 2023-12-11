@@ -109,3 +109,112 @@ window.addEventListener('resize', () => {
         loadMoreDessertsButton.style = 'display: none';
     }
 })
+
+// products cards
+
+const menuItems = document.querySelectorAll('.menu-item'),
+    modalWindow = document.querySelector('.modal'),
+    backgroundModal = document.querySelector('.modal-wrapper'),
+    html = document.querySelector('html'),
+    closeButton = document.querySelector('.close-button');
+
+
+menuItems.forEach((item) => {
+    item.addEventListener('click', () => {
+        modalWindow.classList.add('active');
+        backgroundModal.classList.add('active');
+        html.classList.add('active');
+    })
+})
+
+closeButton.addEventListener('click', () => {
+    modalWindow.classList.remove('active');
+    backgroundModal.classList.remove('active');
+    html.classList.remove('active');
+})
+
+backgroundModal.addEventListener('click', () => {
+    modalWindow.classList.remove('active');
+    backgroundModal.classList.remove('active');
+    html.classList.remove('active');
+})
+
+const totalPrice = document.querySelector('.total-price'),
+    menuItem = document.querySelector('.modal-window-content h2'),
+    description = document.querySelector('.product-discription'),
+    coffeeTitles = document.querySelectorAll('.coffee h3'),
+    teaTitles = document.querySelectorAll('.tea h3'),
+    dessertsTitles = document.querySelectorAll('.dessert h3'),
+    coffeeImages = document.querySelectorAll('.img-item'),
+    cardImage = document.querySelector('.product-item-img'),
+    menuItemsTitles = document.querySelectorAll('.menu-item h3');
+
+const imagesArray = ["coffee1", "coffee2", "coffee3",
+ "coffee4", "coffee5", "coffee6", "coffee7","coffee8", "tea1", "tea2", "tea3", "tea4",
+"dessert1","dessert2","dessert3","dessert4","dessert5","dessert6","dessert7","dessert8"];
+// const teaImagesArray = ["tea1", "tea2", "tea3", "tea4"];
+// console.log(teaImagesArray[1]);
+
+
+
+
+async function cardData() {
+    const products = 'products.json';
+    const res = await fetch(products);
+    const data = await res.json();
+
+    // coffeeTitles.forEach(item => {
+    //     item.setAttribute('data', 'coffee-name');
+    // })
+    console.log(data[0].name);
+    console.log(Array.from(menuItems))
+    console.log(`${imagesArray[0]}.png`)
+    // menuItems
+
+    // coffee
+    for (let i = 0; i < menuItems.length - 12; i++) {
+        menuItems[i].addEventListener('click', () => {
+            if (data[i].name === menuItemsTitles[i].textContent) {
+                let itemInfo = data[i];
+                cardImage.style.background = `url(./images-and-icons/${imagesArray[i]}.png)`
+                totalPrice.textContent =`$${itemInfo.price}`;
+                menuItem.textContent =`${itemInfo.name}`;
+                description.textContent =`${itemInfo.description}`;
+            }
+        })
+    }
+
+    // tea
+    for (let i = 8; i < menuItems.length - 8; i++) {
+        menuItems[i].addEventListener('click', () => {
+            if (data[i].name === menuItemsTitles[i].textContent) {
+                let itemInfo = data[i];
+                cardImage.style.background = `url(./images-and-icons/${imagesArray[i]}.png)`
+                totalPrice.textContent =`$${itemInfo.price}`;
+                menuItem.textContent =`${itemInfo.name}`;
+                description.textContent =`${itemInfo.description}`;
+            }
+        })
+    }
+
+    // desserts
+
+    console.log(menuItemsTitles[12].textContent)
+    console.log(data[12].name)
+
+    for (let i = 12; i < menuItems.length; i++) {
+        menuItems[i].addEventListener('click', () => {
+            if (data[i].name === menuItemsTitles[i].textContent) {
+                let itemInfo = data[i];
+                cardImage.style.background = `url(./images-and-icons/${imagesArray[i]}.png)`
+                totalPrice.textContent =`$${itemInfo.price}`;
+                menuItem.textContent =`${itemInfo.name}`;
+                description.textContent =`${itemInfo.description}`;
+            }
+        })
+    }
+}
+
+cardData();
+
+console.log(`implement modal windows; try to make the home page slider`)
