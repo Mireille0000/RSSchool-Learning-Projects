@@ -86,9 +86,15 @@ li:last-child {
       }
 }
 
-  .burger-menu {
+/* burger menu */
+
+.burger-menu {
     display: none;
-  }
+}
+
+.burger-icon {
+ display: none;
+}
 
 /* enjoy section styles */
 
@@ -120,7 +126,7 @@ li:last-child {
     border-radius: 40px;
 }
 
-.enjoy-background img {
+.enjoy-background video {
     max-width: 1360px;
     margin-top: -24px;
     border-radius: 40px;
@@ -175,11 +181,14 @@ h1 span {
     border-radius: 100px;
     border-width: 0;
     cursor: pointer;
+
+    z-index: 2;
 }
 
 .menu-button a {
     color: #403F3D;
     text-decoration: none;
+    z-index: 2;
 }
 
 .menu-button svg {
@@ -195,7 +204,7 @@ h1 span {
     }
 }
 
-/* favourite cofee section styles */
+/* favourite coffee section styles */
 
 .favourite-coffee-wrapper {
     padding-top: 52px;
@@ -225,6 +234,7 @@ h2 span {
 .choose-coffee {
     display: flex;
     flex-direction: column;
+    transition: 2s;
 }
 
 .coffee-image {
@@ -300,10 +310,39 @@ h2 span {
 }
 
 .control-dash {
+    appearance: none;
     width: 40px;
     height: 4px;
     border-radius: 100px;
     background-color: #C1B6AD;
+}
+
+/* .control-dash.active {
+    background-color: #665F55;
+} */
+
+.progress {
+    width: 0;
+    height: 4px;
+    animation: none;
+}
+
+.progress.active {
+    width: 0;
+    height: 4px;
+    animation: moving;
+    animation-duration: 7s;
+    background-color: #665F55;
+    animation-iteration-count: infinite;
+}
+
+@keyframes moving {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
 }
 
 @media (hover: hover) {
@@ -312,6 +351,20 @@ h2 span {
         background-color: #665F55;
         cursor: pointer;
     }
+}
+
+/* choose coffee slider */
+
+.choose-coffee-slider-wrapper {
+    width: 480px;
+    overflow: hidden;
+    /* transition: 2s; */
+}
+
+.coffee-slider {
+    width: 100%;
+    display: flex;
+    transition: 2s;
 }
 
 /* about section styles */
@@ -566,7 +619,6 @@ h2 span {
 
 .contacts h3 {
     margin-top: 25px;
-    /* padding-bottom: 17px; */
     font-size: 24px;
 }
 
@@ -611,6 +663,11 @@ h2 span {
 }
 
   @media (max-width: 1200px) {
+    li:last-child {
+        padding-left: 200px;
+    } 
+
+
     .wrapper-mobile-app {
         display: flex;
         flex-wrap: wrap;
@@ -631,29 +688,8 @@ h2 span {
         margin-left: 30px;
     }
 
-    nav {
-        display: none;
-    }
-
-    .burger-menu {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-self: center;
-        gap: 5px;
-        margin-right: 23px;
-        margin-bottom: 5px;
-        width: 40px;
-        height: 40px;
-        border: 1px solid #665F55;
-        border-radius: 40px;
-    }
-
-    .burger-menu span {
-        align-self: center;
-        width: 17px;
-        height: 1px;
-        background-color: #403F3D;
+    li:last-child {
+        padding-left: 0;
     }
 
     /* enjoy */
@@ -674,7 +710,7 @@ h2 span {
         justify-self: center;
     }
 
-    .enjoy-background img {
+      .enjoy-background video {
         margin-top: -0.1%;
         object-fit: cover;
         width: 100%;
@@ -777,8 +813,109 @@ h2 span {
     .contacts h3 {
         padding-top: 75px;
     }
+  }
 
-    /* home page styles end */
+  /* burger menu */
+
+  @media (max-width: 768px) {
+
+    nav {
+        display: none;
+    }
+
+    li:last-child {
+        padding-left: 0;
+    }
+
+    .burger-icon {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+        gap: 5px;
+        margin-right: 23px;
+        margin-bottom: 5px;
+        z-index: 4;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #665F55;
+        border-radius: 40px;
+
+        cursor: pointer;
+    }
+
+    .burger-icon span:nth-child(1), .burger-icon span:nth-child(2) {
+        position: absolute;
+        align-self: center;
+        width: 17px;
+        height: 1px;
+        background-color: #403F3D;
+
+        transition: 0.5s;
+    }
+
+    .burger-icon span:nth-child(1) {
+        bottom: 15px;
+    }
+
+    .burger-icon span:nth-child(2) {
+        top: 15px;
+    }
+
+    span:nth-child(1).active  {
+        bottom: 20px;
+        transform: rotate(45deg);
+    }
+
+    span:nth-child(2).active {
+        top: 20px;
+        transform: rotate(-45deg);
+    }
+
+    .header-logo {
+        z-index: 4;
+    }
+
+    .burger-menu {
+        width: 101%;
+        height: 100%;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        padding-top: 16%;
+        z-index: 3;
+
+        transition: 1s;
+        background-color: #E1D4C9;
+
+        transform: translateX(100%);
+    }
+
+    .burger-menu.active {
+        transform: translateX(-1%);
+    }
+
+    .burger-menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 9.3%;
+        padding-right: 15%;
+    }
+
+    .burger-menu li {
+        align-self: center;
+        font-family: Inter;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 125%; 
+    }
+
+    li:last-child {
+        gap: 15px;
+        padding-top: 16%;
+    }
   }
 
   /* mobile */
@@ -795,7 +932,7 @@ h2 span {
         margin: 20px 0 15px 9px ;
     }
 
-    .burger-menu {
+    .burger-icon {
         margin-right: 10px;
     }
 
@@ -846,7 +983,7 @@ h2 span {
     /* favourite coffee */
 
     h2, h2 span {
-        margin-top: 48px;
+        margin-top: 47px;
         font-family: Inter;
         font-size: 32px;
         font-style: normal;
@@ -854,10 +991,17 @@ h2 span {
         line-height: 125%;
     }
 
+    .choose-coffee {
+        width: 100%;
+    }
+
+    .choose-coffee:nth-child(3) {
+        width: 100%;
+        margin-left: 5px;
+    }
+
     .coffee-image img {
-        padding-left: 10px;
-        padding-bottom: 10px;
-        width: 93.7%;
+        width: 22rem;
     }
 
     .button-icon-left, .button-icon-right {
@@ -869,8 +1013,19 @@ h2 span {
     }
 
     .choose-coffee p {
+        align-self: center;
         margin-top: 15px;
         width: 100%;
+    }
+
+    .coffee-price {
+        margin-top: auto;
+    }
+
+    .coffee-slider {
+        margin-left: 2%;
+        display: flex;
+        column-gap: 10px;
     }
 
     /* about */
