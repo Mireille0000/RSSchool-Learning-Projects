@@ -147,16 +147,18 @@ const totalPrice = document.querySelector('.total-price'),
     dessertsTitles = document.querySelectorAll('.dessert h3'),
     coffeeImages = document.querySelectorAll('.img-item'),
     cardImage = document.querySelector('.product-item-img'),
-    menuItemsTitles = document.querySelectorAll('.menu-item h3');
+    menuItemsTitles = document.querySelectorAll('.menu-item h3'),
+    productSize = document.querySelectorAll('.product-size'),
+    productAdditives = document.querySelectorAll('.product-additives');
 
 const imagesArray = ["coffee1", "coffee2", "coffee3",
  "coffee4", "coffee5", "coffee6", "coffee7","coffee8", "tea1", "tea2", "tea3", "tea4",
 "dessert1","dessert2","dessert3","dessert4","dessert5","dessert6","dessert7","dessert8"];
 
 // size button 
-const size1 = document.querySelector('.s div'),
-    size2 = document.querySelector('.m div'),
-    size3 = document.querySelector('.l div'),
+const size1 = document.querySelector('.s'),
+    size2 = document.querySelector('.m'),
+    size3 = document.querySelector('.l'),
     additives1 = document.querySelector('.ad1 div'),
     additives2 = document.querySelector('.ad2 div')
     additives3 = document.querySelector('.ad3 div');
@@ -166,12 +168,9 @@ async function cardData() {
     const res = await fetch(products);
     const data = await res.json();
 
-    // coffeeTitles.forEach(item => {
-    //     item.setAttribute('data', 'coffee-name');
-    // })
-    console.log(data[0].additives[0].name);
-    console.log(Array.from(menuItems))
-    console.log(`${imagesArray[0]}.png`)
+    console.log(productAdditives)
+
+  console.log(totalPrice.textContent)
 
     // coffee
     for (let i = 0; i < menuItems.length - 12; i++) {
@@ -180,6 +179,29 @@ async function cardData() {
                 let itemInfo = data[i];
                 cardImage.style.background = `url(./images-and-icons/${imagesArray[i]}.png)`
                 totalPrice.textContent =`$${itemInfo.price}`;
+                size1.addEventListener('click', () => {
+                    const parsePrice = (JSON.parse(`${itemInfo.price}`) + 0).toFixed(2);
+                    totalPrice.textContent =`$${parsePrice}`;
+                    productSize[0].classList.add('active');
+                    productSize[1].classList.remove('active');
+                    productSize[2].classList.remove('active');
+                })
+
+                size2.addEventListener('click', () => {
+                    const parsePrice = (JSON.parse(`${itemInfo.price}`) + 0.5).toFixed(2);
+                    totalPrice.textContent =`$${parsePrice}`;
+                    productSize[0].classList.remove('active');
+                    productSize[1].classList.add('active');
+                    productSize[2].classList.remove('active');
+                })
+                
+                size3.addEventListener('click', () => {
+                    const parsePrice = (JSON.parse(`${itemInfo.price}`) + 1).toFixed(2);
+                    totalPrice.textContent =`$${parsePrice}`;
+                    productSize[0].classList.remove('active');
+                    productSize[1].classList.remove('active');
+                    productSize[2].classList.add('active');
+                })
                 menuItem.textContent =`${itemInfo.name}`;
                 description.textContent =`${itemInfo.description}`;
 
@@ -197,6 +219,29 @@ async function cardData() {
                 let itemInfo = data[i];
                 cardImage.style.background = `url(./images-and-icons/${imagesArray[i]}.png)`
                 totalPrice.textContent =`$${itemInfo.price}`;
+                size1.addEventListener('click', () => {
+                    const parsePrice = (JSON.parse(`${itemInfo.price}`) + 0).toFixed(2);
+                    totalPrice.textContent =`$${parsePrice}`;
+                    productSize[0].classList.add('active');
+                    productSize[1].classList.remove('active');
+                    productSize[2].classList.remove('active');
+                })
+
+                size2.addEventListener('click', () => {
+                    const parsePrice = (JSON.parse(`${itemInfo.price}`) + 0.5).toFixed(2);
+                    totalPrice.textContent =`$${parsePrice}`;
+                    productSize[0].classList.add('active');
+                    productSize[1].classList.remove('active');
+                    productSize[2].classList.remove('active');
+                })
+                
+                size3.addEventListener('click', () => {
+                    const parsePrice = (JSON.parse(`${itemInfo.price}`) + 1).toFixed(2);
+                    totalPrice.textContent =`$${parsePrice}`;
+                    productSize[0].classList.add('active');
+                    productSize[1].classList.remove('active');
+                    productSize[2].classList.remove('active');
+                })
                 menuItem.textContent =`${itemInfo.name}`;
                 description.textContent =`${itemInfo.description}`;
 
@@ -214,6 +259,29 @@ async function cardData() {
                 let itemInfo = data[i];
                 cardImage.style.background = `url(./images-and-icons/${imagesArray[i]}.png)`
                 totalPrice.textContent =`$${itemInfo.price}`;
+                size1.addEventListener('click', () => {
+                    const parsePrice = (JSON.parse(`${itemInfo.price}`) + 0).toFixed(2);
+                    totalPrice.textContent =`$${parsePrice}`;
+                    productSize[0].classList.add('active');
+                    productSize[1].classList.remove('active');
+                    productSize[2].classList.remove('active');
+                })
+
+                size2.addEventListener('click', () => {
+                    const parsePrice = (JSON.parse(`${itemInfo.price}`) + 0.5).toFixed(2);
+                    totalPrice.textContent =`$${parsePrice}`;
+                    productSize[0].classList.add('active');
+                    productSize[1].classList.remove('active');
+                    productSize[2].classList.remove('active');
+                })
+                
+                size3.addEventListener('click', () => {
+                    const parsePrice = (JSON.parse(`${itemInfo.price}`) + 1).toFixed(2);
+                    totalPrice.textContent =`$${parsePrice}`;
+                    productSize[0].classList.add('active');
+                    productSize[1].classList.remove('active');
+                    productSize[2].classList.remove('active');
+                })
                 menuItem.textContent =`${itemInfo.name}`;
                 description.textContent =`${itemInfo.description}`;
 
@@ -224,9 +292,18 @@ async function cardData() {
         })
     }
 }
-
 cardData();
 
-// item.setAttribute('data', 'coffee-name');
+// productAdditives.forEach(additive => {
+//     additive.addEventListener('click', () => {
+//         const parsePrice = (JSON.parse(`${itemInfo.price}`) + 0.5).toFixed(2);
+//         totalPrice.textContent =`$${parsePrice}`;
+//         console.log(parsePrice)
+//     })
+// });
+
+  // coffeeTitles.forEach(item => {
+    //     item.setAttribute('data', 'coffee-name');
+    // })
 
 console.log(`counter, size button; try to accomplish the home page slider`)

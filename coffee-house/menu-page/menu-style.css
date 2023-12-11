@@ -498,17 +498,6 @@ li:last-child .anchor::after {
     margin-top: 5px;
   }
 
-@media (hover: hover) {
-  .product-size:hover, .product-additives:hover {
-    color: #E1D4C9;
-    background-color: #665F55;
-  }
-
-  .product-size:hover span, .product-additives:hover span {
-    background-color: #E1D4C9;;
-  }
-}
-
   .additives {
     padding-top: 30px;
     margin-bottom: 20px;
@@ -528,6 +517,27 @@ li:last-child .anchor::after {
 
     cursor: pointer;
   }
+
+  @media (hover: hover) {
+    .product-size:hover, .product-additives:hover {
+      color: #E1D4C9;
+      background-color: #665F55;
+    }
+  
+    .product-size:hover span, .product-additives:hover span {
+      background-color: #E1D4C9;
+    }
+  }
+
+  .product-size.active, .product-additives.active {
+    color: #E1D4C9;
+    background-color: #665F55;
+  }
+
+  .product-size span, .product-additives:hover span {
+    background-color: #E1D4C9;
+  }
+
 
   .product-size span, .product-additives span {
     width: 30px;
