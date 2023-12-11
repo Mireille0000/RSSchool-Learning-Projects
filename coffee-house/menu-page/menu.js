@@ -6,9 +6,6 @@ const burgerIcon = document.querySelector('.burger-icon'),
     burgerMenu = document.querySelector('.burger-menu'),
     burgerMenuItems = Array.from(document.querySelectorAll('.burger-menu li'));
 
-    console.log(burgerMenuItems);
-
-
 burgerIcon.addEventListener('click', () => {
     burgerMenuElementFirst.classList.toggle('active');
     burgerMenuElementSecond.classList.toggle('active');
@@ -118,6 +115,18 @@ const menuItems = document.querySelectorAll('.menu-item'),
     html = document.querySelector('html'),
     closeButton = document.querySelector('.close-button');
 
+    const totalPrice = document.querySelector('.total-price'),
+    menuItem = document.querySelector('.modal-window-content h2'),
+    description = document.querySelector('.product-discription'),
+    coffeeTitles = document.querySelectorAll('.coffee h3'),
+    teaTitles = document.querySelectorAll('.tea h3'),
+    dessertsTitles = document.querySelectorAll('.dessert h3'),
+    coffeeImages = document.querySelectorAll('.img-item'),
+    cardImage = document.querySelector('.product-item-img'),
+    menuItemsTitles = document.querySelectorAll('.menu-item h3'),
+    productSize = document.querySelectorAll('.product-size'),
+    productAdditives = document.querySelectorAll('.product-additives');
+
 
 menuItems.forEach((item) => {
     item.addEventListener('click', () => {
@@ -131,31 +140,26 @@ closeButton.addEventListener('click', () => {
     modalWindow.classList.remove('active');
     backgroundModal.classList.remove('active');
     html.classList.remove('active');
+    productSize[1].classList.remove('active');
+    productSize[2].classList.remove('active');
+    productAdditives.forEach(add => add.classList.remove('active'));
 })
 
 backgroundModal.addEventListener('click', () => {
     modalWindow.classList.remove('active');
     backgroundModal.classList.remove('active');
     html.classList.remove('active');
+    productSize[1].classList.remove('active');
+    productSize[2].classList.remove('active');
+    productAdditives.forEach(add => add.classList.remove('active'));
 })
-
-const totalPrice = document.querySelector('.total-price'),
-    menuItem = document.querySelector('.modal-window-content h2'),
-    description = document.querySelector('.product-discription'),
-    coffeeTitles = document.querySelectorAll('.coffee h3'),
-    teaTitles = document.querySelectorAll('.tea h3'),
-    dessertsTitles = document.querySelectorAll('.dessert h3'),
-    coffeeImages = document.querySelectorAll('.img-item'),
-    cardImage = document.querySelector('.product-item-img'),
-    menuItemsTitles = document.querySelectorAll('.menu-item h3'),
-    productSize = document.querySelectorAll('.product-size'),
-    productAdditives = document.querySelectorAll('.product-additives');
 
 const imagesArray = ["coffee1", "coffee2", "coffee3",
  "coffee4", "coffee5", "coffee6", "coffee7","coffee8", "tea1", "tea2", "tea3", "tea4",
 "dessert1","dessert2","dessert3","dessert4","dessert5","dessert6","dessert7","dessert8"];
 
-// size button 
+//size and additives buttons variables
+
 const size1 = document.querySelector('.s'),
     size2 = document.querySelector('.m'),
     size3 = document.querySelector('.l'),
@@ -168,9 +172,7 @@ async function cardData() {
     const res = await fetch(products);
     const data = await res.json();
 
-    console.log(productAdditives)
-
-  console.log(totalPrice.textContent)
+    productSize[0].style = `color: #E1D4C9; background-color: #665F55;`
 
     // coffee
     for (let i = 0; i < menuItems.length - 12; i++) {
@@ -182,7 +184,7 @@ async function cardData() {
                 size1.addEventListener('click', () => {
                     const parsePrice = (JSON.parse(`${itemInfo.price}`) + 0).toFixed(2);
                     totalPrice.textContent =`$${parsePrice}`;
-                    productSize[0].classList.add('active');
+                    productSize[0].style = `color: #E1D4C9; background-color: #665F55;`
                     productSize[1].classList.remove('active');
                     productSize[2].classList.remove('active');
                 })
@@ -190,7 +192,7 @@ async function cardData() {
                 size2.addEventListener('click', () => {
                     const parsePrice = (JSON.parse(`${itemInfo.price}`) + 0.5).toFixed(2);
                     totalPrice.textContent =`$${parsePrice}`;
-                    productSize[0].classList.remove('active');
+                    productSize[0].style = `background-color: #E1D4C9; border: 1px solid  #C1B6AD;`
                     productSize[1].classList.add('active');
                     productSize[2].classList.remove('active');
                 })
@@ -198,9 +200,19 @@ async function cardData() {
                 size3.addEventListener('click', () => {
                     const parsePrice = (JSON.parse(`${itemInfo.price}`) + 1).toFixed(2);
                     totalPrice.textContent =`$${parsePrice}`;
-                    productSize[0].classList.remove('active');
+                    productSize[0].style = `background-color: #E1D4C9; border: 1px solid  #C1B6AD;`
                     productSize[1].classList.remove('active');
                     productSize[2].classList.add('active');
+                })
+
+                let finalPrice = (JSON.parse(`${itemInfo.price}`));
+
+                productAdditives.forEach((item) => {
+                    item.addEventListener('click', () => {
+                        finalPrice += 0.5;
+                        totalPrice.textContent =`$${finalPrice.toFixed(2)}`;
+                        item.classList.add('active');
+                    })
                 })
                 menuItem.textContent =`${itemInfo.name}`;
                 description.textContent =`${itemInfo.description}`;
@@ -222,7 +234,7 @@ async function cardData() {
                 size1.addEventListener('click', () => {
                     const parsePrice = (JSON.parse(`${itemInfo.price}`) + 0).toFixed(2);
                     totalPrice.textContent =`$${parsePrice}`;
-                    productSize[0].classList.add('active');
+                    productSize[0].style = `color: #E1D4C9; background-color: #665F55;`
                     productSize[1].classList.remove('active');
                     productSize[2].classList.remove('active');
                 })
@@ -230,17 +242,27 @@ async function cardData() {
                 size2.addEventListener('click', () => {
                     const parsePrice = (JSON.parse(`${itemInfo.price}`) + 0.5).toFixed(2);
                     totalPrice.textContent =`$${parsePrice}`;
-                    productSize[0].classList.add('active');
-                    productSize[1].classList.remove('active');
+                    productSize[0].style = `background-color: #E1D4C9; border: 1px solid  #C1B6AD;`
+                    productSize[1].classList.add('active');
                     productSize[2].classList.remove('active');
                 })
                 
                 size3.addEventListener('click', () => {
                     const parsePrice = (JSON.parse(`${itemInfo.price}`) + 1).toFixed(2);
                     totalPrice.textContent =`$${parsePrice}`;
-                    productSize[0].classList.add('active');
+                    productSize[0].style = `background-color: #E1D4C9; border: 1px solid  #C1B6AD;`
                     productSize[1].classList.remove('active');
-                    productSize[2].classList.remove('active');
+                    productSize[2].classList.add('active');
+                })
+
+                let finalPrice = (JSON.parse(`${itemInfo.price}`));
+
+                productAdditives.forEach((item) => {
+                    item.addEventListener('click', () => {
+                        finalPrice += 0.5;
+                        totalPrice.textContent =`$${finalPrice.toFixed(2)}`;
+                        item.classList.add('active');
+                   })
                 })
                 menuItem.textContent =`${itemInfo.name}`;
                 description.textContent =`${itemInfo.description}`;
@@ -248,6 +270,11 @@ async function cardData() {
                 additives1.textContent =`${itemInfo.additives[0].name}`;
                 additives2.textContent =`${itemInfo.additives[1].name}`;
                 additives3.textContent =`${itemInfo.additives[2].name}`;
+
+                const gramms = document.querySelectorAll('.product-size div');
+                gramms[0].textContent = '200 ml';
+                gramms[1].textContent = '300 ml';
+                gramms[2].textContent = '400 ml';
             }
         })
     }
@@ -257,12 +284,15 @@ async function cardData() {
         menuItems[i].addEventListener('click', () => {
             if (data[i].name === menuItemsTitles[i].textContent) {
                 let itemInfo = data[i];
+                let finalPrice = (JSON.parse(`${itemInfo.price}`));
                 cardImage.style.background = `url(./images-and-icons/${imagesArray[i]}.png)`
-                totalPrice.textContent =`$${itemInfo.price}`;
+                totalPrice.textContent =`$${finalPrice.toFixed(2)}`;
+
                 size1.addEventListener('click', () => {
-                    const parsePrice = (JSON.parse(`${itemInfo.price}`) + 0).toFixed(2);
+                    const parsePrice = finalPrice.toFixed(2);
                     totalPrice.textContent =`$${parsePrice}`;
-                    productSize[0].classList.add('active');
+                    console.log(parsePrice);
+                    productSize[0].style = `color: #E1D4C9; background-color: #665F55;`
                     productSize[1].classList.remove('active');
                     productSize[2].classList.remove('active');
                 })
@@ -270,20 +300,34 @@ async function cardData() {
                 size2.addEventListener('click', () => {
                     const parsePrice = (JSON.parse(`${itemInfo.price}`) + 0.5).toFixed(2);
                     totalPrice.textContent =`$${parsePrice}`;
-                    productSize[0].classList.add('active');
-                    productSize[1].classList.remove('active');
+                    productSize[0].style = `background-color: #E1D4C9; border: 1px solid  #C1B6AD;`
+                    productSize[1].classList.add('active');
                     productSize[2].classList.remove('active');
                 })
                 
                 size3.addEventListener('click', () => {
                     const parsePrice = (JSON.parse(`${itemInfo.price}`) + 1).toFixed(2);
                     totalPrice.textContent =`$${parsePrice}`;
-                    productSize[0].classList.add('active');
+                    productSize[0].style = `background-color: #E1D4C9; border: 1px solid  #C1B6AD;`
                     productSize[1].classList.remove('active');
-                    productSize[2].classList.remove('active');
+                    productSize[2].classList.add('active');
                 })
+
+                productAdditives.forEach((item) => {
+                    item.addEventListener('click', () => {
+                        finalPrice += 0.5;
+                        totalPrice.textContent =`$${finalPrice.toFixed(2)}`;
+                        item.classList.add('active');
+                   })
+                })
+
                 menuItem.textContent =`${itemInfo.name}`;
                 description.textContent =`${itemInfo.description}`;
+
+                const gramms = document.querySelectorAll('.product-size div');
+                gramms[0].textContent = '200 g';
+                gramms[1].textContent = '300 g';
+                gramms[2].textContent = '400 g';
 
                 additives1.textContent =`${itemInfo.additives[0].name}`;
                 additives2.textContent =`${itemInfo.additives[1].name}`;
@@ -293,14 +337,6 @@ async function cardData() {
     }
 }
 cardData();
-
-// productAdditives.forEach(additive => {
-//     additive.addEventListener('click', () => {
-//         const parsePrice = (JSON.parse(`${itemInfo.price}`) + 0.5).toFixed(2);
-//         totalPrice.textContent =`$${parsePrice}`;
-//         console.log(parsePrice)
-//     })
-// });
 
   // coffeeTitles.forEach(item => {
     //     item.setAttribute('data', 'coffee-name');
