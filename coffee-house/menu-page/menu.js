@@ -152,11 +152,14 @@ const totalPrice = document.querySelector('.total-price'),
 const imagesArray = ["coffee1", "coffee2", "coffee3",
  "coffee4", "coffee5", "coffee6", "coffee7","coffee8", "tea1", "tea2", "tea3", "tea4",
 "dessert1","dessert2","dessert3","dessert4","dessert5","dessert6","dessert7","dessert8"];
-// const teaImagesArray = ["tea1", "tea2", "tea3", "tea4"];
-// console.log(teaImagesArray[1]);
 
-
-
+// size button 
+const size1 = document.querySelector('.s div'),
+    size2 = document.querySelector('.m div'),
+    size3 = document.querySelector('.l div'),
+    additives1 = document.querySelector('.ad1 div'),
+    additives2 = document.querySelector('.ad2 div')
+    additives3 = document.querySelector('.ad3 div');
 
 async function cardData() {
     const products = 'products.json';
@@ -166,10 +169,9 @@ async function cardData() {
     // coffeeTitles.forEach(item => {
     //     item.setAttribute('data', 'coffee-name');
     // })
-    console.log(data[0].name);
+    console.log(data[0].additives[0].name);
     console.log(Array.from(menuItems))
     console.log(`${imagesArray[0]}.png`)
-    // menuItems
 
     // coffee
     for (let i = 0; i < menuItems.length - 12; i++) {
@@ -180,6 +182,10 @@ async function cardData() {
                 totalPrice.textContent =`$${itemInfo.price}`;
                 menuItem.textContent =`${itemInfo.name}`;
                 description.textContent =`${itemInfo.description}`;
+
+                additives1.textContent =`${itemInfo.additives[0].name}`;
+                additives2.textContent =`${itemInfo.additives[1].name}`;
+                additives3.textContent =`${itemInfo.additives[2].name}`;
             }
         })
     }
@@ -193,15 +199,15 @@ async function cardData() {
                 totalPrice.textContent =`$${itemInfo.price}`;
                 menuItem.textContent =`${itemInfo.name}`;
                 description.textContent =`${itemInfo.description}`;
+
+                additives1.textContent =`${itemInfo.additives[0].name}`;
+                additives2.textContent =`${itemInfo.additives[1].name}`;
+                additives3.textContent =`${itemInfo.additives[2].name}`;
             }
         })
     }
 
     // desserts
-
-    console.log(menuItemsTitles[12].textContent)
-    console.log(data[12].name)
-
     for (let i = 12; i < menuItems.length; i++) {
         menuItems[i].addEventListener('click', () => {
             if (data[i].name === menuItemsTitles[i].textContent) {
@@ -210,6 +216,10 @@ async function cardData() {
                 totalPrice.textContent =`$${itemInfo.price}`;
                 menuItem.textContent =`${itemInfo.name}`;
                 description.textContent =`${itemInfo.description}`;
+
+                additives1.textContent =`${itemInfo.additives[0].name}`;
+                additives2.textContent =`${itemInfo.additives[1].name}`;
+                additives3.textContent =`${itemInfo.additives[2].name}`;
             }
         })
     }
@@ -217,4 +227,6 @@ async function cardData() {
 
 cardData();
 
-console.log(`implement modal windows; try to make the home page slider`)
+// item.setAttribute('data', 'coffee-name');
+
+console.log(`counter, size button; try to accomplish the home page slider`)
