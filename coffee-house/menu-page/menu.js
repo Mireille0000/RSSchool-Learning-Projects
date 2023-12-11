@@ -341,5 +341,3 @@ cardData();
   // coffeeTitles.forEach(item => {
     //     item.setAttribute('data', 'coffee-name');
     // })
-
-console.log(`counter, size button; try to accomplish the home page slider`)
