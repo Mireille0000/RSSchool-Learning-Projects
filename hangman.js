@@ -138,6 +138,7 @@ const questions = [
 console.log(questions[1])
 
 // page content
+let errorsCounter = 0;
 
 const title = document.createElement("h1");
 title.innerHTML = `Hangman Game <img src="./gallows/hangman-icon.webp" alt="hangman image">`;
@@ -152,7 +153,7 @@ pageContent.innerHTML = `
 <div class="interactive-block">
     <div class="word"></div>
     <p class="hint">Hint: <b>Some hint </b></p>
-    <p class="incorrect-guesses">Incorrect Guesses: <b>0 / 6</b></p>
+    <p class="incorrect-guesses">Incorrect Guesses:<b> ${errorsCounter} / 6 </b></p>
 
     <div class="screen-keyboard">
         <button class="keyboard-button">a</button>
@@ -203,68 +204,40 @@ document.body.prepend(modalWindowWin);
 // secret word (show the hint and as many spans as word.length is)
 
 const hintText = document.querySelector(".hint b"),
-    secretWord = document.querySelector(".word");
+    secretWord = document.querySelector(".word"),
+    incorrectGuesse = document.querySelector(".incorrect-guesses b");
+    console.log(incorrectGuesse)
+let currentSecretWord;
 
 const showSecrectWordInfo = () => {
     const {word, hint} = questions[Math.floor(Math.random() * questions.length)];
     hintText.innerHTML = hint;
+    currentSecretWord = word;
     console.log(word);
     secretWord.innerHTML = word.split("").map(() => `<span class="char">__</span>`).join(" ");
 }
 
 showSecrectWordInfo();
 
+// screen keyboard
+const buttonsArray = Array.from(document.querySelectorAll(".keyboard-button"));
 
-// title
-// const title = document.createElement("h1");
-// title.innerHTML = "Hangman Game";
-// document.body.append(title);
-
-// const gallows = document.createElement("div");
-// gallows.className = "gallows";
-// gallows.style = "width: 20px; height: 2px; background: red";
-// document.body.append(gallows);
-
-// gallows
-// const gallowsImage = document.createElement("img");
-// gallowsImage.src = "./gallows/hangman-0.svg";
-// gallowsImage.alt = "gallows";
-// let a = document.querySelector(".gallows");
-// document.body.prepend(gallowsImage);
-
-// word
-
-// hint and incorrect guesses
-
-// const hint = document.createElement("div");
-// hint.innerHTML = `Hint:`;
-// hint.classList = "hint";
-// document.body.append(hint);
-
-// const incorrectGuesses = document.createElement("div");
-// incorrectGuesses.innerHTML = `Incorrect Guesses:`;
-// incorrectGuesses.classList = "incorrect-guesses";
-// document.body.append(incorrectGuesses);
-
-// keyboard
-// let arr = [];
-
-// function getKeyboard() {
-//     let fragment = new DocumentFragment();
-
-//     for (let i = 97; i <= 122; i++) {
-//         let button = document.createElement("button");
-//         button.append(String.fromCharCode(i));
-//         arr.push(button);
-//         fragment.append(button);
-
-//     }
-//     return fragment;
-// }
-
-// document.body.append(getKeyboard());
-// arr.forEach(button => {
-//     button.className = "button-keyboard";
-// })
+buttonsArray.forEach((button) => (
+    button.addEventListener("click", () => {
+        function enterLetter(button, letter){
+            if(currentSecretWord.includes(letter)) {
+                currentSecretWord.split("").map((char, index) => {
+                    if (char === letter) {
+                        secretWord.querySelectorAll("span")[index].innerHTML = char;
+                    }
+                })
+            } else {
+                errorsCounter++;
+                incorrectGuesse.innerHTML = ` ${errorsCounter} / 6`;
+            }
+        }
+        enterLetter(button, button.innerHTML);
+    })
+))
 
 // impelement some part of the task (page content, some simple requirements, some functionnality)
