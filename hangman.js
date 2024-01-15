@@ -228,13 +228,10 @@ const showSecrectWordInfo = () => {
 showSecrectWordInfo();
 
 // screen keyboard
+
 const buttonsArray = Array.from(document.querySelectorAll(".keyboard-button"));
-// gameMessage = document.querySelector(".game-message"),
-//     showSecretWord = document.querySelector(".secret-word"),
-//     playAgainButton = document.querySelector(".play-button");
 
 const gameOver = (isWin) => {
-    const guessedWord = `Secret word: ${currentSecretWord}`;
     modalWindow.querySelector("img").src = `./gallows/${isWin ? 'win-icon' : 'game-over'}.png`
     gameMessage.innerHTML = `${isWin ? 'You win!' : 'Game Over'}`;
     showSecretWord.innerHTML = `Secret word: ${currentSecretWord}`;
@@ -244,7 +241,6 @@ const gameOver = (isWin) => {
 buttonsArray.forEach((button) => (
     button.addEventListener("click", () => {
         button.classList.add('disabled');
-        // console.log(errorsCounter);
         function enterLetter(button, letter){
             if(currentSecretWord.includes(letter)) {
                 currentSecretWord.split("").map((char, index) => {
@@ -255,21 +251,20 @@ buttonsArray.forEach((button) => (
                 })
             } else {
                 errorsCounter++;
-                incorrectGuesse.innerHTML = ` ${errorsCounter} / 6`;
-                hangmanMembers.src = `./gallows/hangman-${errorsCounter}.svg`
+                // incorrectGuesse.innerHTML = ` ${errorsCounter} / 6`;
+                hangmanMembers.src = `./gallows/hangman-${errorsCounter}.svg`;
             }
-        }
+            incorrectGuesse.innerHTML = ` ${errorsCounter} / 6`;
 
-        // modals
-
-        if (errorsCounter === 5 ) {
-            console.log("Game over");
-            return gameOver(false)
-        }
-
-        if (lettersArr.length === currentSecretWord.length) {
-            console.log("Win");
-            return gameOver(true)
+            if (errorsCounter === 6) {
+                // incorrectGuesse.innerHTML = `6 / 6`;
+                return gameOver(false);
+            }
+    
+            if (lettersArr.length === currentSecretWord.length) {
+                console.log("Win");
+                return gameOver(true);
+            }
         }
         enterLetter(button, button.innerHTML);
     })
@@ -292,5 +287,3 @@ function resetGame() {
 }
 
 console.log(lettersArr);
-
-// impelement some part of the task (page content, some simple requirements, some functionnality)

@@ -146,6 +146,7 @@ h1 img {
 }
 
 .modal-window-content {
+    margin: 15px;
     padding: 50px 200px;
     font-family: "Bree Serif", sans-serif;
     font-size: 25px;
