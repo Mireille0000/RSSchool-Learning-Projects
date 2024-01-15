@@ -2,3 +2,37 @@ html {
     margin: 0;
     padding: 0;
 }
+
+.page-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 9rem;
+}
+
+h1 {
+    text-align: center;
+    font-variant: small-caps;
+    color: rgb(163, 133, 10);
+}
+
+.incorrect-guesses, .hint {
+    font-size: 25px;
+}
+
+.incorrect-guesses {
+    margin-bottom: 20px;
+}
+
+.screen-keyboard {
+    display: flex;
+}
+
+.button-keyboard {
+    width: 50px;
+    height: 35px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
