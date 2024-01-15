@@ -205,8 +205,9 @@ document.body.prepend(modalWindowWin);
 
 const hintText = document.querySelector(".hint b"),
     secretWord = document.querySelector(".word"),
-    incorrectGuesse = document.querySelector(".incorrect-guesses b");
-    console.log(incorrectGuesse)
+    incorrectGuesse = document.querySelector(".incorrect-guesses b"),
+    hangmanMembers = document.querySelector(".gallows-constraction img");
+    console.log(hangmanMembers.src);
 let currentSecretWord;
 
 const showSecrectWordInfo = () => {
@@ -234,7 +235,9 @@ buttonsArray.forEach((button) => (
             } else {
                 errorsCounter++;
                 incorrectGuesse.innerHTML = ` ${errorsCounter} / 6`;
+                hangmanMembers.src = `./gallows/hangman-${errorsCounter}.svg`
             }
+            button.classList.add('disabled');
         }
         enterLetter(button, button.innerHTML);
     })
