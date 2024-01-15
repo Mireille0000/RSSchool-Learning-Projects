@@ -1,23 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
 html {
     margin: 0;
     padding: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
 }
 
 .page-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-content: center;
     gap: 9rem;
+
+    font-family: "Bree Serif", sans-serif;
+    font-size: 30px;
+    letter-spacing: 2px;
 }
 
 h1 {
     text-align: center;
+    font-family: "Bree Serif", sans-serif;
     font-variant: small-caps;
+    font-size: 50px;
     color: rgb(163, 133, 10);
 }
 
+.gallows-constraction {
+    display: flex;
+    justify-content: center;
+}
+
 .incorrect-guesses, .hint {
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .incorrect-guesses {
@@ -26,13 +44,32 @@ h1 {
 
 .screen-keyboard {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 40rem;
 }
 
-.button-keyboard {
+.keyboard-button {
     width: 50px;
-    height: 35px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    align-items: center;
+    height: 40px;
+    font-family: "Bree Serif", sans-serif;
+    font-weight: 900;
+    font-size: 25px;
+    background-color: rgb(164, 50, 50);
+    border: rgb(164, 50, 50);
+    border-radius: 20%;
+    color: rgb(226, 237, 246);
 }
 
+.keyboard-button:hover {
+    background-color: rgb(172, 190, 164);
+    color: rgb(164, 50, 50);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 782px) {
+    .screen-keyboard {
+        width: 100%;
+    }
+}
