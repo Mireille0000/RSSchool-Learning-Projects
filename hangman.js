@@ -148,7 +148,7 @@ pageContent.innerHTML = `
 <div class="gallows-constraction">
     <img src="./gallows/hangman-0.svg" alt="gallows">
 </div>
-<div class="interactive-part">
+<div class="interactive-block">
     <div class="word">
         <span class="char">__</span>
         <span class="char guessed">a</span>

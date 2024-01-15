@@ -48,6 +48,13 @@ h1 img {
     justify-content: center;
 }
 
+.ineractive-block {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
 .char {
     text-transform: uppercase;
     letter-spacing: 0;
@@ -143,7 +150,16 @@ h1 img {
     height: 200px;
 }
 
+@media screen and (max-width: 1024px) {
+    .page-content {
+        padding: 10%;
+    }
+}
+
 @media screen and (max-width: 782px) {
+    .page-content {
+        padding: 5%;
+    }
     .screen-keyboard {
         width: 100%;
     }
