@@ -1,4 +1,4 @@
-// Question/ answer array
+// question/ answer array
 
 const questions = [
     {
@@ -135,12 +135,13 @@ const questions = [
     },
 ]
 
+console.log(questions[1])
+
 // page content
 
 const title = document.createElement("h1");
 title.innerHTML = `Hangman Game <img src="./gallows/hangman-icon.webp" alt="hangman image">`;
 document.body.append(title);
-
 
 const pageContent = document.createElement("div");
 pageContent.className = "page-content"
@@ -149,13 +150,7 @@ pageContent.innerHTML = `
     <img src="./gallows/hangman-0.svg" alt="gallows">
 </div>
 <div class="interactive-block">
-    <div class="word">
-        <span class="char">__</span>
-        <span class="char guessed">a</span>
-        <span class="char">__</span>
-        <span class="char">__</span>
-        <span class="char">__</span>
-    </div>
+    <div class="word"></div>
     <p class="hint">Hint: <b>Some hint </b></p>
     <p class="incorrect-guesses">Incorrect Guesses: <b>0 / 6</b></p>
 
@@ -191,11 +186,6 @@ pageContent.innerHTML = `
 `;
 document.body.append(pageContent);
 
-const screenKeyboard = document.querySelector(".screen-keyboard");
-const buttonsArray = document.querySelectorAll(".keybord-button");
-
-console.log(buttonsArray.length);
-
 // modal windows
 
 const modalWindowWin = document.createElement("div");
@@ -209,6 +199,20 @@ modalWindowWin.innerHTML = `
 </div>
 `;
 document.body.prepend(modalWindowWin);
+
+// secret word (show the hint and as many spans as word.length is)
+
+const hintText = document.querySelector(".hint b"),
+    secretWord = document.querySelector(".word");
+
+const showSecrectWordInfo = () => {
+    const {word, hint} = questions[Math.floor(Math.random() * questions.length)];
+    hintText.innerHTML = hint;
+    console.log(word);
+    secretWord.innerHTML = word.split("").map(() => `<span class="char">__</span>`).join(" ");
+}
+
+showSecrectWordInfo();
 
 
 // title
