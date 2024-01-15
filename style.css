@@ -7,6 +7,11 @@ html {
 body {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+    background-color: rgb(164, 50, 50);;
 }
 
 .page-content {
@@ -15,6 +20,10 @@ body {
     justify-content: center;
     align-content: center;
     gap: 9rem;
+    padding: 100px;
+
+    background-color: rgb(226, 237, 246);
+    border-radius: 100px;
 
     font-family: "Bree Serif", sans-serif;
     font-size: 30px;
@@ -26,12 +35,22 @@ h1 {
     font-family: "Bree Serif", sans-serif;
     font-variant: small-caps;
     font-size: 50px;
-    color: rgb(163, 133, 10);
+    color: rgb(226, 237, 246);
+}
+
+h1 img {
+    width: 40px;
+    height: 40px;
 }
 
 .gallows-constraction {
     display: flex;
     justify-content: center;
+}
+
+.char {
+    text-transform: uppercase;
+    letter-spacing: 0;
 }
 
 .incorrect-guesses, .hint {
