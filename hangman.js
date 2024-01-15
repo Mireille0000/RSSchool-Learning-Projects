@@ -139,6 +139,7 @@ console.log(questions[1])
 
 // page content
 let errorsCounter = 0;
+let lettersArr = [];
 
 const title = document.createElement("h1");
 title.innerHTML = `Hangman Game <img src="./gallows/hangman-icon.webp" alt="hangman image">`;
@@ -195,7 +196,7 @@ modalWindowWin.innerHTML = `
 <div class="modal-window-content">
     <img src="./gallows/win-icon.png" alt="you win">
     <p class="game-message">You win!</p>
-    <p class="secret-word">Secret word: </p>
+    <p class="secret-word">Secret word: <b> </b> </p>
     <button class="play-button">Play again</button>
 </div>
 `;
@@ -206,7 +207,12 @@ document.body.prepend(modalWindowWin);
 const hintText = document.querySelector(".hint b"),
     secretWord = document.querySelector(".word"),
     incorrectGuesse = document.querySelector(".incorrect-guesses b"),
-    hangmanMembers = document.querySelector(".gallows-constraction img");
+    hangmanMembers = document.querySelector(".gallows-constraction img"),
+    modalWindow = document.querySelector(".modal-window"),
+
+    gameMessage = document.querySelector(".game-message"),
+    showSecretWord = document.querySelector(".secret-word"),
+    playAgainButton = document.querySelector(".play-button");
     console.log(hangmanMembers.src);
 let currentSecretWord;
 
@@ -215,6 +221,7 @@ const showSecrectWordInfo = () => {
     hintText.innerHTML = hint;
     currentSecretWord = word;
     console.log(word);
+    resetGame();
     secretWord.innerHTML = word.split("").map(() => `<span class="char">__</span>`).join(" ");
 }
 
@@ -222,14 +229,28 @@ showSecrectWordInfo();
 
 // screen keyboard
 const buttonsArray = Array.from(document.querySelectorAll(".keyboard-button"));
+// gameMessage = document.querySelector(".game-message"),
+//     showSecretWord = document.querySelector(".secret-word"),
+//     playAgainButton = document.querySelector(".play-button");
+
+const gameOver = (isWin) => {
+    const guessedWord = `Secret word: ${currentSecretWord}`;
+    modalWindow.querySelector("img").src = `./gallows/${isWin ? 'win-icon' : 'game-over'}.png`
+    gameMessage.innerHTML = `${isWin ? 'You win!' : 'Game Over'}`;
+    showSecretWord.innerHTML = `Secret word: ${currentSecretWord}`;
+    modalWindow.classList.add("active");
+}
 
 buttonsArray.forEach((button) => (
     button.addEventListener("click", () => {
+        button.classList.add('disabled');
+        // console.log(errorsCounter);
         function enterLetter(button, letter){
             if(currentSecretWord.includes(letter)) {
                 currentSecretWord.split("").map((char, index) => {
                     if (char === letter) {
                         secretWord.querySelectorAll("span")[index].innerHTML = char;
+                        lettersArr.push(char);
                     }
                 })
             } else {
@@ -237,10 +258,39 @@ buttonsArray.forEach((button) => (
                 incorrectGuesse.innerHTML = ` ${errorsCounter} / 6`;
                 hangmanMembers.src = `./gallows/hangman-${errorsCounter}.svg`
             }
-            button.classList.add('disabled');
+        }
+
+        // modals
+
+        if (errorsCounter === 5 ) {
+            console.log("Game over");
+            return gameOver(false)
+        }
+
+        if (lettersArr.length === currentSecretWord.length) {
+            console.log("Win");
+            return gameOver(true)
         }
         enterLetter(button, button.innerHTML);
     })
 ))
+
+
+// play again button
+
+playAgainButton.addEventListener("click", showSecrectWordInfo);
+
+function resetGame() {
+    const buttonsArray = Array.from(document.querySelectorAll(".keyboard-button"));
+    lettersArr = [];
+    errorsCounter = 0;
+    hangmanMembers.src = `./gallows/hangman-${errorsCounter}.svg`;
+    buttonsArray.forEach((button) => button.classList.remove('disabled'));
+    secretWord.innerHTML = currentSecretWord.split("").map(() => `<span class="char">__</span>`).join(" ");
+    incorrectGuesse.innerHTML = ` ${errorsCounter} / 6`;
+    modalWindow.classList.remove("active");
+}
+
+console.log(lettersArr);
 
 // impelement some part of the task (page content, some simple requirements, some functionnality)

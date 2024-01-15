@@ -104,10 +104,21 @@ h1 img {
     cursor: pointer;
 }
 
-.keyboard-button.disabled {
+.disabled {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 40px;
+
+    font-family: "Bree Serif", sans-serif;
+    font-weight: 900;
+    font-size: 25px;
     background-color: rgb(172, 190, 164);
     color: rgb(164, 50, 50);
-    cursor: none;
+    border: rgb(164, 50, 50);
+    border-radius: 20%;
+    pointer-events: none;
 }
 
 /* modal windows */
