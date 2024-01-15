@@ -1,4 +1,4 @@
-// Question/ answer obj
+// Question/ answer array
 
 const questions = [
     {
@@ -135,8 +135,6 @@ const questions = [
     },
 ]
 
-console.log(questions.length);
-
 // page content
 
 const title = document.createElement("h1");
@@ -153,13 +151,13 @@ pageContent.innerHTML = `
 <div class="interactive-part">
     <div class="word">
         <span class="char">__</span>
-        <span class="char">a</span>
+        <span class="char guessed">a</span>
         <span class="char">__</span>
         <span class="char">__</span>
         <span class="char">__</span>
     </div>
-    <p><b>Hint:</b> Some hint</p>
-    <p><b>Incorrect Guesses:</b> 0 / 6</p>
+    <p class="hint">Hint: <b>Some hint </b></p>
+    <p class="incorrect-guesses">Incorrect Guesses: <b>0 / 6</b></p>
 
     <div class="screen-keyboard">
         <button class="keyboard-button">a</button>
@@ -198,10 +196,19 @@ const buttonsArray = document.querySelectorAll(".keybord-button");
 
 console.log(buttonsArray.length);
 
+// modal windows
 
-
-
-
+const modalWindowWin = document.createElement("div");
+modalWindowWin.className = "modal-window";
+modalWindowWin.innerHTML = `
+<div class="modal-window-content">
+    <img src="./gallows/win-icon.png" alt="you win">
+    <p class="game-message">You win!</p>
+    <p class="secret-word">Secret word: </p>
+    <button class="play-button">Play again</button>
+</div>
+`;
+document.body.prepend(modalWindowWin);
 
 
 // title
