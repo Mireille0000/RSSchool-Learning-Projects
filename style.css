@@ -19,8 +19,8 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    gap: 9rem;
-    padding: 100px;
+    gap: 7rem;
+    padding: 70px;
 
     background-color: rgb(226, 237, 246);
     border-radius: 100px;
@@ -48,7 +48,7 @@ h1 img {
     justify-content: center;
 }
 
-.ineractive-block {
+.interactive-block {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -63,6 +63,11 @@ h1 img {
 .incorrect-guesses, .hint {
     font-weight: 800;
     font-size: 30px;
+}
+
+.hint {
+    width: 700px;
+    text-align: center;
 }
 
 .hint b {
@@ -171,12 +176,27 @@ h1 img {
     .page-content {
         padding: 10%;
     }
+
+    .interactive-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hint {
+        width: 90%;
+    }
 }
 
 @media screen and (max-width: 782px) {
     .page-content {
         padding: 5%;
     }
+
+    .incorrect-guesses, .hint {
+        font-size: 25px;
+    }
+
     .screen-keyboard {
         width: 100%;
     }
