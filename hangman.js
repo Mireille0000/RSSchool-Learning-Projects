@@ -215,6 +215,7 @@ const hintText = document.querySelector(".hint b"),
     playAgainButton = document.querySelector(".play-button");
     console.log(hangmanMembers.src);
 let currentSecretWord;
+let wrongLettersArr = [];
 
 const showSecrectWordInfo = () => {
     const {word, hint} = questions[Math.floor(Math.random() * questions.length)];
@@ -227,8 +228,6 @@ const showSecrectWordInfo = () => {
 
 showSecrectWordInfo();
 
-// screen keyboard
-
 const buttonsArray = Array.from(document.querySelectorAll(".keyboard-button"));
 
 const gameOver = (isWin) => {
@@ -238,10 +237,60 @@ const gameOver = (isWin) => {
     modalWindow.classList.add("active");
 }
 
+// physical keyboard
+
+document.addEventListener("keydown", (event) => {
+    const keyName =  event.key;
+    buttonsArray.filter((button) => {
+        if ((button.innerHTML === keyName)) {
+            button.classList.add("disabled");
+        }
+    })
+
+    function enterPhysicalKeyboard(){
+        if(currentSecretWord.includes(keyName)) {
+            currentSecretWord.split("").map((char, index) => {
+                if (char === keyName) {
+                    secretWord.querySelectorAll("span")[index].innerHTML = char;
+                    if (!lettersArr.includes(char)) {
+                        lettersArr.push(char);
+                    }
+                }
+            })
+        } else {
+            if (/[a-zA-Z]/.test(keyName) && keyName.length < 2){
+                // errorsCounter++;
+                if(!wrongLettersArr.includes(keyName)) {
+                    errorsCounter++;
+                    wrongLettersArr.push(keyName);
+                    hangmanMembers.src = `./gallows/hangman-${errorsCounter}.svg`;
+                }
+                console.log(wrongLettersArr.length);
+                // hangmanMembers.src = `./gallows/hangman-${errorsCounter}.svg`;
+            }
+        }
+        incorrectGuesse.innerHTML = ` ${errorsCounter} / 6`;
+
+        if (wrongLettersArr.length === 6) {
+            return gameOver(false);
+        }
+
+        const secretWordArr = currentSecretWord.split("").filter((letter, index) => {
+            return currentSecretWord.indexOf(letter) === index});
+
+        if (lettersArr.length === secretWordArr.length) {
+            return gameOver(true);
+        }
+    }
+    enterPhysicalKeyboard();
+})
+
+// screen keyboard
+
 buttonsArray.forEach((button) => (
     button.addEventListener("click", () => {
-        button.classList.add('disabled');
-        function enterLetter(button, letter){
+        button.classList.add("disabled");
+        function enterScreenKeyboard(button, letter){
             if(currentSecretWord.includes(letter)) {
                 currentSecretWord.split("").map((char, index) => {
                     if (char === letter) {
@@ -266,10 +315,9 @@ buttonsArray.forEach((button) => (
                 return gameOver(true);
             }
         }
-        enterLetter(button, button.innerHTML);
+        enterScreenKeyboard(button, button.innerHTML);
     })
 ))
-
 
 // play again button
 
@@ -278,6 +326,7 @@ playAgainButton.addEventListener("click", showSecrectWordInfo);
 function resetGame() {
     const buttonsArray = Array.from(document.querySelectorAll(".keyboard-button"));
     lettersArr = [];
+    wrongLettersArr = [];
     errorsCounter = 0;
     hangmanMembers.src = `./gallows/hangman-${errorsCounter}.svg`;
     buttonsArray.forEach((button) => button.classList.remove('disabled'));
