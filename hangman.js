@@ -216,6 +216,7 @@ const hintText = document.querySelector(".hint b"),
     console.log(hangmanMembers.src);
 let currentSecretWord;
 let wrongLettersArr = [];
+let secretWordArr;
 
 const showSecrectWordInfo = () => {
     const {word, hint} = questions[Math.floor(Math.random() * questions.length)];
@@ -247,6 +248,9 @@ document.addEventListener("keydown", (event) => {
         }
     })
 
+    secretWordArr = currentSecretWord.split("").filter((letter, index) => {
+        return currentSecretWord.indexOf(letter) === index});
+
     function enterPhysicalKeyboard(){
         if(currentSecretWord.includes(keyName)) {
             currentSecretWord.split("").map((char, index) => {
@@ -264,9 +268,8 @@ document.addEventListener("keydown", (event) => {
                     errorsCounter++;
                     wrongLettersArr.push(keyName);
                     hangmanMembers.src = `./gallows/hangman-${errorsCounter}.svg`;
+                    console.log(wrongLettersArr);
                 }
-                console.log(wrongLettersArr.length);
-                // hangmanMembers.src = `./gallows/hangman-${errorsCounter}.svg`;
             }
         }
         incorrectGuesse.innerHTML = ` ${errorsCounter} / 6`;
@@ -275,8 +278,8 @@ document.addEventListener("keydown", (event) => {
             return gameOver(false);
         }
 
-        const secretWordArr = currentSecretWord.split("").filter((letter, index) => {
-            return currentSecretWord.indexOf(letter) === index});
+        // const secretWordArr = currentSecretWord.split("").filter((letter, index) => {
+        //     return currentSecretWord.indexOf(letter) === index});
 
         if (lettersArr.length === secretWordArr.length) {
             return gameOver(true);
@@ -291,26 +294,40 @@ buttonsArray.forEach((button) => (
     button.addEventListener("click", () => {
         button.classList.add("disabled");
         function enterScreenKeyboard(button, letter){
+            secretWordArr = currentSecretWord.split("").filter((letter, index) => {
+                return currentSecretWord.indexOf(letter) === index});
+
             if(currentSecretWord.includes(letter)) {
                 currentSecretWord.split("").map((char, index) => {
                     if (char === letter) {
                         secretWord.querySelectorAll("span")[index].innerHTML = char;
-                        lettersArr.push(char);
+                        if(!lettersArr.includes(char)) {
+                            lettersArr.push(char);
+                        }
+                        // lettersArr.push(char);
+                        console.log(lettersArr);
                     }
                 })
             } else {
-                errorsCounter++;
-                // incorrectGuesse.innerHTML = ` ${errorsCounter} / 6`;
-                hangmanMembers.src = `./gallows/hangman-${errorsCounter}.svg`;
+                if (/[a-zA-Z]/.test(letter) && letter.length < 2){
+                    // errorsCounter++;
+                    if(!wrongLettersArr.includes(letter)) {
+                        errorsCounter++;
+                        wrongLettersArr.push(letter);
+                        hangmanMembers.src = `./gallows/hangman-${errorsCounter}.svg`;
+                    }
+                    console.log(wrongLettersArr.length);
+                }
+            // errorsCounter++;
+            // hangmanMembers.src = `./gallows/hangman-${errorsCounter}.svg`;
             }
             incorrectGuesse.innerHTML = ` ${errorsCounter} / 6`;
 
-            if (errorsCounter === 6) {
-                // incorrectGuesse.innerHTML = `6 / 6`;
+            if (wrongLettersArr.length === 6) {
                 return gameOver(false);
             }
     
-            if (lettersArr.length === currentSecretWord.length) {
+            if (lettersArr.length === secretWordArr.length) {
                 console.log("Win");
                 return gameOver(true);
             }
@@ -328,6 +345,7 @@ function resetGame() {
     lettersArr = [];
     wrongLettersArr = [];
     errorsCounter = 0;
+    secretWordArr;
     hangmanMembers.src = `./gallows/hangman-${errorsCounter}.svg`;
     buttonsArray.forEach((button) => button.classList.remove('disabled'));
     secretWord.innerHTML = currentSecretWord.split("").map(() => `<span class="char">__</span>`).join(" ");
