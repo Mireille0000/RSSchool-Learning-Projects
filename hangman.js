@@ -138,6 +138,7 @@ const questions = [
 console.log(questions[1])
 
 // page content
+const body = document.querySelector("body"); //
 let errorsCounter = 0;
 let lettersArr = [];
 
@@ -203,17 +204,16 @@ modalWindowWin.innerHTML = `
 document.body.prepend(modalWindowWin);
 
 // secret word (show the hint and as many spans as word.length is)
-
 const hintText = document.querySelector(".hint b"),
     secretWord = document.querySelector(".word"),
     incorrectGuesse = document.querySelector(".incorrect-guesses b"),
     hangmanMembers = document.querySelector(".gallows-constraction img"),
+    screenKeyboard = document.querySelector(".screen-keyboard"), //
     modalWindow = document.querySelector(".modal-window"),
 
     gameMessage = document.querySelector(".game-message"),
     showSecretWord = document.querySelector(".secret-word"),
     playAgainButton = document.querySelector(".play-button");
-    console.log(hangmanMembers.src);
 let currentSecretWord;
 let wrongLettersArr = [];
 let secretWordArr;
@@ -231,15 +231,7 @@ showSecrectWordInfo();
 
 const buttonsArray = Array.from(document.querySelectorAll(".keyboard-button"));
 
-const gameOver = (isWin) => {
-    modalWindow.querySelector("img").src = `./gallows/${isWin ? 'win-icon' : 'game-over'}.png`
-    gameMessage.innerHTML = `${isWin ? 'You win!' : 'Game Over'}`;
-    showSecretWord.innerHTML = `Secret word: ${currentSecretWord}`;
-    modalWindow.classList.add("active");
-}
-
 // physical keyboard
-
 document.addEventListener("keydown", (event) => {
     const keyName =  event.key;
     buttonsArray.filter((button) => {
@@ -249,7 +241,8 @@ document.addEventListener("keydown", (event) => {
     })
 
     secretWordArr = currentSecretWord.split("").filter((letter, index) => {
-        return currentSecretWord.indexOf(letter) === index});
+        return currentSecretWord.indexOf(letter) === index
+    });
 
     function enterPhysicalKeyboard(){
         if(currentSecretWord.includes(keyName)) {
@@ -263,12 +256,10 @@ document.addEventListener("keydown", (event) => {
             })
         } else {
             if (/[a-zA-Z]/.test(keyName) && keyName.length < 2){
-                // errorsCounter++;
                 if(!wrongLettersArr.includes(keyName)) {
                     errorsCounter++;
                     wrongLettersArr.push(keyName);
                     hangmanMembers.src = `./gallows/hangman-${errorsCounter}.svg`;
-                    console.log(wrongLettersArr);
                 }
             }
         }
@@ -277,10 +268,6 @@ document.addEventListener("keydown", (event) => {
         if (wrongLettersArr.length === 6) {
             return gameOver(false);
         }
-
-        // const secretWordArr = currentSecretWord.split("").filter((letter, index) => {
-        //     return currentSecretWord.indexOf(letter) === index});
-
         if (lettersArr.length === secretWordArr.length) {
             return gameOver(true);
         }
@@ -289,7 +276,6 @@ document.addEventListener("keydown", (event) => {
 })
 
 // screen keyboard
-
 buttonsArray.forEach((button) => (
     button.addEventListener("click", () => {
         button.classList.add("disabled");
@@ -318,8 +304,6 @@ buttonsArray.forEach((button) => (
                     }
                     console.log(wrongLettersArr.length);
                 }
-            // errorsCounter++;
-            // hangmanMembers.src = `./gallows/hangman-${errorsCounter}.svg`;
             }
             incorrectGuesse.innerHTML = ` ${errorsCounter} / 6`;
 
@@ -328,7 +312,6 @@ buttonsArray.forEach((button) => (
             }
     
             if (lettersArr.length === secretWordArr.length) {
-                console.log("Win");
                 return gameOver(true);
             }
         }
@@ -336,8 +319,16 @@ buttonsArray.forEach((button) => (
     })
 ))
 
-// play again button
+// game over 
+const gameOver = (isWin) => {
+    modalWindow.querySelector("img").src = `./gallows/${isWin ? 'win-icon' : 'game-over'}.png`
+    gameMessage.innerHTML = `${isWin ? 'You win!' : 'Game Over'}`;
+    showSecretWord.innerHTML = `Secret word: ${currentSecretWord}`;
+    modalWindow.classList.add("active");
+    body.style.overflow = "hidden";
+}
 
+// play again button
 playAgainButton.addEventListener("click", showSecrectWordInfo);
 
 function resetGame() {
@@ -351,6 +342,5 @@ function resetGame() {
     secretWord.innerHTML = currentSecretWord.split("").map(() => `<span class="char">__</span>`).join(" ");
     incorrectGuesse.innerHTML = ` ${errorsCounter} / 6`;
     modalWindow.classList.remove("active");
+    body.style.overflow = "auto";
 }
-
-console.log(lettersArr);

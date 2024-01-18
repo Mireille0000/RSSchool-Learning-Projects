@@ -129,9 +129,9 @@ h1 img {
 /* modal windows */
 
 .modal-window {
-    position: absolute;
+    position: fixed;
     top: 0;
-    left: 0;
+    /* left: 0; */
     display: none;
     flex-wrap: wrap;
     flex-direction: column;
