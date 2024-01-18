@@ -319,6 +319,11 @@ buttonsArray.forEach((button) => (
     })
 ))
 
+function stopProp(event) {
+    event.stopPropagation();
+    console.log("please");
+}
+
 // game over 
 const gameOver = (isWin) => {
     modalWindow.querySelector("img").src = `./gallows/${isWin ? 'win-icon' : 'game-over'}.png`
@@ -326,6 +331,8 @@ const gameOver = (isWin) => {
     showSecretWord.innerHTML = `Secret word: ${currentSecretWord}`;
     modalWindow.classList.add("active");
     body.style.overflow = "hidden";
+
+    body.addEventListener("keydown", stopProp);
 }
 
 // play again button
@@ -343,4 +350,5 @@ function resetGame() {
     incorrectGuesse.innerHTML = ` ${errorsCounter} / 6`;
     modalWindow.classList.remove("active");
     body.style.overflow = "auto";
+    body.removeEventListener("keydown", stopProp);
 }
