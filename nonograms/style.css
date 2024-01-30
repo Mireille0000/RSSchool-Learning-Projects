@@ -2,3 +2,55 @@ html {
     margin: 0;
     padding: 0;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #ccb5;
+}
+
+.grid {
+    width: 610px;
+    /* height: 550px; */
+    background-color: rgba(33, 147, 219, 0.333);
+
+    display: flex;
+    flex-wrap: wrap;
+
+    border-left: 4px solid rgba(51, 68, 67, 0.333);
+    /* justify-content: center;
+    align-items: center; */
+}
+
+.cell {
+ width: 108px;
+ height: 108px;
+ background-color: rgba(181, 222, 219, 0.333);
+ border: 1px solid rgba(51, 68, 67, 0.333);
+}
+
+/* ?? */
+.hint:first-child {
+    width: 58px;
+    height: 58px;
+}
+
+.hint {
+    width: 109px;
+    height: 58px;
+
+    text-align: center;
+    border-bottom: 5px solid rgba(51, 68, 67, 0.333);
+    border-right: 1px solid rgba(51, 68, 67, 0.333);
+}
+
+.hint-vertical {
+    width: 58px;
+    height: 109px;
+    text-align: center;
+
+    border-bottom: 1px solid rgba(51, 68, 67, 0.333);
+}
