@@ -12,15 +12,23 @@ body {
     background-color: #ccb5;
 }
 
+.attempts {
+    display: flex;
+
+    font-size: 47px;
+    color: rgb(186, 28, 28);
+    ;
+}
+
 .grid {
     width: 610px;
     /* height: 550px; */
-    background-color: rgba(33, 147, 219, 0.333);
+    /* background-color: rgba(33, 147, 219, 0.333); */
 
     display: flex;
     flex-wrap: wrap;
 
-    border-left: 4px solid rgba(51, 68, 67, 0.333);
+    /* border-left: 4px solid rgba(51, 68, 67, 0.333); */
     /* justify-content: center;
     align-items: center; */
 }
@@ -28,29 +36,46 @@ body {
 .cell {
  width: 108px;
  height: 108px;
- background-color: rgba(181, 222, 219, 0.333);
+ /* background-color: rgba(181, 222, 219, 0.333); */
  border: 1px solid rgba(51, 68, 67, 0.333);
 }
 
 /* ?? */
-.hint:first-child {
-    width: 58px;
+/* .hint-horizontal:first-child {
+    width: 60px;
     height: 58px;
+} */
+
+.hint-horisontal-box {
+    display: flex;
+    justify-content: center;
+    width: 610px;
+    margin-left: 59px;
 }
 
-.hint {
+.hint-horizontal {
     width: 109px;
     height: 58px;
+    display: flex;
 
+    background-color: #ccb5;
     text-align: center;
     border-bottom: 5px solid rgba(51, 68, 67, 0.333);
     border-right: 1px solid rgba(51, 68, 67, 0.333);
 }
 
-.hint-vertical {
+/* .hint-vertical-box {
     width: 58px;
+    display: flex;
+    flex-direction: column;
+} */
+
+.hint-vertical {
+    width: 54px;
     height: 109px;
     text-align: center;
 
     border-bottom: 1px solid rgba(51, 68, 67, 0.333);
+    border-right: 5px solid rgba(51, 68, 67, 0.333);
+    background-color: #ccb5;
 }
