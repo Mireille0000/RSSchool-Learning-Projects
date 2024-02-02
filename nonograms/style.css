@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Pixelify+Sans&display=swap');
+
 html {
     margin: 0;
     padding: 0;
@@ -9,7 +11,14 @@ body {
     justify-content: center;
     align-items: center;
 
+    font-family: 'Pixelify Sans', sans-serif;
     background-color: #ccb5;
+}
+
+h1 {
+    font-size: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .attempts {
@@ -71,3 +80,48 @@ body {
     border-right: 5px solid rgba(51, 68, 67, 0.333);
     background-color: #ccb5;
 }
+
+/* modal window */
+
+.window {
+    width: 40%;
+    height: 40vh;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ccb5;
+
+    border-radius: 5%;
+}
+
+.window.active {
+    display: flex;
+}
+
+.window-nonogram {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #a36f6f;
+}
+
+.window-nonogram div {
+    width: 38px;
+    height: 38px;
+    border: 1px solid #a36f6f;
+    background-color: rgb(190, 152, 152);
+}
+
+.window-buttton {
+    appearance: none;
+    width: 120px;
+    height: 40px;
+    font-family: "Pixelify Sans", sans-serif;
+    border: 1px solid #a36f6f;
+    border-radius: 5%;
+}
+
+h1{color: #034e23}

@@ -73,21 +73,6 @@ function addElements() {
   });
 
   // for tree 0 - 9, 12, 16 - 18, 20 - 25
-  // const a = cellsArr.map((cell) => { 
-  //   if (cellsArr.indexOf(cell) < 10 || cellsArr.indexOf(cell) === 12
-  //   || (cellsArr.indexOf(cell) > 15 && cellsArr.indexOf(cell) < 19) || cellsArr.indexOf(cell) > 19) {
-  //     return cell;
-  //   }
-  //   return;
-  // })
-
-  // let b = a.filter(item => item !== undefined)
-
-  // b.map(cell => {
-  //   cell.addEventListener("click", () => {
-  //       cell.classList.toggle("correct");
-  //     });
-  // })
 
   // horizontal hints
   for (let i = 0; i < 5; i++) {
@@ -101,12 +86,57 @@ function addElements() {
   horizontalHintsArr[3].innerHTML = `${3}<br>${1}`;
   horizontalHintsArr[4].innerHTML = `${2}<br>${1}`;
 
+  // ??
   const gameFieldTree = Array(19).fill("correct");
   console.log(gameFieldTree);
+
+  // modal window
+
+  const window = document.createElement("div");
+  window.className = "window";
+
+  const smallGrid = document.createElement("div");
+  smallGrid.className = "window-nonogram";
+  const smallGridItem = document.createElement("div");
+
+  for (let i = 0; i < 25; i++) {
+    smallGrid.appendChild(smallGridItem.cloneNode(true));
+  }
+
+
+  const windowText = document.createElement("p");
+  windowText.className = "window-text";
+  windowText.innerHTML = "Great! You have solved the nonogram!"
+
+  const windowButton = document.createElement("button");
+  windowButton.className = "window-buttton";
+  windowButton.innerHTML = "Play again";
+  
+  document.body.append(window);
+
+  window.append(smallGrid, windowText, windowButton);
+
+  const nonogramItems = Array.from(document.querySelectorAll(".window-nonogram div"));
+  nonogramItems.map((item, index) => {
+    if (nonogramItems.indexOf(item) <= 9 || (nonogramItems.indexOf(item) > 10 
+    && nonogramItems.indexOf(item) < 14)) {
+      item.style = "background-color: #04893e"
+    }
+
+    if (nonogramItems.indexOf(item) === 17) {
+      item.style = "background-color: brown"
+    }
+
+    if (nonogramItems.indexOf(item) >= 20) {
+      item.style = "background-color: #034e23"
+    }
+  })
+  console.log(nonogramItems);
 }
 
 // todo
-// show hints that are necessary to make an image (how they shoud be made??)
-// add class to clicked cells
-// - if a cell is correct it becomes black
-// - if a cell is incorrect, a crosse appears in the cell
+// modal:
+// -modal background
+// -button "play again"
+// win
+// - show modal window "Great!.." if the solution is found
