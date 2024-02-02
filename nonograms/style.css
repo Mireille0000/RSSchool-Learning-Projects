@@ -22,29 +22,24 @@ body {
 
 .grid {
     width: 610px;
-    /* height: 550px; */
-    /* background-color: rgba(33, 147, 219, 0.333); */
-
     display: flex;
     flex-wrap: wrap;
-
-    /* border-left: 4px solid rgba(51, 68, 67, 0.333); */
-    /* justify-content: center;
-    align-items: center; */
 }
 
 .cell {
  width: 108px;
  height: 108px;
- /* background-color: rgba(181, 222, 219, 0.333); */
  border: 1px solid rgba(51, 68, 67, 0.333);
+ cursor: pointer
 }
 
-/* ?? */
-/* .hint-horizontal:first-child {
-    width: 60px;
-    height: 58px;
-} */
+.cell.correct {
+    background-color: #000;
+}
+
+.cell.incorrect {
+    background-color: #830b0b;
+}
 
 .hint-horisontal-box {
     display: flex;
@@ -57,23 +52,20 @@ body {
     width: 109px;
     height: 58px;
     display: flex;
+    justify-content: center;
+    align-items: center;
 
     background-color: #ccb5;
-    text-align: center;
     border-bottom: 5px solid rgba(51, 68, 67, 0.333);
     border-right: 1px solid rgba(51, 68, 67, 0.333);
 }
 
-/* .hint-vertical-box {
-    width: 58px;
-    display: flex;
-    flex-direction: column;
-} */
-
 .hint-vertical {
     width: 54px;
     height: 109px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     border-bottom: 1px solid rgba(51, 68, 67, 0.333);
     border-right: 5px solid rgba(51, 68, 67, 0.333);

@@ -17,7 +17,7 @@ function addElements() {
   const grid = document.createElement("div");
   grid.className = "grid";
   const cell = document.createElement("div");
-  cell.className = "cell";
+  // cell.className = "cell";
   const hints = document.createElement("div");
   hints.className = "hint";
 
@@ -29,7 +29,7 @@ function addElements() {
 
   const verticalHints = document.createElement("div");
   const verticalHintsItems = document.createElement("div");
-  verticalHintsItems.className = "hint-vertical";
+  // verticalHintsItems.className = "hint-vertical";
   verticalHints.className = "hint-vertical-box";
 
   document.body.prepend(title, attempts, horizontalHints, grid);
@@ -37,35 +37,72 @@ function addElements() {
   for (let i = 0; i < 30; i++) {
     grid.appendChild(cell.cloneNode(true));
   }
-  // grid.after(verticalHints);
 
-  // for (let i = 0; i < 5; i++) {
-  //   verticalHints.prepend(verticalHintsItems.cloneNode(true));
-  // }
+  const gridItems = Array.from(document.querySelectorAll(".grid div"));
+  console.log(gridItems.length);
 
-   // change
-  const test = Array.from(document.querySelectorAll(".cell"));
-
-  test.forEach((cell) => {
-    cell.style = "cursor: pointer";
-    cell.addEventListener("click", () => {
-      cell.style = "background-color: #000; pointer-events: none";
-    });
+  gridItems.map((item) => {
+    if (gridItems.indexOf(item) % 6 !== 0) {
+      item.className = "cell";
+    }
   })
+
+  // vertical hints
+  gridItems.map((item, index) => {
+    if (gridItems.indexOf(item) % 6 === 0) {
+      item.className = "hint-vertical";
+      item.innerHTML = 0;
+      console.log(index);
+    }
+  })
+
+  const verticalHintsArr = Array.from(document.querySelectorAll(".hint-vertical"));
+  verticalHintsArr[0].innerHTML = 5;
+  verticalHintsArr[1].innerHTML = 5;
+  verticalHintsArr[2].innerHTML = 3;
+  verticalHintsArr[3].innerHTML = 1;
+  verticalHintsArr[4].innerHTML = 5;
+  console.log(verticalHintsArr);
+
+  const cellsArr = Array.from(document.querySelectorAll(".cell"));
+
+  cellsArr.map(cell => {
+    cell.addEventListener("click", () => {
+      cell.classList.toggle("correct");
+    })
+  });
+
+  // for tree 0 - 9, 12, 16 - 18, 20 - 25
+  // const a = cellsArr.map((cell) => { 
+  //   if (cellsArr.indexOf(cell) < 10 || cellsArr.indexOf(cell) === 12
+  //   || (cellsArr.indexOf(cell) > 15 && cellsArr.indexOf(cell) < 19) || cellsArr.indexOf(cell) > 19) {
+  //     return cell;
+  //   }
+  //   return;
+  // })
+
+  // let b = a.filter(item => item !== undefined)
+
+  // b.map(cell => {
+  //   cell.addEventListener("click", () => {
+  //       cell.classList.toggle("correct");
+  //     });
+  // })
 
   // horizontal hints
   for (let i = 0; i < 5; i++) {
     horizontalHints.prepend(horizontalHintsItems.cloneNode(true));
   }
 
+  const horizontalHintsArr = Array.from(document.querySelectorAll(".hint-horizontal"));
+  horizontalHintsArr[0].innerHTML = `${2}<br>${1}`;
+  horizontalHintsArr[1].innerHTML = `${3}<br>${1}`;
+  horizontalHintsArr[2].innerHTML = `${5}`;
+  horizontalHintsArr[3].innerHTML = `${3}<br>${1}`;
+  horizontalHintsArr[4].innerHTML = `${2}<br>${1}`;
 
-  // vertical hints
-  test.map((item) => {
-    if (test.indexOf(item) % 6 === 0) {
-      item.className = "hint-vertical";
-      console.log(test.indexOf(item));
-    }
-  })
+  const gameFieldTree = Array(19).fill("correct");
+  console.log(gameFieldTree);
 }
 
 // todo
