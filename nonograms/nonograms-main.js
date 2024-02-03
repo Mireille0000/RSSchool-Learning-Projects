@@ -17,7 +17,6 @@ function addElements() {
   const grid = document.createElement("div");
   grid.className = "grid";
   const cell = document.createElement("div");
-  // cell.className = "cell";
   const hints = document.createElement("div");
   hints.className = "hint";
 
@@ -29,7 +28,6 @@ function addElements() {
 
   const verticalHints = document.createElement("div");
   const verticalHintsItems = document.createElement("div");
-  // verticalHintsItems.className = "hint-vertical";
   verticalHints.className = "hint-vertical-box";
 
   document.body.prepend(title, attempts, horizontalHints, grid);
@@ -72,8 +70,6 @@ function addElements() {
     })
   });
 
-  // for tree 0 - 9, 12, 16 - 18, 20 - 25
-
   // horizontal hints
   for (let i = 0; i < 5; i++) {
     horizontalHints.prepend(horizontalHintsItems.cloneNode(true));
@@ -91,6 +87,9 @@ function addElements() {
   console.log(gameFieldTree);
 
   // modal window
+
+  const windowBackground = document.createElement("div");
+  windowBackground.className = "modal-background";
 
   const window = document.createElement("div");
   window.className = "window";
@@ -112,19 +111,22 @@ function addElements() {
   windowButton.className = "window-buttton";
   windowButton.innerHTML = "Play again";
   
+  document.body.append(windowBackground);
   document.body.append(window);
-
   window.append(smallGrid, windowText, windowButton);
 
+  // tree nonogram
+  // for tree 0 - 9, 12, 16 - 18, 20 - 25
   const nonogramItems = Array.from(document.querySelectorAll(".window-nonogram div"));
-  nonogramItems.map((item, index) => {
+
+  nonogramItems.map((item) => {
     if (nonogramItems.indexOf(item) <= 9 || (nonogramItems.indexOf(item) > 10 
     && nonogramItems.indexOf(item) < 14)) {
       item.style = "background-color: #04893e"
     }
 
     if (nonogramItems.indexOf(item) === 17) {
-      item.style = "background-color: brown"
+      item.style = "background-color: #713d09"
     }
 
     if (nonogramItems.indexOf(item) >= 20) {
