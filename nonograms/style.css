@@ -43,13 +43,13 @@ h1 {
  cursor: pointer;
 }
 
-.cell.correct {
+.cell.clicked {
     background-color: #000;
 }
 
-.cell.incorrect {
+/* .cell.incorrect {
     background-color: #830b0b;
-}
+} */
 
 .hint-horisontal-box {
     width: 610px;

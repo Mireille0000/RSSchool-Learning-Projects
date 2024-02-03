@@ -50,7 +50,6 @@ function addElements() {
     if (gridItems.indexOf(item) % 6 === 0) {
       item.className = "hint-vertical";
       item.innerHTML = 0;
-      console.log(index);
     }
   })
 
@@ -60,13 +59,12 @@ function addElements() {
   verticalHintsArr[2].innerHTML = 3;
   verticalHintsArr[3].innerHTML = 1;
   verticalHintsArr[4].innerHTML = 5;
-  console.log(verticalHintsArr);
 
   const cellsArr = Array.from(document.querySelectorAll(".cell"));
 
   cellsArr.map(cell => {
     cell.addEventListener("click", () => {
-      cell.classList.toggle("correct");
+      cell.classList.toggle("clicked");
     })
   });
 
@@ -84,7 +82,6 @@ function addElements() {
 
   // ??
   const gameFieldTree = Array(19).fill("correct");
-  console.log(gameFieldTree);
 
   // modal window
 
@@ -133,12 +130,38 @@ function addElements() {
       item.style = "background-color: #034e23"
     }
   })
-  console.log(nonogramItems);
+
+  // win game
+  let arr = [];
+  let correctCells = new Set();
+  let incorrectCells = [];
+
+cellsArr.map(cell => {
+  cell.addEventListener("click", () => {
+    if (cellsArr.indexOf(cell) <= 9 || (cellsArr.indexOf(cell) > 10 
+      && cellsArr.indexOf(cell) < 14) || cellsArr.indexOf(cell) === 17 
+      || cellsArr.indexOf(cell) >= 20) {
+        cell.classList.add("correct");
+        arr.push(cell);
+        correctCells = new Set(arr);
+        console.log(correctCells.size);
+      } else {
+        cell.classList.toggle("incorrect");
+        if (cell.className === "cell clicked incorrect") incorrectCells.push(cell);
+        else incorrectCells.pop(cell);
+        // new Set(incorrectCell);
+        console.log(incorrectCells)
+      }
+
+      if (correctCells.size === 19 && incorrectCells.length === 0) {
+        console.log("You win!");
+        // add logic for the end of the game
+      }
+      console.log(cellsArr[0].className === ("cell clicked correct"));
+    })
+  });
 }
 
 // todo
-// modal:
-// -modal background
-// -button "play again"
 // win
 // - show modal window "Great!.." if the solution is found
