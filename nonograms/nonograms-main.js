@@ -149,8 +149,6 @@ function addElements() {
           cell.classList.toggle("incorrect");
           if (cell.className === "cell clicked incorrect") incorrectCells.push(cell);
           else incorrectCells.pop(cell);
-          // new Set(incorrectCell);
-          console.log(incorrectCells)
         }
 
         if (correctCells.size === 19 && incorrectCells.length === 0) {
@@ -159,11 +157,17 @@ function addElements() {
           windowBackground.classList.add("active");
           // add logic for the end of the game
         }
-        console.log(cellsArr[0].className === ("cell clicked correct"));
       })
     });
-}
 
-// todo
-// win
-// - show modal window "Great!.." if the solution is found
+     // play again
+     windowButton.addEventListener("click", () => {
+      cellsArr.map((cell) => {
+        cell.classList.remove("clicked");
+        cell.classList.remove("correct");
+      });
+      window.classList.remove("active");
+      windowBackground.classList.remove("active");
+      arr = [];
+    });
+}
