@@ -54,11 +54,10 @@ function addElements() {
   })
 
   const verticalHintsArr = Array.from(document.querySelectorAll(".hint-vertical"));
-  verticalHintsArr[0].innerHTML = 5;
-  verticalHintsArr[1].innerHTML = 5;
-  verticalHintsArr[2].innerHTML = 3;
-  verticalHintsArr[3].innerHTML = 1;
-  verticalHintsArr[4].innerHTML = 5;
+  const treeVerticalHints = [5, 5, 3, 1, 5];
+  for (let i = 0; i < treeVerticalHints.length; i++) {
+    verticalHintsArr[i].innerHTML = treeVerticalHints[i];
+  }
 
   const cellsArr = Array.from(document.querySelectorAll(".cell"));
 
@@ -69,19 +68,17 @@ function addElements() {
   });
 
   // horizontal hints
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 10; i++) {
     horizontalHints.prepend(horizontalHintsItems.cloneNode(true));
   }
 
   const horizontalHintsArr = Array.from(document.querySelectorAll(".hint-horizontal"));
-  horizontalHintsArr[0].innerHTML = `${2}<br>${1}`;
-  horizontalHintsArr[1].innerHTML = `${3}<br>${1}`;
-  horizontalHintsArr[2].innerHTML = `${5}`;
-  horizontalHintsArr[3].innerHTML = `${3}<br>${1}`;
-  horizontalHintsArr[4].innerHTML = `${2}<br>${1}`;
+  const treeHorizontalHints = [2, 3, 5, 3, 2, 1, 1, '', 1, 1];
 
-  // ??
-  const gameFieldTree = Array(19).fill("correct");
+    for (let i = 0; i < treeHorizontalHints.length; i++) {
+      console.log(treeHorizontalHints[i]);
+      horizontalHintsArr[i].innerHTML = treeHorizontalHints[i];
+    }
 
   // modal window
 

@@ -34,6 +34,8 @@ h1 {
     width: 610px;
     display: flex;
     flex-wrap: wrap;
+
+    border-top: 5px solid rgba(51, 68, 67, 0.333);
 }
 
 .cell {
@@ -54,8 +56,9 @@ h1 {
 .hint-horisontal-box {
     width: 610px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    margin-left: 59px;
+    margin-left: 54px;
 }
 
 .hint-horizontal {
@@ -66,8 +69,8 @@ h1 {
     align-items: center;
 
     background-color: #ccb5;
-    border-bottom: 5px solid rgba(51, 68, 67, 0.333);
-    border-right: 1px solid rgba(51, 68, 67, 0.333);
+    /* border-bottom: 5px solid rgba(51, 68, 67, 0.333); */
+    border: 1px solid rgba(51, 68, 67, 0.333);
 }
 
 .hint-vertical {
