@@ -136,30 +136,32 @@ function addElements() {
   let correctCells = new Set();
   let incorrectCells = [];
 
-cellsArr.map(cell => {
-  cell.addEventListener("click", () => {
-    if (cellsArr.indexOf(cell) <= 9 || (cellsArr.indexOf(cell) > 10 
-      && cellsArr.indexOf(cell) < 14) || cellsArr.indexOf(cell) === 17 
-      || cellsArr.indexOf(cell) >= 20) {
-        cell.classList.add("correct");
-        arr.push(cell);
-        correctCells = new Set(arr);
-        console.log(correctCells.size);
-      } else {
-        cell.classList.toggle("incorrect");
-        if (cell.className === "cell clicked incorrect") incorrectCells.push(cell);
-        else incorrectCells.pop(cell);
-        // new Set(incorrectCell);
-        console.log(incorrectCells)
-      }
+  cellsArr.map(cell => {
+    cell.addEventListener("click", () => {
+      if (cellsArr.indexOf(cell) <= 9 || (cellsArr.indexOf(cell) > 10 
+        && cellsArr.indexOf(cell) < 14) || cellsArr.indexOf(cell) === 17 
+        || cellsArr.indexOf(cell) >= 20) {
+          cell.classList.add("correct");
+          arr.push(cell);
+          correctCells = new Set(arr);
+          console.log(correctCells.size);
+        } else {
+          cell.classList.toggle("incorrect");
+          if (cell.className === "cell clicked incorrect") incorrectCells.push(cell);
+          else incorrectCells.pop(cell);
+          // new Set(incorrectCell);
+          console.log(incorrectCells)
+        }
 
-      if (correctCells.size === 19 && incorrectCells.length === 0) {
-        console.log("You win!");
-        // add logic for the end of the game
-      }
-      console.log(cellsArr[0].className === ("cell clicked correct"));
-    })
-  });
+        if (correctCells.size === 19 && incorrectCells.length === 0) {
+          console.log("You win!");
+          window.classList.add("active");
+          windowBackground.classList.add("active");
+          // add logic for the end of the game
+        }
+        console.log(cellsArr[0].className === ("cell clicked correct"));
+      })
+    });
 }
 
 // todo
