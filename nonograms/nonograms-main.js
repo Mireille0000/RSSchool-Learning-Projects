@@ -1,4 +1,5 @@
-console.log("Let's get started")
+console.log("Let's get started");
+const body = document.querySelector("body");
 
 // create grid
 
@@ -11,8 +12,8 @@ function addElements() {
   const attempts = document.createElement("div");
   attempts.className = "attempts";
 
-  let lives = "&#x2665 &#x2665 &#x2665";
-  attempts.innerHTML = lives;
+  // let lives = "&#x2665 &#x2665 &#x2665";
+  // attempts.innerHTML = lives;
 
   const grid = document.createElement("div");
   grid.className = "grid";
@@ -27,7 +28,7 @@ function addElements() {
   horizontalHints.className = "hint-horisontal-box";
 
   const verticalHints = document.createElement("div");
-  const verticalHintsItems = document.createElement("div");
+  // const verticalHintsItems = document.createElement("div");
   verticalHints.className = "hint-vertical-box";
 
   document.body.prepend(title, attempts, horizontalHints, grid);
@@ -37,16 +38,22 @@ function addElements() {
   }
 
   const gridItems = Array.from(document.querySelectorAll(".grid div"));
-  console.log(gridItems.length);
-
   gridItems.map((item) => {
     if (gridItems.indexOf(item) % 6 !== 0) {
       item.className = "cell";
     }
   })
 
-  // vertical hints
-  gridItems.map((item, index) => {
+  const cellsArr = Array.from(document.querySelectorAll(".cell"));
+  cellsArr.map(cell => {
+    cell.addEventListener("click", () => {
+      cell.classList.toggle("clicked");
+    })
+  });
+
+  // hints
+
+  gridItems.map((item) => {
     if (gridItems.indexOf(item) % 6 === 0) {
       item.className = "hint-vertical";
       item.innerHTML = 0;
@@ -59,24 +66,13 @@ function addElements() {
     verticalHintsArr[i].innerHTML = treeVerticalHints[i];
   }
 
-  const cellsArr = Array.from(document.querySelectorAll(".cell"));
-
-  cellsArr.map(cell => {
-    cell.addEventListener("click", () => {
-      cell.classList.toggle("clicked");
-    })
-  });
-
-  // horizontal hints
   for (let i = 0; i < 10; i++) {
     horizontalHints.prepend(horizontalHintsItems.cloneNode(true));
   }
 
   const horizontalHintsArr = Array.from(document.querySelectorAll(".hint-horizontal"));
   const treeHorizontalHints = [2, 3, 5, 3, 2, 1, 1, '', 1, 1];
-
     for (let i = 0; i < treeHorizontalHints.length; i++) {
-      console.log(treeHorizontalHints[i]);
       horizontalHintsArr[i].innerHTML = treeHorizontalHints[i];
     }
 
@@ -152,6 +148,7 @@ function addElements() {
           console.log("You win!");
           window.classList.add("active");
           windowBackground.classList.add("active");
+          body.style = "overflow: hidden";
           // add logic for the end of the game
         }
       })
@@ -165,6 +162,7 @@ function addElements() {
       });
       window.classList.remove("active");
       windowBackground.classList.remove("active");
+      body.style = "overflow: auto"
       arr = [];
     });
 }

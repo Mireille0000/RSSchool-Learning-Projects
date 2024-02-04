@@ -31,7 +31,7 @@ h1 {
 }
 
 .grid {
-    width: 610px;
+    width: 615px;
     display: flex;
     flex-wrap: wrap;
 
@@ -46,19 +46,15 @@ h1 {
 }
 
 .cell.clicked {
-    background-color: #000;
+    background-color: #3f3a3a;
 }
 
-/* .cell.incorrect {
-    background-color: #830b0b;
-} */
-
 .hint-horisontal-box {
-    width: 610px;
+    width: 605px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-left: 54px;
+    margin-left: 57px;
 }
 
 .hint-horizontal {
@@ -74,7 +70,7 @@ h1 {
 }
 
 .hint-vertical {
-    width: 54px;
+    width: 58px;
     height: 109px;
     display: flex;
     justify-content: center;
