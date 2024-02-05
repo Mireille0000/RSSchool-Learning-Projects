@@ -141,7 +141,6 @@ function addElements() {
           cell.classList.add("correct");
           arr.push(cell);
           correctCells = new Set(arr);
-          console.log(correctCells.size);
         } else {
           cell.classList.toggle("incorrect");
           if (cell.className === "cell clicked incorrect") incorrectCells.push(cell);
@@ -169,3 +168,5 @@ function addElements() {
       arr = [];
     });
 }
+
+console.log(`Score: 80/250, basic requirements are accomplished`)
