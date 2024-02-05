@@ -138,6 +138,10 @@ h1 {
     background-color: rgb(190, 152, 152);
 }
 
+.window-text {
+    text-align: center;
+}
+
 .window-buttton {
     appearance: none;
     width: 120px;
