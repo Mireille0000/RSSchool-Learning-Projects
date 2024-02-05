@@ -6,11 +6,13 @@ const body = document.querySelector("body");
 document.body.onload = addElements;
 
 function addElements() {
+  const wrapper = document.createElement("div");
+  wrapper.className = "wrapper";
   const title = document.createElement("h1");
   title.innerHTML = "Nonograms";
 
-  const attempts = document.createElement("div");
-  attempts.className = "attempts";
+  // const attempts = document.createElement("div");
+  // attempts.className = "attempts";
 
   // let lives = "&#x2665 &#x2665 &#x2665";
   // attempts.innerHTML = lives;
@@ -31,7 +33,9 @@ function addElements() {
   // const verticalHintsItems = document.createElement("div");
   verticalHints.className = "hint-vertical-box";
 
-  document.body.prepend(title, attempts, horizontalHints, grid);
+  document.body.prepend(wrapper);
+  wrapper.append(title, horizontalHints, grid);
+  // document.body.prepend(title, horizontalHints, grid);
 
   for (let i = 0; i < 30; i++) {
     grid.appendChild(cell.cloneNode(true));
@@ -166,3 +170,9 @@ function addElements() {
       arr = [];
     });
 }
+
+//todo
+// make some responsive
+// adjust dividers
+// read the rules once again
+// add some styles (?)

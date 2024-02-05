@@ -3,17 +3,22 @@
 html {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
+    /* max-width: 1440px; */
+
+    font-family: 'Pixelify Sans', sans-serif;
+    background-color: #ccb5;
+}
+
+.wrapper {
+    max-width: 1440px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    font-family: 'Pixelify Sans', sans-serif;
-    background-color: #ccb5;
 }
 
 h1 {
@@ -23,12 +28,12 @@ h1 {
     color: #713d09;
 }
 
-.attempts {
+/* .attempts {
     display: flex;
 
     font-size: 47px;
     color: rgb(186, 28, 28);
-}
+} */
 
 .grid {
     width: 615px;
@@ -41,7 +46,7 @@ h1 {
 .cell {
  width: 108px;
  height: 108px;
- border: 1px solid rgba(51, 68, 67, 0.333);
+ border: 1px solid rgba(92, 109, 108, 0.333);
  cursor: pointer;
 }
 
@@ -58,14 +63,14 @@ h1 {
 }
 
 .hint-horizontal {
-    width: 109px;
+    width: 108px;
     height: 58px;
     display: flex;
     justify-content: center;
     align-items: center;
 
     background-color: #ccb5;
-    /* border-bottom: 5px solid rgba(51, 68, 67, 0.333); */
+    border-bottom: 5px solid rgba(51, 68, 67, 0.333);
     border: 1px solid rgba(51, 68, 67, 0.333);
 }
 
@@ -76,7 +81,7 @@ h1 {
     justify-content: center;
     align-items: center;
 
-    border-bottom: 1px solid rgba(51, 68, 67, 0.333);
+    /* border-bottom: 1px solid rgba(51, 68, 67, 0.333); */
     border-right: 5px solid rgba(51, 68, 67, 0.333);
     background-color: #ccb5;
 }
@@ -104,7 +109,10 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(83, 83, 38, 0.333);
+
+    font-weight: 700;
+    color: #a36f6f;
+    background-color: rgba(83, 83, 38, 0.8);
 
     border-radius: 5%;
 }
@@ -133,6 +141,7 @@ h1 {
     width: 120px;
     height: 40px;
     font-family: "Pixelify Sans", sans-serif;
+    font-weight: 700;
     border: 1px solid #a36f6f;
     border-radius: 5%;
     cursor: pointer;
