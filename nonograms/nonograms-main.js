@@ -9,7 +9,7 @@ function addElements() {
   const wrapper = document.createElement("div");
   wrapper.className = "wrapper";
   const title = document.createElement("h1");
-  title.innerHTML = "Nonograms";
+  title.innerHTML = `Nonograms`;
 
   // const attempts = document.createElement("div");
   // attempts.className = "attempts";
@@ -105,8 +105,8 @@ function addElements() {
   windowButton.className = "window-buttton";
   windowButton.innerHTML = "Play again";
   
-  document.body.append(windowBackground);
-  document.body.append(window);
+  wrapper.append(window);
+  wrapper.append(windowBackground)
   window.append(smallGrid, windowText, windowButton);
 
   // tree nonogram
@@ -153,7 +153,6 @@ function addElements() {
           window.classList.add("active");
           windowBackground.classList.add("active");
           body.style = "overflow: hidden";
-          // add logic for the end of the game
         }
       })
     });
@@ -170,9 +169,3 @@ function addElements() {
       arr = [];
     });
 }
-
-//todo
-// make some responsive
-// adjust dividers
-// read the rules once again
-// add some styles (?)
