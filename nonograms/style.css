@@ -12,8 +12,9 @@ body {
 
 .wrapper {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -62,7 +63,8 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-left: 64px;
+    margin-left: 32px;
+    /* margin-left: 64px; */
 }
 
 .hint-horizontal {
@@ -84,6 +86,28 @@ h1 {
 
     border-bottom: 1px solid rgba(33, 33, 12, 0.333);
     border-right: 5px solid rgba(51, 68, 67, 0.333);
+}
+
+/* button(s) */
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.button-reset {
+    width: 120px;
+    height: 40px;
+    font-family: "Pixelify Sans", sans-serif;
+    font-weight: 700;
+    border: 1px solid #a36f6f;
+    border-radius: 5%;
+    cursor: pointer;
+}
+
+.button-reset:hover {
+    color: #ebd9d9;
+    background-color: #a36f6f;
 }
 
 /* modal window */
