@@ -70,8 +70,8 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-left: 32px;
-    /* margin-left: 64px; */
+    /* margin-left: 32px; */
+    margin-left: 64px;
 }
 
 .hint-horizontal {
@@ -201,6 +201,18 @@ h1 {
 }
 
 @media screen and (max-width: 769px) {
+    .wrapper {
+        display: flex;
+        justify-content: center;
+    }
+
+    .grid-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
     .grid {
         width: 70%;
         height: 50%;
