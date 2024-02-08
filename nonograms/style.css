@@ -10,10 +10,16 @@ body {
     background-color: #ccb5;
 }
 
+body.dark {
+    color: #ebd9d9;
+    background-color: #3f3a3a;
+}
+
 .wrapper {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -21,7 +27,7 @@ h1 {
     font-size: 50px;
     margin-top: 10px;
     margin-bottom: 10px;
-    color: #713d09;
+    color: #d49e68;
 }
 
 /* .attempts {
@@ -38,13 +44,15 @@ h1 {
     justify-content: center;
 
     border-top: 5px solid rgba(51, 68, 67, 0.333);
+    border-bottom: 5px solid rgba(51, 68, 67, 0.333);
     border-left: 1px solid rgba(51, 68, 67, 0.333);
 }
 
 .cell {
     width: 108px;
     height: 108px;
-    border: 1px solid rgba(91, 93, 20, 0.333);
+    background-color: rgba(223, 223, 210, 0.333);
+    border: 1px solid rgba(35, 35, 2, 0.333);
     cursor: pointer;
     transition: 0.5s;
 }
@@ -54,7 +62,7 @@ h1 {
 }
 
 .cell.clicked {
-    background-color: #3f3a3a;
+    background-color: #564e4e;
 }
 
 .hint-horisontal-box {
@@ -62,7 +70,8 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-left: 64px;
+    margin-left: 32px;
+    /* margin-left: 64px; */
 }
 
 .hint-horizontal {
@@ -84,6 +93,44 @@ h1 {
 
     border-bottom: 1px solid rgba(33, 33, 12, 0.333);
     border-right: 5px solid rgba(51, 68, 67, 0.333);
+}
+
+/* settings */
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.settings-item {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 5px;
+}
+
+.theme {
+   appearance: none;
+   font-family: "Pixelify Sans", sans-serif;
+   background-color: #ccb5;
+   border: 0 solid #a36f6f;
+   margin-bottom: 3px;
+   cursor: pointer;
+}
+
+/* game buttons */
+.button-reset {
+    width: 120px;
+    height: 40px;
+    font-family: "Pixelify Sans", sans-serif;
+    font-weight: 700;
+    border: 1px solid #a36f6f;
+    border-radius: 5%;
+    cursor: pointer;
+}
+
+.button-reset:hover {
+    color: #ebd9d9;
+    background-color: #a36f6f;
 }
 
 /* modal window */
@@ -154,6 +201,18 @@ h1 {
 }
 
 @media screen and (max-width: 769px) {
+    .wrapper {
+        display: flex;
+        justify-content: center;
+    }
+
+    .grid-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
     .grid {
         width: 70%;
         height: 50%;
