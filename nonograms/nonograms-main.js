@@ -197,18 +197,25 @@ function addElements() {
         && cellsArr.indexOf(cell) < 14) || cellsArr.indexOf(cell) === 17 
         || cellsArr.indexOf(cell) >= 20) {
           cell.classList.toggle("correct");
-          if (cell.className === "cell clicked correct") arr.push(cell);
-          else arr.pop(cell);
-          // arr.push(cell);
-          correctCells = new Set(arr);
-          // console.log(correctCells);
+          if (cell.className === "cell clicked correct") {
+            arr.push(cell);
+          }
+          else {
+            arr.pop(cell);
+          }
+
+          // correctCells = new Set(arr);
+          console.log(arr.length);
+          console.log(correctCells);
         } else {
           cell.classList.toggle("incorrect");
           if (cell.className === "cell clicked incorrect") incorrectCells.push(cell);
           else incorrectCells.pop(cell);
+          console.log(incorrectCells)
         }
 
-        if (correctCells.size === 19 && incorrectCells.length === 0) {
+        // correctCells.size === 19
+        if (arr.length === 19 && incorrectCells.length === 0) {
           console.log("You win!");
           window.classList.add("active");
           windowBackground.classList.add("active");
