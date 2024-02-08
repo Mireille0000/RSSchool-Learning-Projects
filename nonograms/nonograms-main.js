@@ -187,6 +187,9 @@ function addElements() {
   let arr = [];
   let correctCells = new Set();
   let incorrectCells = [];
+  const audioModalWindow = new Audio();
+  audioModalWindow.src = "./winsquare.mp3";
+  // console.log(audioModalWindow.ended);
 
   cellsArr.map(cell => {
     cell.addEventListener("click", () => {
@@ -210,6 +213,7 @@ function addElements() {
           window.classList.add("active");
           windowBackground.classList.add("active");
           body.style = "overflow: hidden";
+          audioModalWindow.play();
         }
       })
     });
@@ -234,6 +238,7 @@ function addElements() {
         cell.classList.remove("clicked");
         cell.classList.remove("correct");
       });
+      audioModalWindow.load()
       window.classList.remove("active");
       windowBackground.classList.remove("active");
       body.style = "overflow: auto"
