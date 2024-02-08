@@ -29,16 +29,22 @@ function addElements() {
   const verticalHints = document.createElement("div");
   verticalHints.className = "hint-vertical-box";
 
-  const buttons = document.createElement("div");
-  buttons.className = "buttons";
+  const menu = document.createElement("div");
+  menu.className = "buttons";
+  const settings = document.createElement("div");
+  settings.className = "settings";
+  const settingsItems = document.createElement("div");
+  settingsItems.className = "settings-item"
+  const changeTheme = document.createElement("button");
+  changeTheme.className = "theme";
+
   const resetButton = document.createElement("button");
   resetButton.className = "button-reset";
-  resetButton.innerHTML = "Reset the game"
+  resetButton.innerHTML = "Reset the game";
 
   document.body.prepend(wrapper);
-  wrapper.append(title, gridWrapper, buttons)
-  gridWrapper.prepend(horizontalHints, grid)
-  // wrapper.append(title, horizontalHints, grid, buttons);
+  wrapper.append(title, gridWrapper, menu);
+  gridWrapper.prepend(horizontalHints, grid);
 
   for (let i = 0; i < 30; i++) {
     grid.appendChild(cell.cloneNode(true));
@@ -85,8 +91,50 @@ function addElements() {
 
   // reset button
 
-  buttons.prepend(resetButton);
+  menu.prepend(settings, resetButton);
+  for (let i = 0; i < 2; i++) {
+    settings.prepend(settingsItems.cloneNode(true));
+  }
+  const settingsList = document.querySelectorAll(".settings-item");
+  console.log(settingsList);
+  settingsList[0].innerText = "Choose theme";
 
+  for (let i = 0; i < 2; i++) {
+    settingsList[0].prepend(changeTheme.cloneNode(true));
+  }
+
+  const themes = Array.from(document.querySelectorAll(".theme"));
+  themes[0].innerHTML = "Light";
+  themes[1].innerHTML = "Dark";
+
+  themes.map((theme, index) => {
+    console.log(index);
+    theme.addEventListener("click", () => {
+      if (index === 1) {
+        body.classList.add("dark");
+        horizontalHintsArr.map((hint) => {
+          hint.style = "border: 1px solid rgba(126, 155, 153, 0.333)";
+        })
+        verticalHintsArr.map((hint) => {
+          hint.style = "border-bottom: 1px solid rgba(126, 155, 153, 0.333); border-left: 1px solid rgba(126, 155, 153, 0.333)";
+        })
+        cellsArr.map((cell) => {
+          cell.style = "border: 1px solid rgba(35, 35, 2, 0.333);"
+        })
+      } else {
+        body.classList.remove("dark");
+        horizontalHintsArr.map((hint) => {
+          hint.style = "border: 1px solid rgba(51, 68, 67, 0.333);";
+        })
+
+        cellsArr.map((cell) => {
+          cell.style = "border: 1px solid rgba(115, 116, 83, 0.333)"
+        })
+      }
+    })
+  })
+  console.log(themes);
+;
   // modal window
 
   const windowBackground = document.createElement("div");

@@ -10,6 +10,11 @@ body {
     background-color: #ccb5;
 }
 
+body.dark {
+    color: #ebd9d9;
+    background-color: #3f3a3a;
+}
+
 .wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -22,7 +27,7 @@ h1 {
     font-size: 50px;
     margin-top: 10px;
     margin-bottom: 10px;
-    color: #713d09;
+    color: #d49e68;
 }
 
 /* .attempts {
@@ -39,13 +44,15 @@ h1 {
     justify-content: center;
 
     border-top: 5px solid rgba(51, 68, 67, 0.333);
+    border-bottom: 5px solid rgba(51, 68, 67, 0.333);
     border-left: 1px solid rgba(51, 68, 67, 0.333);
 }
 
 .cell {
     width: 108px;
     height: 108px;
-    border: 1px solid rgba(91, 93, 20, 0.333);
+    background-color: rgba(223, 223, 210, 0.333);
+    border: 1px solid rgba(35, 35, 2, 0.333);
     cursor: pointer;
     transition: 0.5s;
 }
@@ -55,7 +62,7 @@ h1 {
 }
 
 .cell.clicked {
-    background-color: #3f3a3a;
+    background-color: #564e4e;
 }
 
 .hint-horisontal-box {
@@ -88,13 +95,29 @@ h1 {
     border-right: 5px solid rgba(51, 68, 67, 0.333);
 }
 
-/* button(s) */
+/* settings */
 
-.buttons {
+.menu {
     display: flex;
     flex-wrap: wrap;
 }
 
+.settings-item {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 5px;
+}
+
+.theme {
+   appearance: none;
+   font-family: "Pixelify Sans", sans-serif;
+   background-color: #ccb5;
+   border: 0 solid #a36f6f;
+   margin-bottom: 3px;
+   cursor: pointer;
+}
+
+/* game buttons */
 .button-reset {
     width: 120px;
     height: 40px;
