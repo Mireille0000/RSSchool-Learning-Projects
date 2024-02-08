@@ -138,9 +138,12 @@ function addElements() {
       if (cellsArr.indexOf(cell) <= 9 || (cellsArr.indexOf(cell) > 10 
         && cellsArr.indexOf(cell) < 14) || cellsArr.indexOf(cell) === 17 
         || cellsArr.indexOf(cell) >= 20) {
-          cell.classList.add("correct");
-          arr.push(cell);
+          cell.classList.toggle("correct");
+          if (cell.className === "cell clicked correct") arr.push(cell);
+          else arr.pop(cell);
+          // arr.push(cell);
           correctCells = new Set(arr);
+          console.log(correctCells);
         } else {
           cell.classList.toggle("incorrect");
           if (cell.className === "cell clicked incorrect") incorrectCells.push(cell);
