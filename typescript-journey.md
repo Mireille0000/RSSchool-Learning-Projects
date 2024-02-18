@@ -9,6 +9,7 @@ My collection of badges I earned from completing Microsoft Learn's TypeScript mo
 2. ** Declare Variable Types in TypeScript [Badge-2](https://learn.microsoft.com/api/achievements/share/fr-fr/18751915/VKYSJ48M?sharingId=27E588FCD105DE59)
 3. ** Implement interfaces in TypeScript [Badge-3](https://learn.microsoft.com/api/achievements/share/en-us/18751915/K5VU5JZB?sharingId=27E588FCD105DE59)
 4. ** Develop type functions by using TypeScript [Badge-4](https://learn.microsoft.com/api/achievements/share/en-us/18751915/J6EXG7ET?sharingId=27E588FCD105DE59)
+5. ** Declare and instantiate classes in TypeScript [Badge-5] (https://learn.microsoft.com/api/achievements/share/en-us/18751915/24X9JUSV?sharingId=27E588FCD105DE59)
 
 
 ### Reflections
@@ -21,3 +22,5 @@ For now, I've studied 3 modules
 17.02.2024
 4. The forth module done. The subject is rather complex when trying to change the code that has already been written in JS. But I guesse it is a matter of time.
 
+18.02.2024
+5. After looked through module 5, I got some basic knoledge of classes in TS but also I understand better classes in JS (the concept).
