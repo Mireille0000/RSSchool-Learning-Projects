@@ -10,6 +10,7 @@ My collection of badges I earned from completing Microsoft Learn's TypeScript mo
 3. ** Implement interfaces in TypeScript [Badge-3](https://learn.microsoft.com/api/achievements/share/en-us/18751915/K5VU5JZB?sharingId=27E588FCD105DE59)
 4. ** Develop type functions by using TypeScript [Badge-4](https://learn.microsoft.com/api/achievements/share/en-us/18751915/J6EXG7ET?sharingId=27E588FCD105DE59)
 5. ** Declare and instantiate classes in TypeScript [Badge-5] (https://learn.microsoft.com/api/achievements/share/en-us/18751915/24X9JUSV?sharingId=27E588FCD105DE59)
+6. ** Define generics in TypeScript [Badge-6](https://learn.microsoft.com/api/achievements/share/en-us/18751915/CWTEV5D9?sharingId=27E588FCD105DE59)
 
 
 ### Reflections
@@ -23,4 +24,5 @@ For now, I've studied 3 modules
 4. The forth module done. The subject is rather complex when trying to change the code that has already been written in JS. But I guesse it is a matter of time.
 
 18.02.2024
-5. After looked through module 5, I got some basic knoledge of classes in TS but also I understand better classes in JS (the concept).
+5. After looked through module 5, I got some basic knowledge of classes in TS but also I understood better classes in JS (the concept).
+6. The 6 module is about generics as a concept, the syntax and how and when the feature should be used. It was not simple to retain the syntax but after some exercises on the plateform I managed to remember it. And now it is much clearer how you should avoid the any type as well as the reason to avoid it (TS whould not make any sense if so). 
