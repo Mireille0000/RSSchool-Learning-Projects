@@ -13,7 +13,7 @@ My collection of badges I earned from completing Microsoft Learn's TypeScript mo
 6. ** Define generics in TypeScript [Badge-6](https://learn.microsoft.com/api/achievements/share/en-us/18751915/CWTEV5D9?sharingId=27E588FCD105DE59)
 7. **  Access external libraries from TypeScript [Badge-7](https://learn.microsoft.com/api/achievements/share/en-us/18751915/8R6SQ23W?sharingId=27E588FCD105DE59)
 8. ** Organize code using TypeScript namespaces [Badge-8](https://learn.microsoft.com/api/achievements/share/en-us/18751915/CWS8VF49?sharingId=27E588FCD105DE59)
-9. ** Build JavaScript applications using TypeScript [Badge-final*]https://learn.microsoft.com/api/achievements/share/en-us/18751915/3XGFERJH?sharingId=27E588FCD105DE59
+9. ** Build JavaScript applications using TypeScript [Badge-final*](https://learn.microsoft.com/api/achievements/share/en-us/18751915/3XGFERJH?sharingId=27E588FCD105DE59)
 
 
 ### Reflections
