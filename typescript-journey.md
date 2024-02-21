@@ -9,11 +9,11 @@ My collection of badges I earned from completing Microsoft Learn's TypeScript mo
 2. ** Declare Variable Types in TypeScript [Badge-2](https://learn.microsoft.com/api/achievements/share/fr-fr/18751915/VKYSJ48M?sharingId=27E588FCD105DE59)
 3. ** Implement interfaces in TypeScript [Badge-3](https://learn.microsoft.com/api/achievements/share/en-us/18751915/K5VU5JZB?sharingId=27E588FCD105DE59)
 4. ** Develop type functions by using TypeScript [Badge-4](https://learn.microsoft.com/api/achievements/share/en-us/18751915/J6EXG7ET?sharingId=27E588FCD105DE59)
-5. ** Declare and instantiate classes in TypeScript [Badge-5] (https://learn.microsoft.com/api/achievements/share/en-us/18751915/24X9JUSV?sharingId=27E588FCD105DE59)
+5. ** Declare and instantiate classes in TypeScript [Badge-5](https://learn.microsoft.com/api/achievements/share/en-us/18751915/24X9JUSV?sharingId=27E588FCD105DE59)
 6. ** Define generics in TypeScript [Badge-6](https://learn.microsoft.com/api/achievements/share/en-us/18751915/CWTEV5D9?sharingId=27E588FCD105DE59)
-7. **  Access external libraries from TypeScript [Badge-7] (https://learn.microsoft.com/api/achievements/share/en-us/18751915/8R6SQ23W?sharingId=27E588FCD105DE59)
-8. ** Organize code using TypeScript namespaces [Badge-8] (https://learn.microsoft.com/api/achievements/share/en-us/18751915/CWS8VF49?sharingId=27E588FCD105DE59)
-9. ** Build JavaScript applications using TypeScript [Badge-final*] https://learn.microsoft.com/api/achievements/share/en-us/18751915/3XGFERJH?sharingId=27E588FCD105DE59
+7. **  Access external libraries from TypeScript [Badge-7](https://learn.microsoft.com/api/achievements/share/en-us/18751915/8R6SQ23W?sharingId=27E588FCD105DE59)
+8. ** Organize code using TypeScript namespaces [Badge-8](https://learn.microsoft.com/api/achievements/share/en-us/18751915/CWS8VF49?sharingId=27E588FCD105DE59)
+9. ** Build JavaScript applications using TypeScript [Badge-final*]https://learn.microsoft.com/api/achievements/share/en-us/18751915/3XGFERJH?sharingId=27E588FCD105DE59
 
 
 ### Reflections
