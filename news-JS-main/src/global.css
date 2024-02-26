@@ -9,6 +9,7 @@ header {
 }
 
 header h1 {
+    text-align: center;
     font-size: 40px;
     font-weight: 800;
 }
@@ -19,13 +20,20 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
+div .footer-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 footer .copyright {
     font-size: 14px;
-    color: #333;
+    color: #7d7272;
     text-align: center;
 }
 footer .copyright a {
-    color: #444;
+    color: #7d7272;
 }
 footer .copyright a:hover {
     color: #555;

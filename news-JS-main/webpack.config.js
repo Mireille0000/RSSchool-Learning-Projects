@@ -18,15 +18,16 @@ const baseConfig = {
             { 
                 test: /\.ts$/i, 
                 use: 'ts-loader',
-            }
+            },
         ],
     },
     resolve: {
-        extensions: ['.ts', '.js'],
+        extensions: ['.ts', '.js', 'svg', 'png'],
     },
     output: {
         filename: 'index.js',
         path: path.resolve(__dirname, './dist'),
+        assetModuleFilename: 'assets/images/[name][ext]'
     },
     plugins: [
         new DotenvWebpackPlugin(),

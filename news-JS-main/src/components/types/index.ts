@@ -20,14 +20,19 @@ export interface ResponseSources {
     sources: SourcesInterface[];
 }
 
-// news
+// Everything
+
 export interface ResponseNews {
-    status: 'ok' | 'error';
+    // Everything
+    status: 'error' | 'ok' | number;
+    code?: string;
+    message?: string;
     totalResults: number;
     articles: NewsInfo[];
 }
 
 export interface NewsInfo {
+    // EverythingInfo 
     source: SourcesNews;
     author: string;
     title: string;
@@ -39,6 +44,8 @@ export interface NewsInfo {
 }
 
 export interface SourcesNews extends NewsInfo {
+    // EverythingSources
     id: string;
     name: string;
+    key: string;
 }
