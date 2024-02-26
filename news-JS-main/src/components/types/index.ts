@@ -1,4 +1,3 @@
-
 export interface Params {
     apiKey: string | undefined;
     category?: string;
@@ -23,23 +22,24 @@ export interface ResponseSources {
 
 // news
 export interface ResponseNews {
-    status: 'ok' | 'error',
-    totalResults: number,
-    articles: SourcesNews;
+    status: 'ok' | 'error';
+    totalResults: number;
+    articles: SourcesNews[];
 }
 
 export interface SourcesNews {
-    id: string;
+    id: string | null;
     name: string;
     newsInfo: NewsInfo;
 }
 
 export interface NewsInfo {
+    source: SourcesNews;
     author: string;
     title: string;
     description: string;
     url: string;
     urlToImage: string;
-    publishedAt: Date;
+    publishedAt: string;
     content: string;
-} 
+}
