@@ -5,7 +5,7 @@ export interface Params {
     country?: string;
 }
 
-export interface Sources {
+export interface SourcesInterface {
     id: string;
     name: string;
     discription: string;
@@ -17,7 +17,7 @@ export interface Sources {
 
 export interface ResponseSources {
     status: 'ok' | 'error';
-    sources: Sources;
+    sources: SourcesInterface;
 }
 
 // news
