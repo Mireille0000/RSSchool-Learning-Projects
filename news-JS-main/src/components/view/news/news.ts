@@ -2,7 +2,7 @@ import './news.css';
 import { NewsInfo } from '../../types';
 
 class News {
-    draw(data: []) {
+    draw(data: NewsInfo[]) {
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment();
@@ -34,10 +34,10 @@ class News {
             fragment.append(newsClone);
         });
 
-        const newsContent = document.querySelector('.news') as Element;
-        newsContent.innerHTML = '';
-        const newsContentFragment = document.querySelector('.news') as Element;
-        newsContentFragment.appendChild(fragment); //??
+        // const newsContent = document.querySelector('.news') as Element;
+        (document.querySelector('.news') as Element).innerHTML = '';
+        // const newsContentFragment = document.querySelector('.news') as Element;
+        (document.querySelector('.news') as Element).appendChild(fragment); //??
     }
 }
 

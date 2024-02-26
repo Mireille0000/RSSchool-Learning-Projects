@@ -17,20 +17,14 @@ export interface SourcesInterface {
 
 export interface ResponseSources {
     status: 'ok' | 'error';
-    sources: SourcesInterface;
+    sources: SourcesInterface[];
 }
 
 // news
 export interface ResponseNews {
     status: 'ok' | 'error';
     totalResults: number;
-    articles: SourcesNews[];
-}
-
-export interface SourcesNews {
-    id: string | null;
-    name: string;
-    newsInfo: NewsInfo;
+    articles: NewsInfo[];
 }
 
 export interface NewsInfo {
@@ -42,4 +36,9 @@ export interface NewsInfo {
     urlToImage: string;
     publishedAt: string;
     content: string;
+}
+
+export interface SourcesNews extends NewsInfo {
+    id: string;
+    name: string;
 }
