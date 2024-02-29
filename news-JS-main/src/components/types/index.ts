@@ -1,11 +1,10 @@
-
 // Types
 
 export type GenericOptions = {
-    [sources : string]: string;
-} 
+    [sources: string]: string;
+};
 
-export type Endpoint = 'everything' | 'sources' | 'top-headlines'; 
+export type Endpoint = 'everything' | 'sources' | 'top-headlines';
 
 // Everything, request parameters
 export interface ParamsEverything {
@@ -23,7 +22,7 @@ export interface ParamsEverything {
     page?: number; // 1
 }
 
-// Top headlines, request parameters 
+// Top headlines, request parameters
 
 export interface ParamsTopHeadlinesSources {
     apiKey: string | undefined;
@@ -31,7 +30,7 @@ export interface ParamsTopHeadlinesSources {
     category?: string;
 }
 
-export interface ParamsTopHeadlines extends  ParamsTopHeadlinesSources {
+export interface ParamsTopHeadlines extends ParamsTopHeadlinesSources {
     sources: string;
     q?: string;
     pageSize?: number;
@@ -67,7 +66,7 @@ export interface ResponseNews {
 }
 
 export interface NewsInfo {
-    // EverythingInfo 
+    // EverythingInfo
     source: SourcesNews;
     author: string;
     title: string;
@@ -83,4 +82,9 @@ export interface SourcesNews extends NewsInfo {
     id: string;
     name: string;
     key: string;
+}
+
+export enum ProcessEnv {
+    API_URL = 'https://rss-news-api.onrender.com/',
+    API_KEY = '1f3e05f1ddbe4b90a46d907738b0d0ea',
 }

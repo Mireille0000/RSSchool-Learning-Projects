@@ -1,9 +1,10 @@
 import Loader from './loader';
+import { ProcessEnv } from '../types/index';
 
 class AppLoader extends Loader {
     constructor() {
-        super(process.env.API_URL, {
-            apiKey: process.env.API_KEY,
+        super(ProcessEnv.API_URL, {
+            apiKey: ProcessEnv.API_KEY,
         });
     }
 }
