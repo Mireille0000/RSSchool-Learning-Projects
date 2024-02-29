@@ -79,7 +79,7 @@ export interface NewsInfo {
 
 export interface SourcesNews extends NewsInfo {
     // EverythingSources
-    id: string;
+    id: string; // id
     name: string;
     key: string;
 }
