@@ -1,9 +1,44 @@
-export interface Params {
-    apiKey: string | undefined;
-    category?: string;
+
+// Types
+
+export type GenericOptions = {
+    [sources : string]: string;
+} 
+
+export type Endpoint = 'everything' | 'sources' | 'top-headlines'; 
+
+// Everything, request parameters
+export interface ParamsEverything {
+    apiKey?: string;
+    q?: string;
+    searchIn?: 'title' | 'description' | 'content';
+    sources?: string;
+    domains?: string;
+    excludeDomains?: string;
+    from?: string;
+    to?: string;
     language?: string;
-    country?: string;
+    sortBy?: string;
+    pageSize?: number; //100
+    page?: number; // 1
 }
+
+// Top headlines, request parameters 
+
+export interface ParamsTopHeadlinesSources {
+    apiKey: string | undefined;
+    country?: string;
+    category?: string;
+}
+
+export interface ParamsTopHeadlines extends  ParamsTopHeadlinesSources {
+    sources: string;
+    q?: string;
+    pageSize?: number;
+    page?: number;
+}
+
+// Sources
 
 export interface SourcesInterface {
     id: string;
