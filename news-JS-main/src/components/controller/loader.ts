@@ -1,6 +1,6 @@
 import { GenericOptions } from '../types/index';
-import { ResponseNews } from '../types/index';
 import { Endpoint } from '../types/index';
+import { Callback } from '../types/index';
 
 class Loader {
     baseLink: string;
@@ -11,13 +11,14 @@ class Loader {
         this.options = options;
     }
 
-    getResp(
+    // ResponseSources | ResponseNews
+    getResp<T>(
         { endpoint, options = {} }: { endpoint: Endpoint; options: GenericOptions },
-        callback = () => {
+        callback: Callback<T> = () => {
             console.error('No callback for GET response');
         }
     ) {
-        this.load('GET', endpoint, callback, options);
+        this.load<T>('GET', endpoint, callback, options);
     }
 
     errorHandler(res: Response) {
@@ -41,7 +42,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: Endpoint, callback: (data: ResponseNews) => void, options: GenericOptions) {
+    load<T>(method: string, endpoint: Endpoint, callback: (data: T) => void, options: GenericOptions) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())

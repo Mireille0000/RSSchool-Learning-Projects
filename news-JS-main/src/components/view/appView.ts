@@ -1,7 +1,7 @@
 import News from './news/news';
 import Sources from './sources/sources';
-import { ResponseSources } from '../types';
-import { ResponseNews } from '../types';
+import { ResponseSources, SourcesInterface } from '../types/index';
+import { ResponseNews, NewsInfo } from '../types/index';
 
 export class AppView {
     news: News;
@@ -13,12 +13,12 @@ export class AppView {
     }
 
     drawNews(data: ResponseNews) {
-        const values = data?.articles ? data?.articles : [];
+        const values: NewsInfo[] = data?.articles ? data?.articles : [];
         this.news.draw(values);
     }
 
     drawSources(data: ResponseSources) {
-        const values = data?.sources ? data?.sources : [];
+        const values: SourcesInterface[] = data?.sources ? data?.sources : [];
         this.sources.draw(values);
     }
 }
