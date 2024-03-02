@@ -4,7 +4,7 @@ import { ResponseSources } from '../types';
 
 class AppController extends AppLoader {
     getSources(callback: (data: ResponseSources) => void) {
-        super.getResp<ResponseSources>(
+        super.getResp(
             {
                 endpoint: 'sources',
                 options: {},
@@ -22,7 +22,7 @@ class AppController extends AppLoader {
                 const sourceId = (target as Element).getAttribute('data-source-id') as string;
                 if ((newsContainer as Element).getAttribute('data-source') !== sourceId) {
                     (newsContainer as Element).setAttribute('data-source', sourceId);
-                    super.getResp<ResponseNews>(
+                    super.getResp(
                         {
                             endpoint: 'everything',
                             options: {
