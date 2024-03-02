@@ -63,7 +63,7 @@ export interface SourcesNews extends NewsInfo {
     key: string;
 }
 export declare enum ProcessEnv {
-    API_URL = "https://rss-news-api.onrender.com/",
-    API_KEY = "1f3e05f1ddbe4b90a46d907738b0d0ea"
+    API_URL = 'https://rss-news-api.onrender.com/',
+    API_KEY = '1f3e05f1ddbe4b90a46d907738b0d0ea',
 }
 export type Callback<T> = (data: T) => void;
