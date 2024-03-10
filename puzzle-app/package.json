@@ -8,6 +8,7 @@
     "ci:format": "prettier . --check",
     "lint": "eslint . --ext .ts",
     "precommit": "npm run ci:format",
+    "prepush": "npm run lint",
     "prepare": "cd .. && husky puzzle-app/.husky"
   },
   "author": "",
