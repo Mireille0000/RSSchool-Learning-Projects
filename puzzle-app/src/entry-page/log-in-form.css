@@ -10,13 +10,25 @@
 .entry-page-input {
   width: 400px;
   height: 50px;
+
+  font-family: 'Sora', sans-serif;
+  font-size: 20px;
+  text-align: center;
   border-radius: 30px;
 }
 
 .log-in-button {
   width: 250px;
   height: 40px;
-  border-radius: 20px;
 
+  font-family: 'Sora', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  border-radius: 20px;
   cursor: pointer;
+}
+
+.log-in-button:hover {
+  transition-duration: 1s;
+  background-color: #7591b9;
 }
