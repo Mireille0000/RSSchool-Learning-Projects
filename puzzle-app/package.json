@@ -295,7 +295,7 @@
   },
   "validate-branch-name": {
     "pattern": "^(feat)/(RSS-PZ-0[1-9])_([a-z])",
-    "errorMsg": "your own error message"
+    "errorMsg": "Your branch name does not correspond to the required pattern. Please check it again"
   },
   "description": "Puzzle"
 }
