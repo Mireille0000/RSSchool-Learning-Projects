@@ -1,9 +1,32 @@
+.page-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url('../../images/entry-page2.jpg');
+  background-size: cover;
+}
+
+h1 {
+  background-color: #f18b0f;
+  border-radius: 10px;
+}
+
+p {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f18b0f;
+  border-radius: 10px;
+}
+
 .container {
-  height: 90vh;
   display: flex;
   gap: 10px;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
