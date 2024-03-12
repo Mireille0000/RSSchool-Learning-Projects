@@ -3,6 +3,13 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "noImplicitAny": true,
+   
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    
     "module": "es6",
     "target": "es5",
     "allowJs": true
