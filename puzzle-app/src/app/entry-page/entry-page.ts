@@ -1,22 +1,29 @@
 const pageWrapper = document.createElement('div');
 
-export class EntryPage {
-  input: HTMLInputElement;
+export default class EntryPage {
+  firstName: HTMLInputElement;
+
+  lastName: HTMLInputElement;
+
   button: HTMLButtonElement;
+
   header: HTMLHeadingElement;
+
   text: HTMLParagraphElement;
 
   constructor() {
-    this.input = document.createElement('input') as HTMLInputElement;
-    this.input.className = 'entry-page-input';
-    this.input.type = 'required';
+    this.firstName = document.createElement('input') as HTMLInputElement;
+    this.firstName.className = 'entry-page-input';
+    this.firstName.type = 'text';
+
+    this.lastName = document.createElement('input') as HTMLInputElement;
+    this.lastName.className = 'entry-page-input';
+    this.lastName.type = 'text';
 
     this.header = document.createElement('h1');
     this.header.innerHTML = 'Puzzle (Learn English)';
     this.text = document.createElement('p');
-    this.text.innerHTML =
-      'Click on words. Collect phrases. Improve your English';
-
+    this.text.innerHTML = 'Click on words. Collect phrases. Improve your English';
     this.button = document.createElement('button') as HTMLButtonElement;
     this.button.className = 'log-in-button';
     this.button.innerHTML = 'Log In';
@@ -29,11 +36,10 @@ export class EntryPage {
     const container = document.createElement('div') as HTMLElement;
     container.className = 'container';
     pageWrapper.append(this.header, this.text, container);
-    container.append(this.input, this.input.cloneNode(true), this.button);
-    const inputText: HTMLInputElement[] = Array.from(
-      document.querySelectorAll('.entry-page-input'),
-    );
-    inputText[0].placeholder = 'First name';
-    inputText[1].placeholder = 'Last name';
+    container.append(this.firstName, this.lastName, this.button);
+    this.firstName.placeholder = 'First name';
+    this.lastName.placeholder = 'Last name';
+    this.firstName.required = true;
+    this.lastName.required = true;
   }
 }
