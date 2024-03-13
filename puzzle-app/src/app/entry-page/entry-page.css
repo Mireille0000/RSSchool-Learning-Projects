@@ -10,7 +10,9 @@
 }
 
 h1 {
-  background-color: #f18b0f;
+  margin-bottom: 7px;
+  background-color: #ee8642;
+  box-shadow: 0 0 5px 10px #ee8642;
   border-radius: 10px;
 }
 
@@ -19,30 +21,49 @@ p {
   font-weight: 700;
   margin-bottom: 20px;
   padding: 10px;
-  background-color: #f18b0f;
+  background-color: #ee8642;
+  box-shadow: 0 0 5px 10px #ee8642;
   border-radius: 10px;
 }
 
 .container {
   display: flex;
-  gap: 10px;
+  /* gap: 10px; */
   flex-direction: column;
   align-items: center;
+}
+
+.validation-hint {
+  margin-bottom: 7px;
+  padding: 5px;
+  line-height: 4px;
+  font-size: 10px;
+  background-color: #ee8642;
+  box-shadow: 0 0 5px 10px #ee8642;
+  border-radius: 10px;
 }
 
 .entry-page-input {
   width: 400px;
   height: 50px;
+  margin-bottom: 10px;
 
   font-family: 'Sora', sans-serif;
   font-size: 20px;
   text-align: center;
+  border: 0;
   border-radius: 30px;
+  background-color: #ee8642;
 }
+
+/* .entry-page-input:valid {
+  background-color: rgb(199, 231, 157);
+} */
 
 .log-in-button {
   width: 250px;
   height: 40px;
+  margin-top: 10px;
 
   font-family: 'Sora', sans-serif;
   font-size: 15px;

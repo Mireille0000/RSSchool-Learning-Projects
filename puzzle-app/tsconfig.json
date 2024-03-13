@@ -5,14 +5,17 @@
     "noImplicitAny": true,
 
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    // "allowImportingTsExtensions": true,
+    // "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
+
+    "sourceMap": true,
 
     "module": "es6",
     "target": "es5",
     "allowJs": true
   },
-  "files": ["src/index.ts"]
+  "files": ["src/index.ts"],
+  "include": ["src/**/*"]
 }

@@ -30,10 +30,6 @@ const config = {
   module: {
     rules: [
       {
-        // options: { compilerOptions: {
-        //     noEmit: false
-        //   }
-        // },
         test: /\.(ts|tsx)$/i,
         loader: 'ts-loader',
         exclude: ['/node_modules/'],

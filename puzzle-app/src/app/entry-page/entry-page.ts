@@ -1,17 +1,23 @@
 const pageWrapper = document.createElement('div');
 
 export default class EntryPage {
+  header: HTMLHeadingElement;
+
+  text: HTMLParagraphElement;
+
+  form: HTMLFormElement;
+
   firstName: HTMLInputElement;
 
   lastName: HTMLInputElement;
 
   button: HTMLButtonElement;
 
-  header: HTMLHeadingElement;
-
-  text: HTMLParagraphElement;
-
   constructor() {
+    this.form = document.createElement('form') as HTMLFormElement;
+    this.form.action = '/';
+    this.form.method = 'GET';
+
     this.firstName = document.createElement('input') as HTMLInputElement;
     this.firstName.className = 'entry-page-input';
     this.firstName.type = 'text';
@@ -42,13 +48,25 @@ export default class EntryPage {
     document.body.append(pageWrapper);
     const container = document.createElement('div') as HTMLElement;
     container.className = 'container';
-    pageWrapper.append(this.header, this.text, container);
-    container.append(this.firstName, this.lastName, this.button);
+    pageWrapper.append(this.header, this.text, this.form);
+
+    const validationMessageLength = document.createElement('div');
+    validationMessageLength.innerHTML = 'Minimum characters number: first name - 3, last name - 4';
+    validationMessageLength.className = 'validation-hint length';
+    const validationMessageFirstLetter = document.createElement('div');
+    validationMessageFirstLetter.innerHTML = 'The first letter of each field should be in upper case';
+    validationMessageFirstLetter.className = 'validation-hint first-letter';
+
+    const validationMessageLanguage = document.createElement('div');
+    validationMessageLanguage.innerHTML = 'Characters of latin alphabet';
+    validationMessageLanguage.className = 'validation-hint alphabet';
+
     this.firstName.placeholder = 'First name';
     this.lastName.placeholder = 'Last name';
     this.firstName.required = true;
     this.lastName.required = true;
-    container.append(this.firstName, this.lastName, this.button);
+    this.form.append(container);
+    container.append(this.firstName, this.lastName, validationMessageLength, validationMessageFirstLetter, validationMessageLanguage, this.button);
     this.firstName.placeholder = 'First name';
     this.lastName.placeholder = 'Last name';
     this.firstName.required = true;
