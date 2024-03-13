@@ -1,0 +1,57 @@
+.page-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url('../../images/entry-page2.jpg');
+  background-size: cover;
+}
+
+h1 {
+  background-color: #f18b0f;
+  border-radius: 10px;
+}
+
+p {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f18b0f;
+  border-radius: 10px;
+}
+
+.container {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.entry-page-input {
+  width: 400px;
+  height: 50px;
+
+  font-family: 'Sora', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 30px;
+}
+
+.log-in-button {
+  width: 250px;
+  height: 40px;
+
+  font-family: 'Sora', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.log-in-button:hover {
+  transition-duration: 1s;
+  background-color: #7591b9;
+}

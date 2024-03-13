@@ -1,0 +1,14 @@
+@import url('./fonts/fonts.css');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #5c7a9b;
+  font-family: 'Sora', sans-serif;
+}
+
+@import url('./app/entry-page/entry-page.css');
