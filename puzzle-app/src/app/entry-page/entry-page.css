@@ -28,7 +28,6 @@ p {
 
 .container {
   display: flex;
-  /* gap: 10px; */
   flex-direction: column;
   align-items: center;
 }
@@ -55,10 +54,6 @@ p {
   border-radius: 30px;
   background-color: #ee8642;
 }
-
-/* .entry-page-input:valid {
-  background-color: rgb(199, 231, 157);
-} */
 
 .log-in-button {
   width: 250px;

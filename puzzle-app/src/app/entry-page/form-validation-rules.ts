@@ -1,4 +1,4 @@
-import EntryPage from './entry-page';
+import EntryPage from './entry-page.ts';
 
 export default function validateForm() {
   const renderEntryPage = new EntryPage();
