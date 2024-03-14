@@ -1,5 +1,5 @@
-import EntryPage from './entry-page.ts';
-import saveInputInLocalStorage from '../local-storage/input-data.ts';
+import EntryPage from './entry-page';
+import saveInputInLocalStorage from '../local-storage/input-data';
 
 export default function validateForm() {
   const renderEntryPage = new EntryPage();

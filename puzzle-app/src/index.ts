@@ -1,6 +1,6 @@
-// import EntryPage from './app/entry-page/entry-page';
-import validateForm from './app/entry-page/form-validation-rules.ts';
+import validateForm from './app/entry-page/form-validation-rules';
+import { checkLocalStorage } from './app/local-storage/input-data';
 import './styles.css';
 
-// new EntryPage().renderEntryPage();
 validateForm();
+checkLocalStorage();
