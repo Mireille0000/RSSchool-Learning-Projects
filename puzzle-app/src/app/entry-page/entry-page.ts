@@ -5,7 +5,7 @@ export default class EntryPage {
 
   text: HTMLParagraphElement;
 
-  form: HTMLFormElement;
+  public form: HTMLFormElement;
 
   firstName: HTMLInputElement;
 
@@ -17,6 +17,7 @@ export default class EntryPage {
     this.form = document.createElement('form') as HTMLFormElement;
     this.form.action = '/';
     this.form.method = 'GET';
+    this.form.id = 'entry-page-form';
 
     this.firstName = document.createElement('input') as HTMLInputElement;
     this.firstName.className = 'entry-page-input';

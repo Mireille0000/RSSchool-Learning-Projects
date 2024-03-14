@@ -1,14 +1,17 @@
 import EntryPage from './entry-page.ts';
+import saveInputInLocalStorage from '../local-storage/input-data.ts';
 
 export default function validateForm() {
   const renderEntryPage = new EntryPage();
   renderEntryPage.renderEntryPage();
+  const nameInput = Array.from(
+    document.querySelectorAll('.entry-page-input'),
+  ) as HTMLInputElement[];
+  const form = document.querySelector('#entry-page-form') as HTMLFormElement;
+  // const logInBtn = document.querySelector('.log-in-button') as HTMLButtonElement;
 
-  const validateInput = /^[A-Z]+/;
+  const validateInput = /^[A-Z]([a-z])+/;
   const validateAlphabet = /[^A-z\\-]+/;
-
-  const logInBtn = document.querySelector('.log-in-button') as HTMLButtonElement;
-  const nameInput = Array.from(document.querySelectorAll('.entry-page-input')) as HTMLInputElement[];
 
   nameInput.map((input) => input.setAttribute('pattern', validateInput.source));
 
@@ -16,25 +19,49 @@ export default function validateForm() {
   const validationHintLetter = document.querySelector('.first-letter') as HTMLDivElement;
   const validateHintLanguage = document.querySelector('.alphabet') as HTMLDivElement;
 
-  logInBtn.addEventListener('click', (el) => {
-    if (validateInput.test(nameInput[0].value) && validateInput.test(nameInput[1].value)) {
-      validationHintLetter.style.setProperty('color', 'rgb(199, 231, 157)');
+  form.addEventListener('submit', (el) => {
+    const capCheckFirstInput = validateInput.test(nameInput[0].value);
+    const capCheckSecInput = validateInput.test(nameInput[1].value);
+    const alphabetCheckFirstInput = !validateAlphabet.test(nameInput[0].value);
+    const alphabetCheckSecInput = !validateAlphabet.test(nameInput[1].value);
+    const inputLengthFirst = nameInput[0].value.length < 3;
+    const inputLengthSec = nameInput[1].value.length < 4;
+
+    const colorRight = (validator: HTMLDivElement) =>
+      validator.style.setProperty('color', 'rgb(199, 231, 157)');
+    const colorWrong = (validator: HTMLDivElement) =>
+      validator.style.setProperty('color', 'rgb(228, 22, 22)');
+
+    if (capCheckFirstInput && capCheckSecInput) {
+      colorRight(validationHintLetter);
     } else {
-      validationHintLetter.style.setProperty('color', 'rgb(228, 22, 22)');
+      colorWrong(validationHintLetter);
     }
 
-    if (nameInput[0].value.length < 3 || nameInput[1].value.length < 4) {
-      validationHintLength.style.setProperty('color', 'rgb(228, 22, 22)');
+    if (inputLengthFirst || inputLengthSec) {
+      colorWrong(validationHintLength);
     } else {
-      validationHintLength.style.setProperty('color', 'rgb(199, 231, 157)');
+      colorRight(validationHintLength);
     }
 
-    if (!validateAlphabet.test(nameInput[0].value) && !validateAlphabet.test(nameInput[1].value)) {
-      validateHintLanguage.style.setProperty('color', 'rgb(199, 231, 157)');
+    if (alphabetCheckFirstInput && alphabetCheckSecInput) {
+      colorRight(validateHintLanguage);
     } else {
-      validateHintLanguage.style.setProperty('color', 'rgb(228, 22, 22)');
+      colorWrong(validateHintLanguage);
     }
 
+    const nameValue = nameInput[0];
+    const surnameValue = nameInput[1];
+    if (
+      capCheckFirstInput &&
+      capCheckSecInput &&
+      !inputLengthFirst &&
+      !inputLengthSec &&
+      alphabetCheckFirstInput &&
+      alphabetCheckSecInput
+    ) {
+      saveInputInLocalStorage(nameValue, surnameValue);
+    }
     el.preventDefault();
   });
 }
