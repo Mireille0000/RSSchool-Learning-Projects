@@ -1,11 +1,11 @@
-const pageWrapper = document.createElement('div');
+import Page from '../templates/page';
 
-export default class EntryPage {
+export default class LogInPage extends Page {
   header: HTMLHeadingElement;
 
   text: HTMLParagraphElement;
 
-  public form: HTMLFormElement;
+  form: HTMLFormElement;
 
   firstName: HTMLInputElement;
 
@@ -14,18 +14,12 @@ export default class EntryPage {
   button: HTMLButtonElement;
 
   constructor() {
+    super();
+
     this.form = document.createElement('form') as HTMLFormElement;
-    this.form.action = '/';
     this.form.method = 'GET';
     this.form.id = 'entry-page-form';
 
-    this.firstName = document.createElement('input') as HTMLInputElement;
-    this.firstName.className = 'entry-page-input';
-    this.firstName.type = 'text';
-
-    this.lastName = document.createElement('input') as HTMLInputElement;
-    this.lastName.className = 'entry-page-input';
-    this.lastName.type = 'text';
     this.firstName = document.createElement('input') as HTMLInputElement;
     this.firstName.className = 'entry-page-input';
     this.firstName.type = 'text';
@@ -46,10 +40,10 @@ export default class EntryPage {
     this.button.type = 'submit';
   }
 
-  renderEntryPage() {
-    pageWrapper.className = 'page-wrapper';
-    document.body.append(pageWrapper);
-    pageWrapper.append(this.header, this.text, this.form);
+  renderPage() {
+    document.body.append(this.pageWrapper);
+    const wrapper = document.querySelector('.page-wrapper') as HTMLDivElement;
+    wrapper.append(this.header, this.text, this.form);
 
     const container = document.createElement('div') as HTMLElement;
     container.className = 'container';
@@ -72,5 +66,12 @@ export default class EntryPage {
     this.lastName.required = true;
     this.form.append(container);
     container.append(this.firstName, this.lastName, validLen, validCap, validLang, this.button);
+    return this.pageWrapper;
   }
+
+  // removeLogInPage() {
+
+  // }
 }
+
+export const logInPage = new LogInPage();

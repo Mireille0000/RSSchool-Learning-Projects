@@ -1,6 +1,8 @@
-import validateForm from './app/entry-page/form-validation-rules';
+import validateForm from './app/log-in-page/form-validation-rules';
 import { checkLocalStorage } from './app/local-storage/input-data';
+import { logInPage } from './app/log-in-page/log-in-page';
+import App from './app/app';
 import './styles.css';
 
-validateForm();
-checkLocalStorage();
+new App().run();
+// validateForm()

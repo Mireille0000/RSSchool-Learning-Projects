@@ -11,4 +11,4 @@ body {
   font-family: 'Sora', sans-serif;
 }
 
-@import url('./app/entry-page/entry-page.css');
+@import url('./app/log-in-page/log-in-page.css');
