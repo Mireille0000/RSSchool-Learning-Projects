@@ -1,11 +1,11 @@
-const pageWrapper = document.createElement('div');
+import Page from '../templates/page.ts';
 
-export default class EntryPage {
-  header: HTMLHeadingElement;
+export default class LogInPage extends Page {
+  title: HTMLHeadingElement;
 
   text: HTMLParagraphElement;
 
-  public form: HTMLFormElement;
+  form: HTMLFormElement;
 
   firstName: HTMLInputElement;
 
@@ -14,8 +14,9 @@ export default class EntryPage {
   button: HTMLButtonElement;
 
   constructor() {
+    super();
+
     this.form = document.createElement('form') as HTMLFormElement;
-    this.form.action = '/';
     this.form.method = 'GET';
     this.form.id = 'entry-page-form';
 
@@ -26,33 +27,31 @@ export default class EntryPage {
     this.lastName = document.createElement('input') as HTMLInputElement;
     this.lastName.className = 'entry-page-input';
     this.lastName.type = 'text';
-    this.firstName = document.createElement('input') as HTMLInputElement;
-    this.firstName.className = 'entry-page-input';
-    this.firstName.type = 'text';
 
-    this.lastName = document.createElement('input') as HTMLInputElement;
-    this.lastName.className = 'entry-page-input';
-    this.lastName.type = 'text';
-
-    this.header = document.createElement('h1');
-    this.header.innerHTML = 'Puzzle (Learn English)';
+    this.title = document.createElement('h1');
+    this.title.innerHTML = 'Puzzle (Learn English)';
 
     this.text = document.createElement('p');
     this.text.innerHTML = 'Click on words. Collect phrases. Improve your English';
 
     this.button = document.createElement('button') as HTMLButtonElement;
-    this.button.className = 'log-in-button';
+    this.button.className = 'log-in-button buttons';
     this.button.innerHTML = 'Log In';
     this.button.type = 'submit';
   }
 
-  renderEntryPage() {
-    pageWrapper.className = 'page-wrapper';
-    document.body.append(pageWrapper);
-    pageWrapper.append(this.header, this.text, this.form);
+  renderPage() {
+    document.body.append(this.pageWrapper);
+    const wrapper = document.querySelector('.page-wrapper') as HTMLDivElement;
+    wrapper.append(this.header, this.contentWrapper);
+
+    const content = document.querySelector('.page-content') as HTMLDivElement;
+    const header = document.querySelector('header') as HTMLElement;
+    header.append(this.title);
 
     const container = document.createElement('div') as HTMLElement;
     container.className = 'container';
+    content.append(this.form);
 
     const validLen = document.createElement('div');
     validLen.innerHTML = 'Minimum characters number: first name - 3, last name - 4';
@@ -72,5 +71,12 @@ export default class EntryPage {
     this.lastName.required = true;
     this.form.append(container);
     container.append(this.firstName, this.lastName, validLen, validCap, validLang, this.button);
+    return this.pageWrapper;
   }
+
+  // removeLogInPage() {
+
+  // }
 }
+
+export const logInPage = new LogInPage();

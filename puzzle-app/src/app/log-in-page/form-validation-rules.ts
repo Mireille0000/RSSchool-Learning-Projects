@@ -1,14 +1,14 @@
-import EntryPage from './entry-page.ts';
+import LogInPage from './log-in-page.ts';
 import saveInputInLocalStorage from '../local-storage/input-data.ts';
-
+import StartPage from '../start-page/start-page.ts';
+// to do the function as a method
 export default function validateForm() {
-  const renderEntryPage = new EntryPage();
-  renderEntryPage.renderEntryPage();
+  const renderEntryPage = new LogInPage();
+  renderEntryPage.renderPage();
   const nameInput = Array.from(
     document.querySelectorAll('.entry-page-input'),
   ) as HTMLInputElement[];
   const form = document.querySelector('#entry-page-form') as HTMLFormElement;
-  // const logInBtn = document.querySelector('.log-in-button') as HTMLButtonElement;
 
   const validateInput = /^[A-Z]([a-z])+/;
   const validateAlphabet = /[^A-z\\-]+/;
@@ -61,6 +61,8 @@ export default function validateForm() {
       alphabetCheckSecInput
     ) {
       saveInputInLocalStorage(nameValue, surnameValue);
+      document.body.innerHTML = '';
+      new StartPage().renderPage();
     }
     el.preventDefault();
   });

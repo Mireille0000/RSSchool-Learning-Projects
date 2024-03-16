@@ -1,6 +1,4 @@
-// import EntryPage from './app/entry-page/entry-page';
-import validateForm from './app/entry-page/form-validation-rules.ts';
+import App from './app/app.ts';
 import './styles.css';
 
-// new EntryPage().renderEntryPage();
-validateForm();
+new App().run();
