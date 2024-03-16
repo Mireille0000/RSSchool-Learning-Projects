@@ -5,8 +5,10 @@ import validateForm from './log-in-page/form-validation-rules';
 
 export default class App extends Page {
   logInPage: LogInPage;
+
   startPage: StartPage;
-  static render() {
+
+  render() {
     const isNotEmpty = localStorage.getItem('userInfo') as string;
     let page: Page | null = null;
     if (!isNotEmpty) {
@@ -29,6 +31,6 @@ export default class App extends Page {
   }
 
   run() {
-    App.render();
+    this.render();
   }
 }

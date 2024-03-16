@@ -35,7 +35,7 @@ export default class LogInPage extends Page {
     this.text.innerHTML = 'Click on words. Collect phrases. Improve your English';
 
     this.button = document.createElement('button') as HTMLButtonElement;
-    this.button.className = 'log-in-button';
+    this.button.className = 'log-in-button buttons';
     this.button.innerHTML = 'Log In';
     this.button.type = 'submit';
   }

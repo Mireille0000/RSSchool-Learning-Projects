@@ -1,12 +1,29 @@
 .page-wrapper {
   height: 100vh;
+  /* display: flex;
+  justify-content: center; */
+  /* 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+
+  background-image: url('../../images/entry-page2.jpg');
+  background-size: cover;
+}
+/* .puzzle-image {
+  background-image: url('../../images/puzzle.jpg');
+} */
+.page-content {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
 
-  background-image: url('../../images/entry-page2.jpg');
-  background-size: cover;
+header {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 h1 {
@@ -55,7 +72,7 @@ p {
   background-color: #ee8642;
 }
 
-.log-in-button {
+.buttons {
   width: 250px;
   height: 40px;
   margin-top: 10px;
@@ -67,7 +84,7 @@ p {
   cursor: pointer;
 }
 
-.log-in-button:hover {
+.buttons:hover {
   transition-duration: 1s;
   background-color: #7591b9;
 }
