@@ -1,11 +1,8 @@
 .page-wrapper {
   height: 100vh;
-  /* display: flex;
-  justify-content: center; */
-  /* 
+  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center; */
+  justify-content: space-evenly;
 
   background-image: url('../../images/entry-page2.jpg');
   background-size: cover;
@@ -27,6 +24,7 @@ header {
 }
 
 h1 {
+  margin-top: 25px;
   margin-bottom: 7px;
   background-color: #ee8642;
   box-shadow: 0 0 5px 10px #ee8642;

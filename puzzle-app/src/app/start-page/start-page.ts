@@ -47,17 +47,16 @@ export default class StartPage extends Page {
     document.body.append(this.pageWrapper);
     const wrapper = document.querySelector('.page-wrapper') as HTMLDivElement;
     wrapper.append(this.header, this.contentWrapper);
+
     const content = document.querySelector('.page-content') as HTMLDivElement;
     const header = document.querySelector('header') as HTMLElement;
     content.append(this.title, container);
     const icon = new Image();
-    // icon.src =  require('../../images/puzzle1.svg');
     icon.src = puzzleIncon;
     icon.alt = 'puzzle';
 
     const settings = new Image();
     settings.src = settingsIcon;
-    // settings.src = require('../../images/settings.svg');
     settings.alt = 'settings';
     settings.className = 'settings';
 

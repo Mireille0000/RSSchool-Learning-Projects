@@ -1,7 +1,7 @@
 import Page from '../templates/page';
 
 export default class LogInPage extends Page {
-  header: HTMLHeadingElement;
+  title: HTMLHeadingElement;
 
   text: HTMLParagraphElement;
 
@@ -28,8 +28,8 @@ export default class LogInPage extends Page {
     this.lastName.className = 'entry-page-input';
     this.lastName.type = 'text';
 
-    this.header = document.createElement('h1');
-    this.header.innerHTML = 'Puzzle (Learn English)';
+    this.title = document.createElement('h1');
+    this.title.innerHTML = 'Puzzle (Learn English)';
 
     this.text = document.createElement('p');
     this.text.innerHTML = 'Click on words. Collect phrases. Improve your English';
@@ -43,10 +43,15 @@ export default class LogInPage extends Page {
   renderPage() {
     document.body.append(this.pageWrapper);
     const wrapper = document.querySelector('.page-wrapper') as HTMLDivElement;
-    wrapper.append(this.header, this.text, this.form);
+    wrapper.append(this.header, this.contentWrapper);
+
+    const content = document.querySelector('.page-content') as HTMLDivElement;
+    const header = document.querySelector('header') as HTMLElement;
+    header.append(this.title);
 
     const container = document.createElement('div') as HTMLElement;
     container.className = 'container';
+    content.append(this.form);
 
     const validLen = document.createElement('div');
     validLen.innerHTML = 'Minimum characters number: first name - 3, last name - 4';
