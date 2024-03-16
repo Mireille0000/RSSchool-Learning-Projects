@@ -1,4 +1,4 @@
-import Page from '../templates/page';
+import Page from '../templates/page.ts';
 
 export default class LogInPage extends Page {
   title: HTMLHeadingElement;

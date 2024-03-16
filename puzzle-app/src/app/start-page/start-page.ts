@@ -1,9 +1,5 @@
-// Title
-// Info abt the app
-// Settings?
-// Start button
-// Log out button
-import Page from '../templates/page';
+import Page from '../templates/page.ts';
+import validateForm from '../log-in-page/form-validation-rules.ts';
 import puzzleIncon from '../../images/puzzle1.svg';
 import settingsIcon from '../../images/settings.svg';
 
@@ -67,11 +63,16 @@ export default class StartPage extends Page {
     buttonsContainer.append(this.start, this.logOut);
     this.start.className = 'start-button buttons';
     this.logOut.className = 'log-out-button buttons';
-    return this.pageWrapper;
-  }
 
-  logIn() {
-    // clear local storage and return on log in page
+    const logOutButton = document.querySelector('.log-out-button') as HTMLButtonElement;
+    logOutButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.clear();
+      document.body.innerHTML = '';
+      validateForm();
+    });
+
+    return this.pageWrapper;
   }
 }
 

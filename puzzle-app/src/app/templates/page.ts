@@ -1,8 +1,8 @@
-const isEmpty = localStorage.getItem('userInfo') as string;
-
 export default abstract class Page {
   pageWrapper: HTMLDivElement;
+
   header: HTMLElement;
+
   contentWrapper: HTMLDivElement;
 
   constructor() {

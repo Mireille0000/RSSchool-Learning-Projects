@@ -1,6 +1,6 @@
-import LogInPage from './log-in-page';
-import saveInputInLocalStorage from '../local-storage/input-data';
-import StartPage from '../start-page/start-page';
+import LogInPage from './log-in-page.ts';
+import saveInputInLocalStorage from '../local-storage/input-data.ts';
+import StartPage from '../start-page/start-page.ts';
 // to do the function as a method
 export default function validateForm() {
   const renderEntryPage = new LogInPage();
