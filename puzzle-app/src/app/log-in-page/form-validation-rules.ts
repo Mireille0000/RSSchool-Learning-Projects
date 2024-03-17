@@ -1,6 +1,7 @@
 import LogInPage from './log-in-page.ts';
 import saveInputInLocalStorage from '../local-storage/input-data.ts';
 import StartPage from '../start-page/start-page.ts';
+
 // to do the function as a method
 export default function validateForm() {
   const renderEntryPage = new LogInPage();
@@ -13,7 +14,7 @@ export default function validateForm() {
   const validateInput = /^[A-Z]([a-z])+/;
   const validateAlphabet = /[^A-z\\-]+/;
 
-  nameInput.map((input) => input.setAttribute('pattern', validateInput.source));
+  // nameInput.map((input) => input.setAttribute('pattern', validateInput.source));
 
   const validationHintLength = document.querySelector('.length') as HTMLDivElement;
   const validationHintLetter = document.querySelector('.first-letter') as HTMLDivElement;
@@ -21,6 +22,7 @@ export default function validateForm() {
 
   form.addEventListener('submit', (el) => {
     const capCheckFirstInput = validateInput.test(nameInput[0].value);
+    console.log(nameInput[0]);
     const capCheckSecInput = validateInput.test(nameInput[1].value);
     const alphabetCheckFirstInput = !validateAlphabet.test(nameInput[0].value);
     const alphabetCheckSecInput = !validateAlphabet.test(nameInput[1].value);

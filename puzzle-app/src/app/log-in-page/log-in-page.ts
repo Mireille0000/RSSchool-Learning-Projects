@@ -73,10 +73,6 @@ export default class LogInPage extends Page {
     container.append(this.firstName, this.lastName, validLen, validCap, validLang, this.button);
     return this.pageWrapper;
   }
-
-  // removeLogInPage() {
-
-  // }
 }
 
 export const logInPage = new LogInPage();
