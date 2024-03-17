@@ -18,7 +18,7 @@
 
 header {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 h1 {
@@ -84,5 +84,6 @@ p {
 
 .buttons:hover {
   transition-duration: 1s;
-  background-color: #7591b9;
+  /* background-color: #7591b9; */
+  background-color: rgba(245, 128, 32, 0.7);
 }
