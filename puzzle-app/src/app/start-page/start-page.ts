@@ -1,8 +1,8 @@
 import Page from '../templates/page.ts';
 import validateForm from '../log-in-page/form-validation-rules.ts';
+import { fetchFromLocalStorage } from '../local-storage/input-data.ts';
 import puzzleIncon from '../../images/puzzle1.svg';
 import settingsIcon from '../../images/settings.svg';
-// import { greetingMessage } from '../local-storage/input-data';
 
 export default class StartPage extends Page {
   title: HTMLHeadingElement;
@@ -45,10 +45,10 @@ export default class StartPage extends Page {
 
     const greeting = document.createElement('div') as HTMLDivElement;
     greeting.className = 'greeting-message';
-    const greetingUser = JSON.parse(localStorage.getItem('userInfo') as string);
-    let greetingMessage: string = `Greetings, ${greetingUser.name} ${greetingUser.surname}!
- Welcome to Puzzle App that will help you learn English! Click 'start' to continue`;
-    greeting.innerHTML = greetingMessage;
+    //     const greetingUser = JSON.parse(localStorage.getItem('userInfo') as string);
+    //     let greetingMessage: string = `Greetings, ${greetingUser.name} ${greetingUser.surname}!
+    //  Welcome to Puzzle App that will help you learn English! Click 'start' to continue`;
+    greeting.innerHTML = fetchFromLocalStorage('userInfo');
 
     document.body.append(this.pageWrapper);
     const wrapper = document.querySelector('.page-wrapper') as HTMLDivElement;
@@ -78,7 +78,7 @@ export default class StartPage extends Page {
     logOutButton.addEventListener('click', (e) => {
       e.preventDefault();
       localStorage.clear();
-      greetingMessage = '';
+      greeting.innerHTML = '';
       document.body.innerHTML = '';
       validateForm();
     });
