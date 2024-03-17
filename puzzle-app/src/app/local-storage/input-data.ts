@@ -7,11 +7,10 @@ export default function saveInputInLocalStorage(name: HTMLInputElement, surname:
   localStorage.setItem('userInfo', userInfo);
 }
 
-export function checkLocalStorage() {
-  const isEmpty = localStorage.getItem('userInfo') as string;
-  if (isEmpty) {
-    console.log('Connected');
-  } else {
-    console.log('Disconnected');
-  }
+export function fetchFromLocalStorage(data: string) {
+  // 'userInfo'
+  const greetingUser = JSON.parse(localStorage.getItem(data) as string);
+  const greetingMessage: string = `Greetings, ${greetingUser.name} ${greetingUser.surname}!
+Welcome to Puzzle App that will help you learn English! Click 'start' to continue`;
+  return greetingMessage;
 }
