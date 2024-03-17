@@ -1,13 +1,12 @@
 import Page from '../templates/page.ts';
 import validateForm from '../log-in-page/form-validation-rules.ts';
+import MainAppPage from '../main-page/main-app-page.ts';
 import { fetchFromLocalStorage } from '../local-storage/input-data.ts';
 import puzzleIncon from '../../images/puzzle1.svg';
 import settingsIcon from '../../images/settings.svg';
 
 export default class StartPage extends Page {
   title: HTMLHeadingElement;
-
-  // greeting: HTMLDivElement;
 
   text: HTMLParagraphElement;
 
@@ -20,9 +19,6 @@ export default class StartPage extends Page {
 
     this.title = document.createElement('h1');
     this.title.innerHTML = 'Puzzle (Learn English)';
-
-    // this.greeting = document.createElement('div');
-    // this.greeting.className = 'greeting-message';
 
     this.text = document.createElement('p');
     this.text.innerHTML = 'Click on words. Collect phrases. Improve your English';
@@ -41,13 +37,9 @@ export default class StartPage extends Page {
     const buttonsForm = document.createElement('form');
     const buttonsContainer = document.createElement('div');
     buttonsContainer.className = 'buttons-container';
-    console.log(buttonsContainer);
 
     const greeting = document.createElement('div') as HTMLDivElement;
     greeting.className = 'greeting-message';
-    //     const greetingUser = JSON.parse(localStorage.getItem('userInfo') as string);
-    //     let greetingMessage: string = `Greetings, ${greetingUser.name} ${greetingUser.surname}!
-    //  Welcome to Puzzle App that will help you learn English! Click 'start' to continue`;
     greeting.innerHTML = fetchFromLocalStorage('userInfo');
 
     document.body.append(this.pageWrapper);
@@ -81,6 +73,14 @@ export default class StartPage extends Page {
       greeting.innerHTML = '';
       document.body.innerHTML = '';
       validateForm();
+    });
+
+    const startButton = document.querySelector('.start-button') as HTMLButtonElement;
+    startButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log('Not yet');
+      document.body.innerHTML = '';
+      new MainAppPage().renderMainPage();
     });
 
     return this.pageWrapper;
