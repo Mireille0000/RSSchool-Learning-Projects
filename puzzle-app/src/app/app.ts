@@ -11,7 +11,6 @@ export default class App extends Page {
   checkLocalStorage: string;
 
   render() {
-    // const isNotEmpty = localStorage.getItem('userInfo') as string;
     let page: Page | null = null;
     if (!this.checkLocalStorage) {
       validateForm();
