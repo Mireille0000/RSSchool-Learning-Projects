@@ -9,7 +9,6 @@ export default class MainAppPage extends Page {
   // puzzle-field
   // line with words
   // buttons 'Check' and 'I don't know'
-  // header: HTMLHeadingElement;
   puzzleField: HTMLDivElement;
 
   puzzleLine: HTMLDivElement;
@@ -51,26 +50,41 @@ export default class MainAppPage extends Page {
     header.append(icon, settings);
     content.append(this.puzzleField, this.words);
 
+    const line = document.createElement('div');
+    line.className = 'line';
     const word = document.createElement('div');
     word.className = 'word';
+    const wordInLine = document.createElement('div');
+    wordInLine.className = 'word-in-line';
 
-    // console.log(dataOne)
     const firstRound = dataToExport[0];
-    console.log(firstRound);
     const sentence = firstRound.rounds[0].words[0].textExample;
     const arrWords = sentence.split(' ');
 
+    for (let i = 0; i < 11; i += 1) {
+      this.puzzleField.appendChild(line.cloneNode(true));
+    }
+    const linesArr = Array.from(document.querySelectorAll('.line'));
+
     for (let i = 0; i < arrWords.length; i += 1) {
       this.words.appendChild(word.cloneNode(true));
+      linesArr[0].appendChild(wordInLine.cloneNode(true));
     }
+
+    const inLineWordsArr = Array.from(document.querySelectorAll('.word-in-line'));
     const sentenceParts = Array.from(document.querySelectorAll('.word'));
     const randomizedSentence = arrWords.sort(() => Math.random() - 0.5);
-
-    console.log(randomizedSentence);
 
     sentenceParts.forEach((item, index) => {
       const wordItem = item;
       wordItem.innerHTML = randomizedSentence[index];
+
+      wordItem.addEventListener('click', () => {
+        wordItem.innerHTML = '';
+        const wordField = (inLineWordsArr as HTMLDivElement[]).find((el) => !el.innerHTML);
+        (wordField as HTMLDivElement).style.setProperty('border', '1px solid #5d5656');
+        (wordField as HTMLDivElement).innerHTML = randomizedSentence[index];
+      });
     });
   }
 }
