@@ -1,0 +1,32 @@
+.main-page-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-image: url('../../images/entry-page2.jpg');
+  background-size: cover;
+}
+
+.main-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.puzzle-field {
+  width: 900px;
+  height: 300px;
+  margin-bottom: 20px;
+  background-color: rgba(245, 128, 32, 0.7);
+  box-shadow: 0 0 5px 10px rgba(245, 128, 32, 0.7);
+}
+
+.words {
+  width: 900px;
+  height: 30px;
+  margin-top: 20px;
+  background-color: rgba(245, 128, 32, 0.7);
+  box-shadow: 0 0 5px 10px rgba(245, 128, 32, 0.7);
+}
