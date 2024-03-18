@@ -2,6 +2,8 @@ import Page from '../templates/page.ts';
 import puzzleIncon from '../../images/puzzle1.svg';
 import settingsIcon from '../../images/settings.svg';
 
+import { dataToExport } from '../data/cards-data.ts';
+
 export default class MainAppPage extends Page {
   // nav bar (hints, sound, settings, icon puzzle ,round/level?)
   // for hints (two divs)
@@ -32,15 +34,11 @@ export default class MainAppPage extends Page {
   renderMainPage() {
     document.body.append(this.pageWrapper);
     this.pageWrapper.className = 'main-page-wrapper';
-    const wrapper = document.querySelector('.main-page-wrapper') as HTMLDivElement;
     this.pageWrapper.append(this.header, this.contentWrapper);
 
     const content = document.querySelector('.page-content') as HTMLDivElement;
     content.className = 'main-content-wrapper';
     const header = document.querySelector('header') as HTMLElement;
-
-    header.append();
-    content.append(this.puzzleField, this.words);
 
     const icon = new Image();
     icon.src = puzzleIncon;
@@ -52,7 +50,26 @@ export default class MainAppPage extends Page {
     settings.className = 'settings';
 
     header.append(icon, settings);
+    content.append(this.puzzleField, this.words);
 
-    // const appField = document.querySelector('.puzzle-field')
+    const word = document.createElement('div');
+    word.className = 'word';
+
+    const firstRound = dataToExport[0];
+    const sentence = firstRound.rounds[0].words[0].textExample;
+    const arrWords = sentence.split(' ');
+
+    for (let i = 0; i < arrWords.length; i += 1) {
+      this.words.appendChild(word.cloneNode(true));
+    }
+    const sentenceParts = Array.from(document.querySelectorAll('.word'));
+    // console.log(sentenceParts);
+    // console.log(sentence);
+
+    sentenceParts.forEach((item, index) => {
+      const wordItem = item;
+      wordItem.innerHTML = arrWords[index];
+    });
+    // this.words.innerHTML = sentence;
   }
 }

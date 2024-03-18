@@ -26,7 +26,12 @@
 .words {
   width: 900px;
   height: 30px;
+  display: flex;
   margin-top: 20px;
   background-color: rgba(245, 128, 32, 0.7);
   box-shadow: 0 0 5px 10px rgba(245, 128, 32, 0.7);
+}
+
+.word {
+  flex: 1;
 }
