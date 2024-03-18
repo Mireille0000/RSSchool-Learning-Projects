@@ -1,8 +1,7 @@
 import Page from '../templates/page.ts';
+import { dataToExport } from '../data/cards-data.ts';
 import puzzleIncon from '../../images/puzzle1.svg';
 import settingsIcon from '../../images/settings.svg';
-
-import { dataToExport } from '../data/cards-data.ts';
 
 export default class MainAppPage extends Page {
   // nav bar (hints, sound, settings, icon puzzle ,round/level?)
@@ -55,7 +54,9 @@ export default class MainAppPage extends Page {
     const word = document.createElement('div');
     word.className = 'word';
 
+    // console.log(dataOne)
     const firstRound = dataToExport[0];
+    console.log(firstRound);
     const sentence = firstRound.rounds[0].words[0].textExample;
     const arrWords = sentence.split(' ');
 
@@ -63,13 +64,13 @@ export default class MainAppPage extends Page {
       this.words.appendChild(word.cloneNode(true));
     }
     const sentenceParts = Array.from(document.querySelectorAll('.word'));
-    // console.log(sentenceParts);
-    // console.log(sentence);
+    const randomizedSentence = arrWords.sort(() => Math.random() - 0.5);
+
+    console.log(randomizedSentence);
 
     sentenceParts.forEach((item, index) => {
       const wordItem = item;
-      wordItem.innerHTML = arrWords[index];
+      wordItem.innerHTML = randomizedSentence[index];
     });
-    // this.words.innerHTML = sentence;
   }
 }

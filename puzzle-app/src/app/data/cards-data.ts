@@ -1,12 +1,14 @@
 import RoundData from '../interfaces/data-interfaces.ts';
 
-export async function getJsonData(request: Request | string): Promise<RoundData> {
+type ResponseRequest = Request | string;
+
+export async function getJsonData(request: ResponseRequest): Promise<RoundData> {
   const response = await fetch(request);
   const roundDataJson = await response.json();
   return roundDataJson;
 }
 
-const dataOne = await getJsonData(
+export const dataOne = await getJsonData(
   'https://raw.githubusercontent.com/rolling-scopes-school/rss-puzzle-data/main/data/wordCollectionLevel1.json',
 );
 const dataTwo = await getJsonData(
@@ -22,7 +24,7 @@ const dataFive = await getJsonData(
   'https://raw.githubusercontent.com/rolling-scopes-school/rss-puzzle-data/main/data/wordCollectionLevel5.json',
 );
 const dataSix = await getJsonData(
-  'https://raw.githubusercontent.com/rolling-scopes-school/rss-puzzle-data/main/data/wordCollectionLevel16json',
+  'https://raw.githubusercontent.com/rolling-scopes-school/rss-puzzle-data/main/data/wordCollectionLevel6.json',
 );
 
 const dataArr = [dataOne, dataTwo, dataThree, dataFour, dataFive, dataSix];
