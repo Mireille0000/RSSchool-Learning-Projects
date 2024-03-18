@@ -49,6 +49,7 @@ export default class StartPage extends Page {
     const content = document.querySelector('.page-content') as HTMLDivElement;
     const header = document.querySelector('header') as HTMLElement;
     content.append(this.title, this.text, container);
+
     const icon = new Image();
     icon.src = puzzleIncon;
     icon.alt = 'puzzle';

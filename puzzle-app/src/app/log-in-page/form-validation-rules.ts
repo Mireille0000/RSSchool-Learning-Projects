@@ -13,7 +13,7 @@ export default function validateForm() {
   const validateInput = /^[A-Z]([a-z])+/;
   const validateAlphabet = /[^A-z\\-]+/;
 
-  nameInput.map((input) => input.setAttribute('pattern', validateInput.source));
+  // nameInput.map((input) => input.setAttribute('pattern', validateInput.source));
 
   const validationHintLength = document.querySelector('.length') as HTMLDivElement;
   const validationHintLetter = document.querySelector('.first-letter') as HTMLDivElement;

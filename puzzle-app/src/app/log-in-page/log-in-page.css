@@ -2,7 +2,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
 
   background-image: url('../../images/entry-page2.jpg');
   background-size: cover;
@@ -12,7 +12,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
 }
 
