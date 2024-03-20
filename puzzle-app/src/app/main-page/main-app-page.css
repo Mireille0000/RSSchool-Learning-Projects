@@ -41,7 +41,8 @@
 
 .word-in-line {
   align-self: center;
-  flex: 1;
+  flex: auto;
+  box-sizing: content-box;
   text-align: center;
   padding: 5px;
   /* border: 1px solid #5d5656; */
