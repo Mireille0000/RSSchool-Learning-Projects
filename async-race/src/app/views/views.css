@@ -1,0 +1,21 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.buttons-header,
+h1 {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.to-garage-button,
+.to-winners-button {
+  width: 100px;
+  height: 20px;
+  font-size: 10px;
+  cursor: pointer;
+}

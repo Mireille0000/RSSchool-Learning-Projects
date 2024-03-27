@@ -17,6 +17,15 @@ export default class MainButtons extends Page {
   renderPage() {
     document.body.append(this.container);
     this.container.append(this.header, this.main, this.footer);
-    this.addElementsToHeader(this.garage, this.winners);
+    const buttonsHeader = document.createElement("div") as HTMLDivElement;
+    const gameTitle = document.createElement("h1");
+    gameTitle.innerHTML = "ASYNC RACE";
+
+    buttonsHeader.className = "buttons-header";
+    this.addElementsToHeader(buttonsHeader, gameTitle);
+    buttonsHeader.append(this.garage, this.winners);
+
+    this.garage.innerHTML = "TO GARAGE";
+    this.winners.innerHTML = "TO WINNERS";
   }
 }
