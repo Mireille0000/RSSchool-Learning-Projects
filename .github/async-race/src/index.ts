@@ -1,1 +1,3 @@
-console.log("Hello World!");
+import { garageResponse } from "./cars-server/get-car.ts";
+
+console.log(garageResponse.length);
