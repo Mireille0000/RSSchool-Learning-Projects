@@ -1,6 +1,7 @@
 import Page from "./page.ts";
+import GaragePage from "./garage-view.ts";
 
-export default class MainButtons extends Page {
+export default class Views extends Page {
   garage: HTMLButtonElement;
 
   winners: HTMLButtonElement;
@@ -27,5 +28,20 @@ export default class MainButtons extends Page {
 
     this.garage.innerHTML = "TO GARAGE";
     this.winners.innerHTML = "TO WINNERS";
+
+    const garagePage = new GaragePage();
+    this.addElemetsToMain(garagePage.title, garagePage.page);
+
+    this.garage.addEventListener("click", () => {
+      this.main.innerHTML = "";
+      this.addElemetsToMain(garagePage.title, garagePage.page);
+    });
+
+    this.winners.addEventListener("click", () => {
+      this.main.innerHTML = "";
+      console.log("It is working");
+    });
+
+    return this.container;
   }
 }
