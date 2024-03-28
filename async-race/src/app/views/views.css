@@ -5,6 +5,34 @@ header {
   padding-left: 50px;
 }
 
+h1 {
+  font-family: "Workbench", sans-serif;
+  color: #dcd8ba;
+  text-shadow: #fc0 1px 0 10px;
+  animation-name: title;
+  animation-duration: 2s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes title {
+  0% {
+    text-shadow: #fc0 1px 0 10px;
+  }
+
+  25% {
+    text-shadow: rgb(233, 190, 17) 1px 0 10px;
+  }
+
+  50% {
+    text-shadow: rgb(188, 162, 58) 1px 0 10px;
+  }
+
+  100% {
+    text-shadow: rgb(189, 171, 97) 1px 0 10px;
+  }
+}
+
 .buttons-header,
 h1 {
   display: flex;
@@ -16,6 +44,7 @@ h1 {
 .to-winners-button {
   width: 100px;
   height: 20px;
+  font-family: "Tauri", sans-serif;
   font-size: 10px;
   cursor: pointer;
 }

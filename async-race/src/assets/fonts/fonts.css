@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Workbench";
+  src: url("./Workbench-Regular.ttf"), url("./Tauri-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Tauri";
+  src: url("./Tauri-Regular.ttf");
+}
