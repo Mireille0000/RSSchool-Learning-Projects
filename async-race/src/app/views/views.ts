@@ -1,10 +1,20 @@
 import Page from "./page.ts";
 import GaragePage from "./garage-view.ts";
+import WinnersPage from "./winners-view.ts";
+import CommunFunctionality from "./commun-func.ts";
 
 export default class Views extends Page {
   garage: HTMLButtonElement;
 
   winners: HTMLButtonElement;
+
+  communFunctionality: HTMLDivElement;
+
+  createCar: HTMLDivElement;
+
+  updateCar: HTMLDivElement;
+
+  communGameButtons: HTMLDivElement;
 
   constructor() {
     super();
@@ -13,6 +23,16 @@ export default class Views extends Page {
 
     this.winners = document.createElement("button");
     this.winners.className = "to-winners-button";
+
+    this.communFunctionality = document.createElement("div");
+    this.communFunctionality.className = "commun-functionality";
+
+    this.createCar = document.createElement("div");
+    this.createCar.className = "create-car-block";
+    this.updateCar = document.createElement("div");
+    this.updateCar.className = "update-car-block";
+    this.communGameButtons = document.createElement("div");
+    this.communGameButtons.className = "commun-game-buttons";
   }
 
   renderPage() {
@@ -30,15 +50,47 @@ export default class Views extends Page {
     this.winners.innerHTML = "TO WINNERS";
 
     const garagePage = new GaragePage();
-    this.addElemetsToMain(garagePage.title, garagePage.page);
+    const winnersPage = new WinnersPage();
+    const communFun = new CommunFunctionality();
+    this.addElemetsToMain(
+      this.communFunctionality,
+      garagePage.title,
+      garagePage.page,
+    );
+
+    this.communFunctionality.append(
+      this.createCar,
+      this.updateCar,
+      this.communGameButtons,
+    );
+    this.createCar.append(
+      communFun.createInput,
+      communFun.createColor,
+      communFun.createButton,
+    );
+    this.updateCar.append(
+      communFun.updateInput,
+      communFun.updateColor,
+      communFun.updateButton,
+    );
+    this.communGameButtons.append(
+      communFun.raceButton,
+      communFun.resetButton,
+      communFun.generateCarsButton,
+    );
 
     this.garage.addEventListener("click", () => {
       this.main.innerHTML = "";
-      this.addElemetsToMain(garagePage.title, garagePage.page);
+      this.addElemetsToMain(
+        this.communFunctionality,
+        garagePage.title,
+        garagePage.page,
+      );
     });
 
     this.winners.addEventListener("click", () => {
       this.main.innerHTML = "";
+      this.addElemetsToMain(winnersPage.title);
       console.log("It is working");
     });
 
