@@ -1,4 +1,6 @@
 @import url("./assets/fonts/fonts.css");
+@import url("./app/views/garage/garage.css");
+@import url("./app/views/views.css");
 
 html {
   margin: 0;
@@ -12,6 +14,5 @@ body {
 
 .container {
   margin: 0 auto;
+  max-width: 100vw;
 }
-
-@import url("./app/views/views.css");

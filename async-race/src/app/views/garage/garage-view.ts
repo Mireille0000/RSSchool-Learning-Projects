@@ -1,5 +1,5 @@
-import Page from "./page.ts";
-import { garageResponse } from "../cars-server/get-car.ts";
+import Page from "../../templates/page.ts";
+import { garageResponse } from "../../cars-server/get-car.ts";
 
 export default class GaragePage extends Page {
   title: HTMLHeadingElement;

@@ -57,21 +57,3 @@ h1 {
   font-family: "Workbench", sans-serif;
   color: #dcd8ba;
 }
-
-/* commun functionality */
-
-.commun-functionality {
-  display: flex;
-  flex-direction: column;
-}
-
-.update-car-block,
-.create-car-block {
-  display: flex;
-}
-
-.commun-functionality button {
-  font-family: "Tauri", sans-serif;
-  font-size: 10px;
-  cursor: pointer;
-}

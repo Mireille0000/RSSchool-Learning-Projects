@@ -1,7 +1,9 @@
-import Page from "./page.ts";
-import GaragePage from "./garage-view.ts";
-import WinnersPage from "./winners-view.ts";
-import CommunFunctionality from "./commun-func.ts";
+import Page from "../templates/page.ts";
+import GaragePage from "./garage/garage-view.ts";
+import WinnersPage from "./winners/winners-view.ts";
+import CommunFunctionality from "./garage/commun-func.ts";
+import RaceComponent from "./garage/components/race-component.ts";
+import CarComponent from "./garage/components/car-component.ts";
 
 export default class Views extends Page {
   garage: HTMLButtonElement;
@@ -15,6 +17,8 @@ export default class Views extends Page {
   updateCar: HTMLDivElement;
 
   communGameButtons: HTMLDivElement;
+
+  raceField: HTMLDivElement;
 
   constructor() {
     super();
@@ -33,6 +37,9 @@ export default class Views extends Page {
     this.updateCar.className = "update-car-block";
     this.communGameButtons = document.createElement("div");
     this.communGameButtons.className = "commun-game-buttons";
+
+    this.raceField = document.createElement("div");
+    this.raceField.className = "race-field";
   }
 
   renderPage() {
@@ -52,10 +59,23 @@ export default class Views extends Page {
     const garagePage = new GaragePage();
     const winnersPage = new WinnersPage();
     const communFun = new CommunFunctionality();
+    const raceComponent = new RaceComponent();
+    const carComponent = new CarComponent();
+
+    // race field
+    const carButtons = document.createElement("div");
+    carButtons.className = "car-buttons";
+    const controllers = document.createElement("div");
+    controllers.className = "car-controllers";
+    const roadPart = document.createElement("div");
+    roadPart.className = "road-part";
+    // race field
+
     this.addElemetsToMain(
       this.communFunctionality,
       garagePage.title,
       garagePage.page,
+      this.raceField,
     );
 
     this.communFunctionality.append(
@@ -79,12 +99,38 @@ export default class Views extends Page {
       communFun.generateCarsButton,
     );
 
+    // race field
+
+    this.raceField.append(carButtons, controllers, roadPart);
+    carButtons.append(
+      raceComponent.selectButton,
+      raceComponent.removeButton,
+      raceComponent.carName,
+    );
+
+    controllers.append(
+      raceComponent.controllerA,
+      raceComponent.controllerB,
+      carComponent.car,
+    );
+    carComponent.car.append(carComponent.g);
+    carComponent.g.append(
+      carComponent.carBody,
+      carComponent.wheel1,
+      carComponent.wheel2,
+    );
+
+    roadPart.append(raceComponent.road);
+
+    // race field
+
     this.garage.addEventListener("click", () => {
       this.main.innerHTML = "";
       this.addElemetsToMain(
         this.communFunctionality,
         garagePage.title,
         garagePage.page,
+        this.raceField,
       );
     });
 
