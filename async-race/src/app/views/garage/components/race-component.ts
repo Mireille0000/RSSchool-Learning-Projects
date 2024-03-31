@@ -1,6 +1,6 @@
-import { garageResponse } from "../../../cars-server/get-car.ts";
-
 export default class RaceComponent {
+  //   raceCar: HTMLDivElement;
+
   selectButton: HTMLButtonElement;
 
   removeButton: HTMLButtonElement;
@@ -15,13 +15,14 @@ export default class RaceComponent {
   // flag: SVGAElement;
 
   constructor() {
+    // this.raceCar = document.createElement('div');
     this.selectButton = document.createElement("button");
     this.selectButton.innerHTML = "SELECT";
     this.removeButton = document.createElement("button");
     this.removeButton.innerHTML = "REMOVE";
     this.carName = document.createElement("div");
     this.carName.className = "car-name";
-    this.carName.innerHTML = `${garageResponse[0].name}`; //
+    // this.carName.innerHTML = `${garageResponse[0].name}`;
 
     this.controllerA = document.createElement("button");
     this.controllerA.innerHTML = "A";
@@ -31,4 +32,8 @@ export default class RaceComponent {
     this.road = document.createElement("div");
     this.road.className = "road";
   }
+
+  //   race(...elements: Array<HTMLElement>) {
+  //     return this.raceCar.append(...elements);
+  //   }
 }

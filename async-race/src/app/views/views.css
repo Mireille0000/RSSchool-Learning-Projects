@@ -40,6 +40,7 @@ h1 {
   display: flex;
   gap: 10px;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .to-garage-button,
@@ -54,6 +55,11 @@ h1 {
 .garage-header,
 .page-numbers-header,
 .winners-header {
+  font-size: 15px;
   font-family: "Workbench", sans-serif;
   color: #dcd8ba;
 }
+
+/* .page-numbers-header {
+  font-size: 15px;
+} */

@@ -4,6 +4,7 @@ import WinnersPage from "./winners/winners-view.ts";
 import CommunFunctionality from "./garage/commun-func.ts";
 import RaceComponent from "./garage/components/race-component.ts";
 import CarComponent from "./garage/components/car-component.ts";
+import { garageResponse } from "../cars-server/get-car.ts";
 
 export default class Views extends Page {
   garage: HTMLButtonElement;
@@ -62,6 +63,11 @@ export default class Views extends Page {
     const raceComponent = new RaceComponent();
     const carComponent = new CarComponent();
 
+    const colorInputCreate = document.createElement("input"); // color
+    const colorInputUpdate = document.createElement("input");
+    colorInputCreate.setAttribute("type", "color");
+    colorInputUpdate.setAttribute("type", "color");
+
     // race field
     const carButtons = document.createElement("div");
     carButtons.className = "car-buttons";
@@ -88,11 +94,14 @@ export default class Views extends Page {
       communFun.createColor,
       communFun.createButton,
     );
+    communFun.createColor.append(colorInputCreate);
+
     this.updateCar.append(
       communFun.updateInput,
       communFun.updateColor,
       communFun.updateButton,
     );
+    communFun.updateColor.append(colorInputUpdate);
     this.communGameButtons.append(
       communFun.raceButton,
       communFun.resetButton,
@@ -101,7 +110,8 @@ export default class Views extends Page {
 
     // race field
 
-    this.raceField.append(carButtons, controllers, roadPart);
+    this.race(carButtons, controllers, roadPart);
+    this.raceCar.className = "car-item";
     carButtons.append(
       raceComponent.selectButton,
       raceComponent.removeButton,
@@ -113,6 +123,7 @@ export default class Views extends Page {
       raceComponent.controllerB,
       carComponent.car,
     );
+
     carComponent.car.append(carComponent.g);
     carComponent.g.append(
       carComponent.carBody,
@@ -122,6 +133,25 @@ export default class Views extends Page {
 
     roadPart.append(raceComponent.road);
 
+    // show cars
+
+    for (let i = 0; i < 4; i += 1) {
+      this.raceField.appendChild(this.raceCar.cloneNode(true));
+    } //
+
+    const gArr = document.querySelectorAll("g");
+    const carsNamesArr = document.querySelectorAll(".car-name");
+    gArr.forEach((_, index) => {
+      gArr[index].setAttributeNS(
+        null,
+        "fill",
+        `${garageResponse[index].color}`,
+      );
+    });
+
+    carsNamesArr.forEach((_, index) => {
+      carsNamesArr[index].innerHTML = `${garageResponse[index].name}`;
+    });
     // race field
 
     this.garage.addEventListener("click", () => {
@@ -136,8 +166,7 @@ export default class Views extends Page {
 
     this.winners.addEventListener("click", () => {
       this.main.innerHTML = "";
-      this.addElemetsToMain(winnersPage.title);
-      console.log("It is working");
+      this.addElemetsToMain(winnersPage.title, garagePage.page);
     });
 
     return this.container;

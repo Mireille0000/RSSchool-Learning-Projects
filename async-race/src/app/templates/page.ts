@@ -7,12 +7,15 @@ export default abstract class Page {
 
   footer: HTMLElement;
 
+  raceCar: HTMLDivElement;
+
   constructor() {
     this.container = document.createElement("div");
     this.container.className = "container";
     this.header = document.createElement("header");
     this.main = document.createElement("main");
     this.footer = document.createElement("footer");
+    this.raceCar = document.createElement("div");
   }
 
   addElementsToHeader(...elements: Array<HTMLElement>) {
@@ -25,6 +28,10 @@ export default abstract class Page {
 
   addElemetsToFooter(...elements: Array<HTMLElement>) {
     return this.footer.append(...elements);
+  }
+
+  race(...elements: Array<HTMLElement>) {
+    return this.raceCar.append(...elements);
   }
 
   renderPage() {

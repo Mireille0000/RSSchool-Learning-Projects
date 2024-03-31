@@ -1,5 +1,3 @@
-import { garageResponse } from "../../../cars-server/get-car.ts";
-
 export default class CarComponent {
   car: SVGElement;
 
@@ -14,8 +12,8 @@ export default class CarComponent {
   constructor() {
     this.car = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 
-    this.car.setAttribute("width", "70px");
-    this.car.setAttribute("height", "50px");
+    this.car.setAttribute("width", "60px");
+    this.car.setAttribute("height", "40px");
     this.car.setAttribute("viewBox", "0 0 1280.000000 640.000000");
     this.car.setAttribute("preserveAspectRatio", "xMidYMid meet");
 
@@ -26,7 +24,7 @@ export default class CarComponent {
       `translate(0.000000,640.000000) scale(0.100000,-0.100000)`,
     );
     this.g.setAttributeNS(null, "stroke", "none");
-    this.g.setAttributeNS(null, "fill", `${garageResponse[0].color}`);
+    // this.g.setAttributeNS(null, "fill", `${garageResponse[0].color}`);
 
     this.carBody = document.createElementNS(
       "http://www.w3.org/2000/svg",
