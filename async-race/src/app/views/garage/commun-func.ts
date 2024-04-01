@@ -20,6 +20,7 @@ export default class CommunFunctionality {
 
   constructor() {
     this.createInput = document.createElement("input");
+    this.createInput.id = "create-input";
     this.createColor = document.createElement("div");
     this.createButton = document.createElement("button");
     this.createButton.innerHTML = "Create";

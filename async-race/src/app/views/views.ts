@@ -4,7 +4,14 @@ import WinnersPage from "./winners/winners-view.ts";
 import CommunFunctionality from "./garage/commun-func.ts";
 import RaceComponent from "./garage/components/race-component.ts";
 import CarComponent from "./garage/components/car-component.ts";
-import { garageResponse } from "../cars-server/get-car.ts";
+import {
+  garageResponse,
+  getCar,
+  postCar,
+  deleteCar,
+} from "../cars-server/get-car.ts";
+// import createCarItem from "./garage/create-car-function";
+import { convertRgbToHex } from "./garage/convert-color.ts";
 
 export default class Views extends Page {
   garage: HTMLButtonElement;
@@ -63,9 +70,11 @@ export default class Views extends Page {
     const raceComponent = new RaceComponent();
     const carComponent = new CarComponent();
 
-    const colorInputCreate = document.createElement("input"); // color
+    const colorInputCreate = document.createElement("input");
     const colorInputUpdate = document.createElement("input");
     colorInputCreate.setAttribute("type", "color");
+    colorInputCreate.setAttribute("value", "#000000");
+    colorInputCreate.setAttribute("name", "Lexus");
     colorInputUpdate.setAttribute("type", "color");
 
     // race field
@@ -94,7 +103,16 @@ export default class Views extends Page {
       communFun.createColor,
       communFun.createButton,
     );
+
     communFun.createColor.append(colorInputCreate);
+    colorInputCreate.id = "create-input-color";
+    const newCarColor = document.getElementById(
+      "create-input-color",
+    ) as HTMLInputElement;
+
+    communFun.createColor.addEventListener("change", (e) => {
+      newCarColor.style.color = (e.target as HTMLInputElement).value;
+    });
 
     this.updateCar.append(
       communFun.updateInput,
@@ -133,11 +151,9 @@ export default class Views extends Page {
 
     roadPart.append(raceComponent.road);
 
-    // show cars
-
-    for (let i = 0; i < 4; i += 1) {
+    for (let i = 0; i < garageResponse.length; i += 1) {
       this.raceField.appendChild(this.raceCar.cloneNode(true));
-    } //
+    }
 
     const gArr = document.querySelectorAll("g");
     const carsNamesArr = document.querySelectorAll(".car-name");
@@ -152,6 +168,55 @@ export default class Views extends Page {
     carsNamesArr.forEach((_, index) => {
       carsNamesArr[index].innerHTML = `${garageResponse[index].name}`;
     });
+
+    // add cars
+
+    let carsArr: HTMLDivElement[] = Array.from(
+      document.querySelectorAll(".car-item"),
+    );
+    let removeButtonsArr = Array.from(document.querySelectorAll(".remove-car"));
+
+    communFun.createButton.addEventListener("click", (e) => {
+      const newCar =
+        (document.getElementById("create-input") as HTMLInputElement).value ||
+        "Lexus";
+      const carObj = {
+        name: newCar,
+        color: `${convertRgbToHex(newCarColor.style.color)}`,
+      };
+
+      postCar("http://127.0.0.1:3000/garage/", carObj);
+      getCar("http://127.0.0.1:3000/garage/").then((response) => {
+        raceComponent.carName.innerHTML = response[response.length - 1].name;
+        carComponent.g.setAttributeNS(
+          null,
+          "fill",
+          `${response[response.length - 1].color}`,
+        );
+        garagePage.carsNumber = response.length;
+        garagePage.title.innerHTML = `Garage (${garagePage.carsNumber})`;
+
+        this.raceField.appendChild(this.raceCar.cloneNode(true));
+        carsArr = Array.from(document.querySelectorAll(".car-item"));
+        removeButtonsArr = Array.from(document.querySelectorAll(".remove-car"));
+
+        e.stopPropagation();
+        removeButtonsArr.forEach((removeButton) => {
+          removeButton.addEventListener("click", () => {
+            carsArr[removeButtonsArr.indexOf(removeButton)].innerHTML = "";
+            carsArr[removeButtonsArr.indexOf(removeButton)].remove();
+            garagePage.carsNumber = response.length;
+            garagePage.title.innerHTML = `Garage (${garagePage.carsNumber})`;
+            deleteCar(
+              "http://127.0.0.1:3000/garage/",
+              response[removeButtonsArr.indexOf(removeButton)].id as number,
+            );
+            // garagePage.title.innerHTML = `Garage (${response.length - 1})`;
+          });
+        });
+      });
+    });
+
     // race field
 
     this.garage.addEventListener("click", () => {
@@ -166,7 +231,7 @@ export default class Views extends Page {
 
     this.winners.addEventListener("click", () => {
       this.main.innerHTML = "";
-      this.addElemetsToMain(winnersPage.title, garagePage.page);
+      this.addElemetsToMain(winnersPage.title, winnersPage.page);
     });
 
     return this.container;

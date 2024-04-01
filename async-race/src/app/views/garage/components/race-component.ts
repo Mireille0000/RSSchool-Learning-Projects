@@ -1,6 +1,4 @@
 export default class RaceComponent {
-  //   raceCar: HTMLDivElement;
-
   selectButton: HTMLButtonElement;
 
   removeButton: HTMLButtonElement;
@@ -12,17 +10,18 @@ export default class RaceComponent {
   controllerB: HTMLButtonElement;
 
   road: HTMLElement;
+
   // flag: SVGAElement;
 
   constructor() {
-    // this.raceCar = document.createElement('div');
     this.selectButton = document.createElement("button");
     this.selectButton.innerHTML = "SELECT";
+    this.selectButton.className = "select-car";
     this.removeButton = document.createElement("button");
     this.removeButton.innerHTML = "REMOVE";
+    this.removeButton.className = "remove-car";
     this.carName = document.createElement("div");
     this.carName.className = "car-name";
-    // this.carName.innerHTML = `${garageResponse[0].name}`;
 
     this.controllerA = document.createElement("button");
     this.controllerA.innerHTML = "A";
@@ -32,8 +31,4 @@ export default class RaceComponent {
     this.road = document.createElement("div");
     this.road.className = "road";
   }
-
-  //   race(...elements: Array<HTMLElement>) {
-  //     return this.raceCar.append(...elements);
-  //   }
 }
