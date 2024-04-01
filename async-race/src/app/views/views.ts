@@ -75,7 +75,8 @@ export default class Views extends Page {
     colorInputCreate.setAttribute("type", "color");
     colorInputCreate.setAttribute("value", "#000000");
     colorInputCreate.setAttribute("name", "Lexus");
-    colorInputUpdate.setAttribute("type", "color");
+
+    colorInputUpdate.setAttribute("type", "color"); //
 
     // race field
     const carButtons = document.createElement("div");
@@ -86,11 +87,20 @@ export default class Views extends Page {
     roadPart.className = "road-part";
     // race field
 
+    // next and prev buttons
+    const prevButton = document.createElement("button");
+    prevButton.innerHTML = "Prev";
+    const nextButton = document.createElement("button");
+    nextButton.innerHTML = "Next";
+    communFun.prevNextButtons.append(prevButton, nextButton);
+    //
+
     this.addElemetsToMain(
       this.communFunctionality,
       garagePage.title,
       garagePage.page,
       this.raceField,
+      communFun.prevNextButtons,
     );
 
     this.communFunctionality.append(
@@ -174,7 +184,17 @@ export default class Views extends Page {
     let carsArr: HTMLDivElement[] = Array.from(
       document.querySelectorAll(".car-item"),
     );
+    let selectCar = Array.from(document.querySelectorAll(".select-car"));
     let removeButtonsArr = Array.from(document.querySelectorAll(".remove-car"));
+
+    const updateSelectedCarInput = document.getElementById(
+      "update-input",
+    ) as HTMLInputElement;
+    const updateSelectedCarColor = document.querySelector(
+      ".update-car-block button",
+    );
+
+    // updateSelectedCarColor?.addEventListener('click', () => console.log('hello'))
 
     communFun.createButton.addEventListener("click", (e) => {
       const newCar =
@@ -198,6 +218,7 @@ export default class Views extends Page {
 
         this.raceField.appendChild(this.raceCar.cloneNode(true));
         carsArr = Array.from(document.querySelectorAll(".car-item"));
+        selectCar = Array.from(document.querySelectorAll(".select-car"));
         removeButtonsArr = Array.from(document.querySelectorAll(".remove-car"));
 
         e.stopPropagation();
@@ -211,8 +232,42 @@ export default class Views extends Page {
               "http://127.0.0.1:3000/garage/",
               response[removeButtonsArr.indexOf(removeButton)].id as number,
             );
-            // garagePage.title.innerHTML = `Garage (${response.length - 1})`;
           });
+        });
+
+        selectCar.forEach((selectButton) => {
+          selectButton.addEventListener("click", () => {
+            updateSelectedCarInput.value =
+              response[selectCar.indexOf(selectButton)].name;
+            console.log(response[selectCar.indexOf(selectButton)].name);
+          });
+        });
+
+        updateSelectedCarColor?.addEventListener("click", () => {});
+      });
+    });
+
+    getCar("http://127.0.0.1:3000/garage/").then((response) => {
+      removeButtonsArr.forEach((removeButton) => {
+        removeButton.addEventListener("click", () => {
+          carsArr[removeButtonsArr.indexOf(removeButton)].innerHTML = "";
+          carsArr[removeButtonsArr.indexOf(removeButton)].remove();
+          garagePage.carsNumber = response.length;
+          garagePage.title.innerHTML = `Garage (${garagePage.carsNumber})`;
+          deleteCar(
+            "http://127.0.0.1:3000/garage/",
+            response[removeButtonsArr.indexOf(removeButton)].id as number,
+          );
+        });
+      });
+    }); // an element that is reused (create a separate func)
+
+    getCar("http://127.0.0.1:3000/garage/").then((response) => {
+      selectCar.forEach((selectButton) => {
+        selectButton.addEventListener("click", () => {
+          updateSelectedCarInput.value =
+            response[selectCar.indexOf(selectButton)].name;
+          console.log(response[selectCar.indexOf(selectButton)].name);
         });
       });
     });
@@ -226,12 +281,17 @@ export default class Views extends Page {
         garagePage.title,
         garagePage.page,
         this.raceField,
+        communFun.prevNextButtons,
       );
     });
 
     this.winners.addEventListener("click", () => {
       this.main.innerHTML = "";
-      this.addElemetsToMain(winnersPage.title, winnersPage.page);
+      this.addElemetsToMain(
+        winnersPage.title,
+        winnersPage.page,
+        communFun.prevNextButtons,
+      );
     });
 
     return this.container;

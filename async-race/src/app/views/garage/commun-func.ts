@@ -18,6 +18,8 @@ export default class CommunFunctionality {
 
   generateCarsButton: HTMLButtonElement;
 
+  prevNextButtons: HTMLDivElement;
+
   constructor() {
     this.createInput = document.createElement("input");
     this.createInput.id = "create-input";
@@ -26,6 +28,7 @@ export default class CommunFunctionality {
     this.createButton.innerHTML = "Create";
 
     this.updateInput = document.createElement("input");
+    this.updateInput.id = "update-input";
     this.updateColor = document.createElement("div");
     this.updateButton = document.createElement("button");
     this.updateButton.innerHTML = "Update";
@@ -38,5 +41,8 @@ export default class CommunFunctionality {
     this.resetButton.innerHTML = "RESET";
     this.generateCarsButton = document.createElement("button");
     this.generateCarsButton.innerHTML = "GENERATE CARS";
+
+    this.prevNextButtons = document.createElement("div");
+    this.prevNextButtons.className = "prev-next-buttons";
   }
 }
