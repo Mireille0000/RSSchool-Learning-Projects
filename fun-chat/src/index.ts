@@ -1,6 +1,5 @@
-import "./style.css";
+import './style.css';
+import AuthenticationPage from './app/user-interface/ua-page.ts';
 
-console.log("Hello World!");
-
-const lint = "string";
-console.log(lint);
+console.log('Hello World!');
+new AuthenticationPage().renderAuthPage();
