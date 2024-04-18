@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Sora';
+  src: url('./Sora-Regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Exo 2';
+  src: url('./Exo2-Regular.ttf');
+}

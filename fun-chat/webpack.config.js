@@ -41,6 +41,9 @@ const config = {
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
         type: 'asset',
+        generator: {
+          filename: 'assets/[name][ext]',
+        },
       },
 
       // Add your rules for custom modules here
