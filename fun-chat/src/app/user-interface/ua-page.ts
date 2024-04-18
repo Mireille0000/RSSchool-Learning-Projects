@@ -19,7 +19,7 @@ export default class AuthenticationPage extends Page {
 
   constructor(id: string) {
     super(id);
-    this.formContainer = document.createElement('div');
+    // this.formContainer = document.createElement('div');
     this.form = document.createElement('form');
     this.nameDiv = document.createElement('div');
     this.nameDiv.className = 'form-input';

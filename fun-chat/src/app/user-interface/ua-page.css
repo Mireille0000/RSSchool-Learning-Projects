@@ -40,6 +40,7 @@ h1 {
 }
 
 .submit-button:hover,
-.info-button:hover {
+.info-button:hover,
+.return-button:hover {
   background-color: rgb(78, 228, 228);
 }

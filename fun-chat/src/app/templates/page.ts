@@ -1,6 +1,8 @@
 export default abstract class Page {
   pageWrapper: HTMLDivElement;
 
+  formContainer: HTMLDivElement;
+
   header: HTMLElement;
 
   main: HTMLElement;
@@ -13,6 +15,9 @@ export default abstract class Page {
     this.pageWrapper = document.createElement('div');
     this.pageWrapper.id = id;
     this.pageWrapper.className = 'container';
+
+    this.formContainer = document.createElement('div');
+
     this.header = document.createElement('header');
     this.main = document.createElement('main');
     this.footer = document.createElement('footer');

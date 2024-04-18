@@ -8,7 +8,7 @@
     "ci:format": "prettier . --check",
     "lint": "eslint . --ext .ts",
     "prepare": "cd .. && husky fun-chat/.husky",
-    "precommit": "npm run ci:format || npm run format && lint",
+    "precommit": "npm run ci:format || npm run format && npm run lint",
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
