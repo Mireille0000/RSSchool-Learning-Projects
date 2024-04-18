@@ -1,5 +1,5 @@
 import './style.css';
-import AuthenticationPage from './app/user-interface/ua-page.ts';
+import App from './app/app.ts';
 
-console.log('Hello World!');
-new AuthenticationPage().renderAuthPage();
+const app = new App();
+app.render();

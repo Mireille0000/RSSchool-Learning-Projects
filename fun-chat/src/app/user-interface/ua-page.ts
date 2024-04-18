@@ -17,8 +17,8 @@ export default class AuthenticationPage extends Page {
 
   infoButton: HTMLButtonElement;
 
-  constructor() {
-    super();
+  constructor(id: string) {
+    super(id);
     this.formContainer = document.createElement('div');
     this.form = document.createElement('form');
     this.nameDiv = document.createElement('div');
@@ -57,7 +57,6 @@ export default class AuthenticationPage extends Page {
     this.passwordDiv.append(this.inputPassword);
     this.inputPassword.type = 'password';
     this.inputPassword.placeholder = 'Password';
-
     // footer
   }
 }

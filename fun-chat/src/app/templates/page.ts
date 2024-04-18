@@ -9,8 +9,9 @@ export default abstract class Page {
 
   title: HTMLHeadingElement;
 
-  constructor() {
+  constructor(id: string) {
     this.pageWrapper = document.createElement('div');
+    this.pageWrapper.id = id;
     this.pageWrapper.className = 'container';
     this.header = document.createElement('header');
     this.main = document.createElement('main');
