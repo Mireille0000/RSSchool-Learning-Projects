@@ -1,4 +1,5 @@
-import Page from '../templates/page.ts';
+import Page from '../../templates/page.ts';
+import { PagesIds } from '../../app.ts';
 
 export default class AuthenticationPage extends Page {
   formContainer: HTMLDivElement;
@@ -31,7 +32,7 @@ export default class AuthenticationPage extends Page {
     this.infoButton = document.createElement('button');
   }
 
-  renderAuthPage() {
+  renderPage() {
     // page
     document.body.append(this.pageWrapper);
     const pageTemplate = document.querySelector('.container');
@@ -44,7 +45,11 @@ export default class AuthenticationPage extends Page {
     // main
     this.addElementsToMain(this.formContainer);
     this.formContainer.className = 'form-container';
-    this.formContainer.append(this.form, this.submitButton, this.infoButton);
+    const infoLink = document.createElement('a');
+    infoLink.href = `#${PagesIds.InfoPageId}`;
+    this.formContainer.append(this.form, this.submitButton, infoLink);
+
+    infoLink.append(this.infoButton);
     this.submitButton.className = 'submit-button';
     this.submitButton.innerHTML = 'Submit';
     this.infoButton.className = 'info-button';
@@ -58,5 +63,7 @@ export default class AuthenticationPage extends Page {
     this.inputPassword.type = 'password';
     this.inputPassword.placeholder = 'Password';
     // footer
+
+    return this.pageWrapper;
   }
 }

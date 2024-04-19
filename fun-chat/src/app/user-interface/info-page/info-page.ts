@@ -1,4 +1,5 @@
-import Page from '../templates/page.ts';
+import Page from '../../templates/page.ts';
+import { PagesIds } from '../../app.ts';
 
 export default class InfoPage extends Page {
   title: HTMLHeadingElement;
@@ -14,13 +15,16 @@ export default class InfoPage extends Page {
     this.returnButton = document.createElement('button');
   }
 
-  renderInfoPage() {
+  renderPage() {
     document.body.append(this.pageWrapper);
     const pageTemplate = document.querySelector('.container') as HTMLElement;
     pageTemplate.append(this.main);
 
     this.addElementsToMain(this.formContainer);
-    this.formContainer.append(this.title, this.info, this.returnButton);
+    const userAuthPage = document.createElement('a');
+    userAuthPage.href = `#${PagesIds.AuthPageId}`;
+    this.formContainer.append(this.title, this.info, userAuthPage);
+    userAuthPage.append(this.returnButton);
     this.title.innerHTML = 'Fun Chat';
     this.info.innerHTML = `This is the Fun Chat Application made 
     as a part of RSSchool JavaScript course.`;
@@ -28,5 +32,7 @@ export default class InfoPage extends Page {
     this.formContainer.className = 'form-container';
     this.returnButton.className = 'return-button';
     this.returnButton.type = 'button';
+
+    return this.pageWrapper;
   }
 }

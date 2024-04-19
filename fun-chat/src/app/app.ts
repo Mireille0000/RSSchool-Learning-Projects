@@ -1,30 +1,70 @@
-import AuthenticationPage from './user-interface/ua-page.ts';
-import InfoPage from './user-interface/info-page.ts';
+import AuthenticationPage from './user-interface/ua-page/ua-page.ts';
+import InfoPage from './user-interface/info-page/info-page.ts';
+import Page from './templates/page.ts';
+
+export const PagesIds = {
+  AuthPageId: 'ua-page',
+  InfoPageId: 'info',
+};
 
 export default class App {
   initialPage: AuthenticationPage;
-  //   infoPage: InfoPage;
+
+  hash: string;
+
+  static renderPage(idPage: string) {
+    document.body.innerHTML = '';
+    let page: Page | null = null;
+
+    if (idPage === PagesIds.AuthPageId) {
+      page = new AuthenticationPage(idPage);
+    } else if (idPage === PagesIds.InfoPageId) {
+      page = new InfoPage(idPage);
+    }
+
+    if (page) {
+      const pageToRender = page.renderPage();
+      document.body.append(pageToRender);
+    }
+  }
 
   constructor() {
     this.initialPage = new AuthenticationPage('ua-page');
-    // this.infoPage = new InfoPage('info');
+    this.hash = window.location.hash.slice(1);
+  }
+
+  changeRoute() {
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.slice(1);
+      console.log(this);
+      return App.renderPage(hash);
+    });
   }
 
   render() {
-    const authPage = this.initialPage.renderAuthPage();
+    // App.renderPage('#ua-page');
+    // const infoButton = document.querySelector('.info-button');
+    // infoButton.addEventListener('click', () => {
+    //   App.renderPage('#info');
+    //   const returnBtn = document.querySelector('.return-button');
+    //   returnBtn.addEventListener('click', () => {
+    //     return App.renderPage('#ua-page');
+    //   });
+    // });
+
+    const authPage = this.initialPage.renderPage();
     const infoPage = new InfoPage('info');
     const infoButton = document.querySelector('.info-button');
     infoButton.addEventListener('click', () => {
       document.body.innerHTML = '';
-      // const infofmatiobPage = infoPage.renderInfoPage();
-      infoPage.renderInfoPage();
+      infoPage.renderPage();
       const returnBtn = document.querySelector('.return-button');
       returnBtn.addEventListener('click', () => {
         document.body.innerHTML = '';
-        return this.initialPage.renderAuthPage();
+        return this.initialPage.renderPage();
       });
     });
-
+    this.changeRoute();
     return authPage;
   }
 }

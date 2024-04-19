@@ -1,5 +1,5 @@
 @import url('./assets/fonts/fonts.css');
-@import url('./app/user-interface/ua-page.css');
+@import url('./app/user-interface/ua-page/ua-page.css');
 
 html {
   margin: 0;

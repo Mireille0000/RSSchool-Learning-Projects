@@ -35,4 +35,8 @@ export default abstract class Page {
   addElementsToFooter(...elements: Array<HTMLElement>) {
     return this.footer.append(...elements);
   }
+
+  renderPage() {
+    return this.pageWrapper;
+  }
 }
