@@ -57,12 +57,16 @@ export default class AuthenticationPage extends Page {
     this.infoButton.innerHTML = 'Info';
     // main-form
     this.form.append(this.nameDiv, this.passwordDiv);
-    this.nameDiv.append(this.inputName);
+    const nameHint = document.createElement('div');
+    nameHint.className = 'name-hint';
+    this.nameDiv.append(this.inputName, nameHint);
     this.inputName.className = 'name';
     this.inputName.type = 'text';
     this.inputName.placeholder = 'Name';
 
-    this.passwordDiv.append(this.inputPassword);
+    const passwordHint = document.createElement('div');
+    passwordHint.className = 'password-hint';
+    this.passwordDiv.append(this.inputPassword, passwordHint);
     this.inputPassword.className = 'password';
     this.inputPassword.type = 'password';
     this.inputPassword.placeholder = 'Password';

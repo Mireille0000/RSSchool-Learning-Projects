@@ -1,5 +1,4 @@
 import Page from '../../templates/page.ts';
-// import AuthenticationPage from '../ua-page/ua-page.ts';
 
 export default class MainPage extends Page {
   userName: HTMLDivElement;
