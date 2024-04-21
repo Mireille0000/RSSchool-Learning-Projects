@@ -1,5 +1,6 @@
 import Page from '../../templates/page.ts';
 import { PagesIds } from '../../app.ts';
+import validateAuthorization from './validate-ua.ts';
 
 export default class AuthenticationPage extends Page {
   formContainer: HTMLDivElement;
@@ -57,12 +58,16 @@ export default class AuthenticationPage extends Page {
     // main-form
     this.form.append(this.nameDiv, this.passwordDiv);
     this.nameDiv.append(this.inputName);
+    this.inputName.className = 'name';
     this.inputName.type = 'text';
     this.inputName.placeholder = 'Name';
+
     this.passwordDiv.append(this.inputPassword);
+    this.inputPassword.className = 'password';
     this.inputPassword.type = 'password';
     this.inputPassword.placeholder = 'Password';
-    // footer
+
+    validateAuthorization();
 
     return this.pageWrapper;
   }

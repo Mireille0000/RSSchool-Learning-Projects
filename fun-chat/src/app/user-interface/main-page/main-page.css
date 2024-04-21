@@ -1,0 +1,25 @@
+#main-page header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.main-buttons button {
+  width: 200px;
+  height: 30px;
+  appearance: none;
+
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+
+  text-align: center;
+  border-radius: 10px;
+  border: 0.5px solid #847e7e00;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.exit-button:hover,
+.info-button:hover {
+  background-color: rgb(78, 228, 228);
+}

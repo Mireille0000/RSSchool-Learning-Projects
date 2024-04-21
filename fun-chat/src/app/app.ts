@@ -10,8 +10,6 @@ export const PagesIds = {
 export default class App {
   initialPage: AuthenticationPage;
 
-  hash: string;
-
   static renderPage(idPage: string) {
     document.body.innerHTML = '';
     let page: Page | null = null;
@@ -30,7 +28,6 @@ export default class App {
 
   constructor() {
     this.initialPage = new AuthenticationPage('ua-page');
-    this.hash = window.location.hash.slice(1);
   }
 
   changeRoute() {

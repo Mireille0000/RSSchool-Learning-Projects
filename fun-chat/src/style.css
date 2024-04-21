@@ -1,5 +1,6 @@
 @import url('./assets/fonts/fonts.css');
 @import url('./app/user-interface/ua-page/ua-page.css');
+@import url('./app/user-interface/main-page/main-page.css');
 
 html {
   margin: 0;
@@ -15,7 +16,7 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   height: 100vh;
 }
 
