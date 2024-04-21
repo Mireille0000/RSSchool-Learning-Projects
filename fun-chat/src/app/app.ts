@@ -1,10 +1,12 @@
 import AuthenticationPage from './user-interface/ua-page/ua-page.ts';
 import InfoPage from './user-interface/info-page/info-page.ts';
 import Page from './templates/page.ts';
+import MainPage from './user-interface/main-page/main-page.ts';
 
 export const PagesIds = {
   AuthPageId: 'ua-page',
   InfoPageId: 'info',
+  MainPageId: 'main-page',
 };
 
 export default class App {
@@ -18,6 +20,8 @@ export default class App {
       page = new AuthenticationPage(idPage);
     } else if (idPage === PagesIds.InfoPageId) {
       page = new InfoPage(idPage);
+    } else if (idPage === PagesIds.MainPageId) {
+      page = new MainPage(idPage);
     }
 
     if (page) {
@@ -39,16 +43,6 @@ export default class App {
   }
 
   render() {
-    // App.renderPage('#ua-page');
-    // const infoButton = document.querySelector('.info-button');
-    // infoButton.addEventListener('click', () => {
-    //   App.renderPage('#info');
-    //   const returnBtn = document.querySelector('.return-button');
-    //   returnBtn.addEventListener('click', () => {
-    //     return App.renderPage('#ua-page');
-    //   });
-    // });
-
     const authPage = this.initialPage.renderPage();
     const infoPage = new InfoPage('info');
     const infoButton = document.querySelector('.info-button');

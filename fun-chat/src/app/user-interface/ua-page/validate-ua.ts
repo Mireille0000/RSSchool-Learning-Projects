@@ -93,4 +93,6 @@ export default function validateAuthorization() {
       nameHint.innerHTML = hintOne;
     }
   });
+
+  //   if user is already authorized and the password is not correct you cannot enter!!!
 }
