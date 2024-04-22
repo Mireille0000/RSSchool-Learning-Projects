@@ -1,6 +1,8 @@
 import {
   UserAuthenticationRequest,
   ws,
+  AuthenticatedUsers,
+  UnauthorizedUsers,
 } from '../../server-chat/requests-interfaces.ts';
 import MainPage from '../main-page/main-page.ts';
 
@@ -22,7 +24,11 @@ export default function validateAuthorization() {
 
   submit.addEventListener('click', () => {
     if (nameRegExp.test(name.value) && passwordRegEx.test(password.value)) {
-      localStorage.setItem('name', `${name.value}`);
+      const userData = {
+        name: `${name.value}`,
+        password: `${password.value}`,
+      };
+      localStorage.setItem('data', JSON.stringify(userData));
       const data: UserAuthenticationRequest = {
         id: '',
         type: 'USER_LOGIN',
@@ -33,7 +39,22 @@ export default function validateAuthorization() {
           },
         },
       };
+
+      const dataUsers: AuthenticatedUsers = {
+        id: '',
+        type: 'USER_ACTIVE',
+        payload: null,
+      };
+
+      const incativeUsers: UnauthorizedUsers = {
+        id: '',
+        type: 'USER_INACTIVE',
+        payload: null,
+      };
+
       ws.send(JSON.stringify(data));
+      ws.send(JSON.stringify(dataUsers));
+      ws.send(JSON.stringify(incativeUsers));
 
       document.body.innerHTML = '';
       nameHint.innerHTML = ''; //
@@ -67,12 +88,12 @@ export default function validateAuthorization() {
   });
 
   body.addEventListener('keypress', (e: KeyboardEvent) => {
-    if (
-      e.key === 'Enter' &&
-      nameRegExp.test(name.value) &&
-      passwordRegEx.test(password.value)
-    ) {
-      localStorage.setItem('name', `${name.value}`);
+    if (e.key === 'Enter' && nameRegExp.test(name.value) && passwordRegEx.test(password.value)) {
+      const userData = {
+        name: `${name.value}`,
+        password: `${password.value}`,
+      };
+      localStorage.setItem('data', JSON.stringify(userData));
       const data: UserAuthenticationRequest = {
         id: '',
         type: 'USER_LOGIN',
@@ -83,7 +104,21 @@ export default function validateAuthorization() {
           },
         },
       };
+      const dataUsers: AuthenticatedUsers = {
+        id: '',
+        type: 'USER_ACTIVE',
+        payload: null,
+      };
+
+      const incativeUsers: UnauthorizedUsers = {
+        id: '',
+        type: 'USER_INACTIVE',
+        payload: null,
+      };
+
+      ws.send(JSON.stringify(dataUsers));
       ws.send(JSON.stringify(data));
+      ws.send(JSON.stringify(incativeUsers));
       document.body.innerHTML = '';
       new MainPage('main-page').renderPage();
     }

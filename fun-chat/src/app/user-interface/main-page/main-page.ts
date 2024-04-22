@@ -1,7 +1,7 @@
 import Page from '../../templates/page.ts';
 import InfoPage from '../info-page/info-page.ts';
 import AuthenticationPage from '../ua-page/ua-page.ts';
-// import {ws} from '../../server-chat/requests-interfaces.ts';
+import { ws, LogOut } from '../../server-chat/requests-interfaces.ts';
 
 import githubIcon from '../../../assets/images/github-icon-2.svg';
 import rssIcon from '../../../assets/images/rsshool.jpg';
@@ -39,10 +39,13 @@ export default class MainPage extends Page {
     document.body.append(this.pageWrapper);
     this.pageWrapper.append(this.header, this.main, this.footer);
 
+    const lsData = localStorage.getItem('data');
+    const parseData = JSON.parse(lsData);
+
     // header
     this.addElementsToHeader(this.userName, this.title, this.buttonsContainer);
-    this.buttonsContainer.className = 'main-buttons'; //
-    const name = localStorage.getItem('name');
+    this.buttonsContainer.className = 'main-buttons';
+    const { name } = parseData;
     const appTitle = document.createElement('h1');
     this.title.append(appTitle);
     this.userName.innerHTML = name;
@@ -56,6 +59,17 @@ export default class MainPage extends Page {
 
     this.exitButton.addEventListener('click', () => {
       document.body.innerHTML = '';
+      const logOutDate: LogOut = {
+        id: '',
+        type: 'USER_LOGOUT',
+        payload: {
+          user: {
+            login: parseData.name,
+            password: parseData.password,
+          },
+        },
+      };
+      ws.send(JSON.stringify(logOutDate));
       new AuthenticationPage('ua-page').renderPage();
     });
 
@@ -69,7 +83,6 @@ export default class MainPage extends Page {
       });
     });
 
-    // main
     this.addElementsToMain(this.mainContainer);
     this.mainContainer.className = 'main-container';
     this.mainContainer.append(this.usersBlock, this.chatBlock);
@@ -85,8 +98,6 @@ export default class MainPage extends Page {
     const usersItem = document.createElement('li');
 
     this.usersBlock.append(searchInputDiv, usersList);
-    usersList.append(usersItem);
-    usersItem.innerHTML = 'User'; //
 
     searchInputDiv.append(searchInput);
     // chat
@@ -112,6 +123,53 @@ export default class MainPage extends Page {
     userInfo.append(userNickname, userStatus);
     chat.append(chatMessage);
     messageInputDiv.append(messageInput);
+
+    ws.onmessage = (message) => {
+      const test = JSON.parse(message.data);
+      if (test.type === 'USER_INACTIVE' && test.payload.users[0]) {
+        console.log(test.payload.users);
+        // for (let i = 0; i < test.payload.users.length; i++) {
+        //     usersList.appendChild( usersItem.cloneNode(true));
+        // }
+        // const list = Array.from(document.querySelectorAll('.users-list li'));
+        // for (let i = 0; i < list.length; i++) {
+        //    (list[i] as HTMLElement).style.color = '#021816';
+        //     list[i].innerHTML = `${test.payload.users[i].login}`;
+        // }
+      }
+      if (test.type === 'USER_ACTIVE' && test.payload.users[0]) {
+        const currentUser = this.userName.innerHTML;
+        const isActive = test.payload.users.filter(
+          (elem: { login: string }) => elem.login !== currentUser,
+        );
+        // console.log(isActive);
+        // console.log(test.payload.users);
+        for (let i = 0; i < isActive.length; i += 1) {
+          usersList.appendChild(usersItem.cloneNode(true));
+        }
+        const list = Array.from(document.querySelectorAll('.users-list li'));
+        for (let i = 0; i < list.length; i += 1) {
+          (list[i] as HTMLElement).style.color = '#08a192';
+          list[i].innerHTML = `${isActive[i].login}`;
+        }
+      }
+      if (test.type === 'USER_EXTERNAL_LOGIN' && test.payload.user) {
+        const oldList = Array.from(document.querySelectorAll('.users-list li'));
+        const isAuthorized = oldList.find((elem) => elem.innerHTML === test.payload.user.login);
+        if (!isAuthorized) {
+          usersList.appendChild(usersItem.cloneNode(true));
+          const list = Array.from(document.querySelectorAll('.users-list li'));
+          list[list.length - 1].innerHTML = `${test.payload.user.login}`;
+        }
+        console.log(`new one ${test.payload.user.login}`);
+      }
+      if (test.type === 'USER_EXTERNAL_LOGOUT') {
+        const list = Array.from(document.querySelectorAll('.users-list li'));
+        console.log(list);
+        const isLogedOut = list.find((elem) => elem.innerHTML === test.payload.user.login);
+        (isLogedOut as HTMLElement).style.color = '#021816';
+      }
+    };
 
     // footer
 
@@ -144,8 +202,7 @@ export default class MainPage extends Page {
     authorGithubLink.target = '_blank';
     appYear.innerHTML = '2024';
     rssLogo.innerHTML = 'RSSchool';
-    rssLogoLink.href =
-      'https://github.com/rolling-scopes-school/tasks/tree/master/stage1';
+    rssLogoLink.href = 'https://github.com/rolling-scopes-school/tasks/tree/master/stage1';
     rssLogoLink.title = 'RSSchool Link';
     authorGithubLink.target = '_blank';
 

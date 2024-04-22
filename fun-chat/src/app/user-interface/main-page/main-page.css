@@ -90,6 +90,7 @@
 
 .users-list li {
   margin-left: -15px;
+  color: #08a192;
   cursor: pointer;
 }
 
