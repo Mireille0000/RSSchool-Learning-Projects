@@ -1,4 +1,7 @@
-import { UserAuthenticationRequest } from '../../server-chat/requests-interfaces.ts';
+import {
+  UserAuthenticationRequest,
+  ws,
+} from '../../server-chat/requests-interfaces.ts';
 import MainPage from '../main-page/main-page.ts';
 
 export default function validateAuthorization() {
@@ -16,7 +19,6 @@ export default function validateAuthorization() {
   const body = document.querySelector('body');
   const nameHint = document.querySelector('.name-hint');
   const passwordHint = document.querySelector('.password-hint');
-  const ws = new WebSocket('ws://127.0.0.1:4000');
 
   submit.addEventListener('click', () => {
     if (nameRegExp.test(name.value) && passwordRegEx.test(password.value)) {
@@ -32,6 +34,7 @@ export default function validateAuthorization() {
         },
       };
       ws.send(JSON.stringify(data));
+
       document.body.innerHTML = '';
       nameHint.innerHTML = ''; //
       passwordHint.innerHTML = ''; //

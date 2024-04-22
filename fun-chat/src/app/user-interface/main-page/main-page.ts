@@ -1,11 +1,14 @@
 import Page from '../../templates/page.ts';
 import InfoPage from '../info-page/info-page.ts';
 import AuthenticationPage from '../ua-page/ua-page.ts';
+// import {ws} from '../../server-chat/requests-interfaces.ts';
 
 import githubIcon from '../../../assets/images/github-icon-2.svg';
 import rssIcon from '../../../assets/images/rsshool.jpg';
 
 export default class MainPage extends Page {
+  mainContainer: HTMLDivElement;
+
   userName: HTMLDivElement;
 
   title: HTMLDivElement;
@@ -16,14 +19,20 @@ export default class MainPage extends Page {
 
   exitButton: HTMLButtonElement;
 
+  usersBlock: HTMLDivElement; // search input, users list (ul)
+
+  chatBlock: HTMLDivElement; // user info, chat, message
+
   constructor(id: string) {
     super(id);
+    this.mainContainer = document.createElement('div');
     this.userName = document.createElement('div');
     this.title = document.createElement('div');
     this.buttonsContainer = document.createElement('div');
-
     this.infoButtonMain = document.createElement('button');
     this.exitButton = document.createElement('button');
+    this.usersBlock = document.createElement('div');
+    this.chatBlock = document.createElement('div');
   }
 
   renderPage() {
@@ -61,6 +70,48 @@ export default class MainPage extends Page {
     });
 
     // main
+    this.addElementsToMain(this.mainContainer);
+    this.mainContainer.className = 'main-container';
+    this.mainContainer.append(this.usersBlock, this.chatBlock);
+    this.usersBlock.className = 'users-block';
+    this.chatBlock.className = 'chat-block';
+    // search and list
+    const searchInputDiv = document.createElement('div');
+    const searchInput = document.createElement('input');
+    searchInput.className = 'search';
+    searchInput.placeholder = '...search';
+    const usersList = document.createElement('ul');
+    usersList.className = 'users-list';
+    const usersItem = document.createElement('li');
+
+    this.usersBlock.append(searchInputDiv, usersList);
+    usersList.append(usersItem);
+    usersItem.innerHTML = 'User'; //
+
+    searchInputDiv.append(searchInput);
+    // chat
+    const userInfo = document.createElement('div');
+    userInfo.className = 'user-info';
+    const userNickname = document.createElement('div');
+    userNickname.className = 'nickname';
+    userNickname.innerHTML = 'User';
+    const userStatus = document.createElement('div');
+    userStatus.className = 'status';
+    userStatus.innerHTML = 'Online';
+    const chat = document.createElement('div');
+    chat.className = 'chat';
+    const chatMessage = document.createElement('div');
+    chatMessage.className = 'message';
+    chatMessage.innerHTML = 'Send your first message...';
+    const messageInputDiv = document.createElement('div');
+    messageInputDiv.className = 'message-input-wrapper';
+    const messageInput = document.createElement('input');
+    messageInput.className = 'message-input';
+    messageInput.placeholder = 'Write your message...';
+    this.chatBlock.append(userInfo, chat, messageInputDiv);
+    userInfo.append(userNickname, userStatus);
+    chat.append(chatMessage);
+    messageInputDiv.append(messageInput);
 
     // footer
 
