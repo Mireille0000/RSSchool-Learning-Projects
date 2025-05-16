@@ -13,3 +13,6 @@ Fun fact 💡: the origin of the game is unknown as well as
 - HTML;
 - CSS;
 - Vanilla JavaScript.
+
+### Deployment Link
+[Hangman Game](https://rss-js-course-hangman-game.netlify.app/)
