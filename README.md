@@ -1,7 +1,7 @@
 # Hangman Game 🪑𓍯
 
 ### About 🔎
-The game was one of the RSSchool JavaScript course tasks. [See more] (https://github.com/rolling-scopes-school/js-fe-course-en/blob/main/tasks/hangman/hangman.md)
+The game was one of the RSSchool JavaScript course tasks. [See more](https://github.com/rolling-scopes-school/js-fe-course-en/blob/main/tasks/hangman/hangman.md)
 
 ### Rules 📜
 Find correct words by guessing letters or die... ☠ As simple as that.
